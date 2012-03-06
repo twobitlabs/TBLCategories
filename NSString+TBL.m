@@ -11,9 +11,10 @@
     NSMutableString *resultString = [[self mutableCopy] autorelease];
 #endif
 
-    NSRange range = NSMakeRange(resultString.length-1, 1);
+    NSRange range = NSMakeRange(resultString.length - 1, 1);
 
-    while ([resultString sizeWithFont:font forWidth:size.width lineBreakMode:lineBreakMode].height > height) {
+    CGSize fixedWidth = CGSizeMake(size.width, CGFLOAT_MAX);
+    while ([resultString sizeWithFont:font constrainedToSize:fixedWidth lineBreakMode:lineBreakMode].height > size.height) {
         // delete the last character
         [resultString deleteCharactersInRange:range];
         range.location--;
