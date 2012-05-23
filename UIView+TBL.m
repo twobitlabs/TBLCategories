@@ -12,14 +12,18 @@
 @implementation UIView (TBL)
 
 -(void)roundCorners:(UIRectCorner)corners{
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                                      byRoundingCorners:corners
-                                                            cornerRadii:CGSizeMake(8,8)];
-    maskLayer.fillColor = [[UIColor whiteColor] CGColor];
-    maskLayer.backgroundColor = [[UIColor clearColor] CGColor];
-    maskLayer.path = [roundedPath CGPath];
-    self.layer.mask = maskLayer;
+    if (corners == UIRectCornerAllCorners) {
+        self.layer.cornerRadius = 8;
+    } else {
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                          byRoundingCorners:corners
+                                                                cornerRadii:CGSizeMake(8,8)];
+        maskLayer.fillColor = [[UIColor whiteColor] CGColor];
+        maskLayer.backgroundColor = [[UIColor clearColor] CGColor];
+        maskLayer.path = [roundedPath CGPath];
+        self.layer.mask = maskLayer;
+    }
 }
 
 @end
