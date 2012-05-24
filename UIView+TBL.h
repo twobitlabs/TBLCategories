@@ -11,5 +11,10 @@
 @interface UIView (TBL)
 
 -(void)roundCorners:(UIRectCorner)corners;
+-(void)roundCorners:(UIRectCorner)corners withRadius:(CGFloat)radius;
+-(void)setX:(CGFloat)newX;
+-(void)setY:(CGFloat)newY;
+-(void)setWidth:(CGFloat)newWidth;
+-(void)setHeight:(CGFloat)newHeight;
 
 @end
