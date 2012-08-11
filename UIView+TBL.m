@@ -11,6 +11,10 @@
 
 @implementation UIView (TBL)
 
+-(void)squareCorners {
+	self.layer.mask = nil;
+}
+
 -(void)roundCorners:(UIRectCorner)corners withRadius:(CGFloat)radius {
     if (corners == UIRectCornerAllCorners) {
         self.layer.cornerRadius = radius;
