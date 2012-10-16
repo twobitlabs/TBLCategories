@@ -44,6 +44,11 @@
     self.frame = CGRectMake(frame.origin.x, newY, frame.size.width, frame.size.height);
 }
 
+-(void)setOrigin:(CGPoint)newOrigin {
+    CGRect frame = self.frame;
+    self.frame = CGRectMake(newOrigin.x, newOrigin.y, frame.size.width, frame.size.height);
+}
+
 -(void)setWidth:(CGFloat)newWidth {
     CGRect frame = self.frame;
     self.frame = CGRectMake(frame.origin.x, frame.origin.y, newWidth, frame.size.height);
@@ -53,5 +58,11 @@
     CGRect frame = self.frame;
     self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, newHeight);
 }
+
+-(void)setSize:(CGSize)newSize {
+    CGRect frame = self.frame;
+    self.frame = CGRectMake(frame.origin.x, frame.origin.y, newSize.width, newSize.height);
+}
+
 
 @end
