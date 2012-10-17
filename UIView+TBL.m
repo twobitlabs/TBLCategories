@@ -3,7 +3,7 @@
 //  TeamStream
 //
 //  Created by Susan Detwiler on 5/21/12.
-//  Copyright (c) 2012 Bleacher Report. All rights reserved.
+//  Copyright (c) 2012 Two Bit Labs. All rights reserved.
 //
 
 #import "UIView+TBL.h"
