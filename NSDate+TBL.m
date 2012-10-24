@@ -13,11 +13,11 @@
 // TODO: add version with format specifier
 -(NSString *)timeAgo {
 	NSDate *now = [NSDate date];
-	double deltaMinutes = fabs([self timeIntervalSinceDate:now]) / 60.0f;
+	double deltaMinutes = [now timeIntervalSinceDate:self] / 60.0;
 	if (deltaMinutes <= 0) {
 		return @"1m"; // special case for clock wonkiness
 	} else if (deltaMinutes < 60) {
-        return [NSString stringWithFormat:@"%dm", deltaMinutes];
+        return [NSString stringWithFormat:@"%dm", (int)deltaMinutes];
     } else if (deltaMinutes < (24 * 60)) {
         return [NSString stringWithFormat:@"%dh", (int)floor(deltaMinutes/60)];
     } else if (deltaMinutes < (24 * 60 * 7)) {
