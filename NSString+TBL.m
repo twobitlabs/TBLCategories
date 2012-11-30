@@ -35,4 +35,20 @@
     return resultString;
 }
 
+-(BOOL)containsString:(NSString *)subString {
+    return [self rangeOfString:subString].location != NSNotFound;
+}
+
+-(BOOL)validEmailAddress {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:self];
+}
+
+-(BOOL)validPhoneNumber {
+    NSString *phoneRegex = @"[235689][0-9]{6}([0-9]{3})?";
+    NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
+    return [test evaluateWithObject:self];
+}
+
 @end
