@@ -46,9 +46,19 @@
 }
 
 -(BOOL)validPhoneNumber {
-    NSString *phoneRegex = @"[235689][0-9]{6}([0-9]{3})?";
-    NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
-    return [test evaluateWithObject:self];
+    // First make sure the only characters present are 0-9 ( ) - and space
+    NSString *phoneRegex = @"^[0-9\\(\\)\\- ]+$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
+    if (![phoneTest evaluateWithObject:self]) return NO;
+    
+    // Make sure the number contains 10 digits
+    NSMutableString *strippedString = [NSMutableString stringWithCapacity:10];
+    for (int i=0; i<[self length]; i++) {
+        if (isdigit([self characterAtIndex:i])) {
+            [strippedString appendFormat:@"%c",[self characterAtIndex:i]];
+        }
+    }
+    return strippedString.length == 10;
 }
 
 @end
