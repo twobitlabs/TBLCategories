@@ -12,5 +12,9 @@
 
 +(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format;
 +(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timezone:(NSString *)timezone;
++(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style;
++(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style timezone:(NSString *)timezone;
++(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style;
++(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timezone:(NSString *)timezone;
 
 @end
