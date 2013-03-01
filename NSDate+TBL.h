@@ -11,5 +11,7 @@
 @interface NSDate (TBL)
 
 -(NSString *)timeAgo;
+-(BOOL)isToday;
+-(BOOL)isTomorrow;
 
 @end

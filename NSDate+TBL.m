@@ -27,4 +27,31 @@
     } 
 }
 
+-(BOOL)isToday{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDate *today = [calendar dateFromComponents:components];
+    components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
+    NSDate *fakeSelfDate = [calendar dateFromComponents:components];
+    
+    if([today isEqualToDate:fakeSelfDate]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL)isTomorrow{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDate *today = [calendar dateFromComponents:components];
+    components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
+    NSDate *fakeSelfDate = [calendar dateFromComponents:components];
+    
+    if([today timeIntervalSinceDate:fakeSelfDate] == -60*60*24) {
+        return YES;
+    }
+    return NO;
+}
+
+
 @end
