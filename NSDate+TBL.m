@@ -56,7 +56,7 @@
 }
 
 -(BOOL)isNewerThanMinutesSinceNow:(NSTimeInterval)min {
-    return fabs(self.timeIntervalSinceNow) > min * 60;
+    return self.timeIntervalSinceNow > min * 60;
 }
 
 -(BOOL)isToday{
