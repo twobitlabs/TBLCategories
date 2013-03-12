@@ -20,5 +20,7 @@
 -(NSString *)stringFromObjectOrEmptyStringAtIndex:(NSUInteger)index;
 -(NSArray *)arrayAtIndex:(NSUInteger)index;
 -(NSDictionary *)dictionaryAtIndex:(NSUInteger)index;
+-(NSArray *)subarrayFromIndex:(NSUInteger)index;
+-(NSArray *)subarrayToIndex:(NSUInteger)index;
 
 @end
