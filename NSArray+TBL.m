@@ -83,13 +83,19 @@
     return [self objectAtIndex:index kindOfClass:[NSDictionary class]];
 }
 
-// raises NSRangeException if index is outside of bounds
+// returns nil if index is outside of bounds
 -(NSArray *)subarrayFromIndex:(NSUInteger)index {
+    if (index > [self count]) {
+        return nil;
+    }
     return [self subarrayWithRange:NSMakeRange(index, [self count] - index)];
 }
 
-// raises NSRangeException if index is outside of bounds
+// returns the whole array if index is outside of bounds
 -(NSArray *)subarrayToIndex:(NSUInteger)index {
+    if (index > [self count]) {
+        return self;
+    }
     return [self subarrayWithRange:NSMakeRange(0, index + 1)];
 }
 
