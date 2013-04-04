@@ -11,12 +11,10 @@
 
 +(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format;
 +(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone;
-+(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timezone:(NSString *)timezone __attribute__((deprecated));
++(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
 +(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style;
 +(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
-+(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style timezone:(NSString *)timezone __attribute__((deprecated));
 +(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style;
 +(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone;
-+(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timezone:(NSString *)timezone __attribute__((deprecated));
 
 @end
