@@ -22,5 +22,6 @@
 -(NSDictionary *)dictionaryAtIndex:(NSUInteger)index;
 -(NSArray *)subarrayFromIndex:(NSUInteger)index;
 -(NSArray *)subarrayToIndex:(NSUInteger)index;
+-(void)each:(void (^)(id thing))blockToExecute;
 
 @end

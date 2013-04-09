@@ -99,4 +99,10 @@
     return [self subarrayWithRange:NSMakeRange(0, index + 1)];
 }
 
+-(void)each:(void (^)(id thing))blockToExecute {
+    for (id thing in self) {
+        blockToExecute(thing);
+    }
+}
+
 @end
