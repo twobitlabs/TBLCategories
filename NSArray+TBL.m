@@ -99,6 +99,11 @@
     return [self subarrayWithRange:NSMakeRange(0, index + 1)];
 }
 
+-(id)randomObject {
+    uint32_t rnd = arc4random_uniform([self count]);
+    return [self objectAtIndex:rnd];
+}
+
 -(void)each:(void (^)(id thing))blockToExecute {
     for (id thing in self) {
         blockToExecute(thing);
