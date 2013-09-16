@@ -10,10 +10,13 @@
 
 +(NSNumberFormatter *)simpleNumberFormatter {
     NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
-    NSNumberFormatter* numberFormatter = [dictionary objectForKey:@"NSNumberFormatter"];
-    if (dateFormatter == nil) {
+    NSString *key = @"NSNumberFormatter";
+    NSNumberFormatter* numberFormatter = [dictionary objectForKey:key];
+    if (numberFormatter == nil) {
         numberFormatter = [[NSNumberFormatter alloc] init];
         [dictionary setObject:numberFormatter forKey:key];
     }
     return numberFormatter;
 }
+
+@end
