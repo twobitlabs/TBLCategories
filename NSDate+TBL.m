@@ -27,6 +27,38 @@
     } 
 }
 
+-(BOOL)isNewerThanDate:(NSDate *)aDate {
+    return [self compare:aDate] == NSOrderedDescending;
+}
+
+-(BOOL)isOlderThanDate:(NSDate *)aDate {
+    return [self compare:aDate] == NSOrderedAscending;
+}
+
+-(BOOL)isOlderThanDaysSinceNow:(NSTimeInterval)days {
+    return [self isOlderThanMinutesSinceNow:days * 24 * 60];
+}
+
+-(BOOL)isNewerThanDaysSinceNow:(NSTimeInterval)days {
+    return [self isNewerThanMinutesSinceNow:days * 24 * 60];
+}
+
+-(BOOL)isOlderThanHoursSinceNow:(NSTimeInterval)hours {
+    return [self isOlderThanMinutesSinceNow:hours * 60];
+}
+
+-(BOOL)isNewerThanHoursSinceNow:(NSTimeInterval)hours {
+    return [self isNewerThanMinutesSinceNow:hours * 60];
+}
+
+-(BOOL)isOlderThanMinutesSinceNow:(NSTimeInterval)min {
+    return self.timeIntervalSinceNow < min * 60;
+}
+
+-(BOOL)isNewerThanMinutesSinceNow:(NSTimeInterval)min {
+    return self.timeIntervalSinceNow > min * 60;
+}
+
 -(BOOL)isToday{
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
@@ -52,6 +84,5 @@
     }
     return NO;
 }
-
 
 @end

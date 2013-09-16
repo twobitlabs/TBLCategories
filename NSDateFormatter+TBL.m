@@ -14,33 +14,21 @@
 }
 
 +(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone {
-    if (timeZone == nil) timezone = [NSTimeZone localTimeZone];
-    if (IsEmpty(format)) return nil;
-    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-%@", [timeZone abbreviation], format];
-    NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
-    NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
-    if (dateFormatter == nil) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setTimeZone:timeZone];
-        [dateFormatter setDateFormat:format];
-        [dictionary setObject:dateFormatter forKey:key];
-    }
-    return dateFormatter;
+    return [self dateFormatterWithFormat:format timeZone:timeZone locale:nil];
 }
 
-+(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timezone:(NSString *)timezone {
-    if (IsEmpty(timezone)) timezone = @"UTC";
++(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
     if (IsEmpty(format)) return nil;
-    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-%@", timezone, format];
+    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-tz-%@-fmt-%@-loc-%@", [timeZone abbreviation], format, [locale localeIdentifier]];
     NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
     NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        NSTimeZone *timeZone = [NSTimeZone timeZoneWithAbbreviation:timezone];
-        [dateFormatter setTimeZone:timeZone];
         [dateFormatter setDateFormat:format];
         [dictionary setObject:dateFormatter forKey:key];
     }
+    if (locale != nil) [dateFormatter setLocale:locale]; // this may change so don't cache
+    if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change
     return dateFormatter;
 }
 
@@ -49,31 +37,15 @@
 }
 
 +(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone {
-    if (timeZone == nil) timeZone = [NSTimeZone localTimeZone];
     NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-dateStyle-%d", [timeZone abbreviation], style];
     NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
     NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setTimeZone:timeZone];
         [dateFormatter setDateStyle:style];
         [dictionary setObject:dateFormatter forKey:key];
     }
-    return dateFormatter;
-}
-
-+(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style timezone:(NSString *)timezone {
-    if (IsEmpty(timezone)) timezone = @"UTC";
-    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-dateStyle-%d", timezone, style];
-    NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
-    NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
-    if (dateFormatter == nil) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        NSTimeZone *timeZone = [NSTimeZone timeZoneWithAbbreviation:timezone];
-        [dateFormatter setTimeZone:timeZone];
-        [dateFormatter setDateStyle:style];
-        [dictionary setObject:dateFormatter forKey:key];
-    }
+    if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change so don't cache
     return dateFormatter;
 }
 
@@ -82,31 +54,15 @@
 }
 
 +(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone {
-    if (timeZone == nil) timezone = [NSTimeZone localTimeZone];
     NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-timeStyle-%d", [timeZone abbreviation], style];
     NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
     NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setTimeZone:timeZone];
         [dateFormatter setDateStyle:style];
         [dictionary setObject:dateFormatter forKey:key];
     }
-    return dateFormatter;
-}
-
-+(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timezone:(NSString *)timezone {
-    if (IsEmpty(timezone)) timezone = @"UTC";
-    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-timeStyle-%d", timezone, style];
-    NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
-    NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
-    if (dateFormatter == nil) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        NSTimeZone *timeZone = [NSTimeZone timeZoneWithAbbreviation:timezone];
-        [dateFormatter setTimeZone:timeZone];
-        [dateFormatter setTimeStyle:style];
-        [dictionary setObject:dateFormatter forKey:key];
-    }
+    if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change so don't cache
     return dateFormatter;
 }
 
