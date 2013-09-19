@@ -104,10 +104,39 @@
     return [self objectAtIndex:rnd];
 }
 
+#pragma mark -
+#pragma mark Iteration
+
 -(void)each:(void (^)(id thing))blockToExecute {
     for (id thing in self) {
         blockToExecute(thing);
     }
 }
+
+-(void)eachKindOfClass:(Class)aClass block:(void (^)(id thing))blockToExecute {
+    for (id thing in self) {
+        if ([thing isKindOfClass:aClass]) {
+            blockToExecute(thing);
+        }
+    }
+}
+
+-(void)eachNumber:(void (^)(NSNumber *thing))blockToExecute {
+    [self eachKindOfClass:[NSNumber class] block:blockToExecute];
+}
+
+
+-(void)eachString:(void (^)(NSString *thing))blockToExecute {
+    [self eachKindOfClass:[NSString class] block:blockToExecute];
+}
+
+-(void)eachArray:(void (^)(NSArray *thing))blockToExecute {
+    [self eachKindOfClass:[NSArray class] block:blockToExecute];
+}
+
+-(void)eachDictionary:(void (^)(NSDictionary *thing))blockToExecute {
+    [self eachKindOfClass:[NSDictionary class] block:blockToExecute];
+}
+
 
 @end

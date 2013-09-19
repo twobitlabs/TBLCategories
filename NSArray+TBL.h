@@ -24,5 +24,10 @@
 -(NSArray *)subarrayToIndex:(NSUInteger)index;
 -(id)randomObject;
 -(void)each:(void (^)(id thing))blockToExecute;
+-(void)eachKindOfClass:(Class)aClass block:(void (^)(id thing))blockToExecute;
+-(void)eachNumber:(void (^)(NSNumber *thing))blockToExecute;
+-(void)eachString:(void (^)(NSString *thing))blockToExecute;
+-(void)eachArray:(void (^)(NSArray *thing))blockToExecute;
+-(void)eachDictionary:(void (^)(NSDictionary *thing))blockToExecute;
 
 @end
