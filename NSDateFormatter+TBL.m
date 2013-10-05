@@ -18,7 +18,7 @@
 }
 
 +(NSDateFormatter *)dateFormatterWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
-    if (IsEmpty(format)) return nil;
+    if (format == nil || [format isEqualToString:@""]) return nil;
     NSString *key = [NSString stringWithFormat:@"NSDateFormatter-tz-%@-fmt-%@-loc-%@", [timeZone abbreviation], format, [locale localeIdentifier]];
     NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
     NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
