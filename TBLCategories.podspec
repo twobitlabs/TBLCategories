@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = 'Some useful Objective-C categories'
   s.homepage = 'https://github.com/twobitlabs/TBLCategories'
   s.author = { 'Two Bit Labs' => 'contact@twobitlabs.com' }
-  s.source = { :git => 'https://github.com/twobitlabs/TBLCategories.git'}
+  s.source = { :git => 'https://github.com/twobitlabs/TBLCategories.git', :tag => s.version.to_s }
   s.requires_arc = false
   s.source_files = '*.{h,m}'
 end
