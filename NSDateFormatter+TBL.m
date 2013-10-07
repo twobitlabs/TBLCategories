@@ -29,7 +29,11 @@
     }
     if (locale != nil) [dateFormatter setLocale:locale]; // this may change so don't cache
     if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change
+#if __has_feature(objc_arc)
     return dateFormatter;
+#else
+    return [dateFormatter autorelease];
+#endif
 }
 
 +(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style {
@@ -46,7 +50,11 @@
         [dictionary setObject:dateFormatter forKey:key];
     }
     if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change so don't cache
+#if __has_feature(objc_arc)
     return dateFormatter;
+#else
+    return [dateFormatter autorelease];
+#endif
 }
 
 +(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style {
@@ -63,7 +71,11 @@
         [dictionary setObject:dateFormatter forKey:key];
     }
     if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change so don't cache
+#if __has_feature(objc_arc)
     return dateFormatter;
+#else
+    return [dateFormatter autorelease];
+#endif
 }
 
 @end
