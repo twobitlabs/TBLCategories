@@ -26,14 +26,13 @@
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:format];
         [dictionary setObject:dateFormatter forKey:key];
+#if !__has_feature(objc_arc)
+        [dateFormatter autorelease];
+#endif
     }
     if (locale != nil) [dateFormatter setLocale:locale]; // this may change so don't cache
     if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change
-#if __has_feature(objc_arc)
     return dateFormatter;
-#else
-    return [dateFormatter autorelease];
-#endif
 }
 
 +(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style {
@@ -48,13 +47,12 @@
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:style];
         [dictionary setObject:dateFormatter forKey:key];
+#if !__has_feature(objc_arc)
+        [dateFormatter autorelease];
+#endif
     }
     if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change so don't cache
-#if __has_feature(objc_arc)
     return dateFormatter;
-#else
-    return [dateFormatter autorelease];
-#endif
 }
 
 +(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style {
@@ -69,13 +67,12 @@
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:style];
         [dictionary setObject:dateFormatter forKey:key];
+#if !__has_feature(objc_arc)
+        [dateFormatter autorelease];
+#endif
     }
     if (timeZone != nil) [dateFormatter setTimeZone:timeZone]; // this may change so don't cache
-#if __has_feature(objc_arc)
     return dateFormatter;
-#else
-    return [dateFormatter autorelease];
-#endif
 }
 
 @end

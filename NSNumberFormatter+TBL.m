@@ -15,12 +15,11 @@
     if (numberFormatter == nil) {
         numberFormatter = [[NSNumberFormatter alloc] init];
         [dictionary setObject:numberFormatter forKey:key];
-    }
-#if __has_feature(objc_arc)
-    return numberFormatter;
-#else
-    return [numberFormatter autorelease];
+#if !__has_feature(objc_arc)
+        [numberFormatter autorelease];
 #endif
+    }
+    return numberFormatter;
 }
 
 @end
