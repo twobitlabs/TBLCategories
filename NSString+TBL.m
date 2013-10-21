@@ -2,7 +2,7 @@
 
 @implementation NSString (TBL)
 
--(NSString *)stringByTruncatingStringWithFont_tbl:(UIFont *)font forSize:(CGSize)size lineBreakMode:(UILineBreakMode)lineBreakMode {
+-(NSString *)stringByTruncatingStringWithFont_tbl:(UIFont *)font forSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode {
 	NSString *ellipsis = @"…";
 	
 #if __has_feature(objc_arc)
