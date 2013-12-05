@@ -13,17 +13,19 @@
 // TODO: add version with format specifier
 -(NSString *)timeAgo {
 	NSDate *now = [NSDate date];
-	double deltaMinutes = [now timeIntervalSinceDate:self] / 60.0;
-	if (deltaMinutes <= 0) {
-		return @"1m"; // special case for clock wonkiness
-	} else if (deltaMinutes < 60) {
-        return [NSString stringWithFormat:@"%dm", (int)deltaMinutes];
-    } else if (deltaMinutes < (24 * 60)) {
-        return [NSString stringWithFormat:@"%dh", (int)floor(deltaMinutes/60)];
-    } else if (deltaMinutes < (24 * 60 * 7)) {
-        return [NSString stringWithFormat:@"%dd", (int)floor(deltaMinutes/(60 * 24))];
+    double deltaSeconds = [now timeIntervalSinceDate:self];
+	if (deltaSeconds <= 0) {
+		return @"1s"; // special case for clock wonkiness
+    } else if (deltaSeconds < 60) {
+        return [NSString stringWithFormat:@"%ds", (int)deltaSeconds];
+	} else if (deltaSeconds < (60 * 60)) {
+        return [NSString stringWithFormat:@"%dm", (int)floor(deltaSeconds/60)];
+    } else if (deltaSeconds < (24 * 60 * 60)) {
+        return [NSString stringWithFormat:@"%dh", (int)floor(deltaSeconds/(60 * 60))];
+    } else if (deltaSeconds < (7 * 24 * 60 * 60)) {
+        return [NSString stringWithFormat:@"%dd", (int)floor(deltaSeconds/(24 * 60 * 60))];
     } else {
-        return [NSString stringWithFormat:@"%dw", (int)floor(deltaMinutes/(60 * 24 * 7))];
+        return [NSString stringWithFormat:@"%dw", (int)floor(deltaSeconds/(7 * 24 * 60 * 60))];
     } 
 }
 
