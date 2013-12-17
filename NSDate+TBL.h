@@ -11,6 +11,7 @@
 @interface NSDate (TBL)
 
 -(NSString *)timeAgo;
+-(NSString *)timeAgoWithSeconds;
 -(BOOL)isNewerThanDate:(NSDate *)aDate;
 -(BOOL)isOlderThanDate:(NSDate *)aDate;
 -(BOOL)isOlderThanDaysSinceNow:(NSTimeInterval)days;

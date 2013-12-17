@@ -10,14 +10,26 @@
 
 @implementation NSDate (TBL)
 
-// TODO: add version with format specifier
 -(NSString *)timeAgo {
+    return [self timeAgoWithSeconds:NO];
+}
+
+-(NSString *)timeAgoWithSeconds {
+    return [self timeAgoWithSeconds:YES];
+}
+
+// TODO: add version with format specifier
+-(NSString *)timeAgoWithSeconds:(BOOL)withSeconds {
 	NSDate *now = [NSDate date];
     double deltaSeconds = [now timeIntervalSinceDate:self];
 	if (deltaSeconds <= 0) {
-		return @"1s"; // special case for clock wonkiness
+		return (withSeconds ? @"1s" : @"1m"); // special case for clock wonkiness
     } else if (deltaSeconds < 60) {
-        return [NSString stringWithFormat:@"%ds", (int)deltaSeconds];
+        if (withSeconds) {
+            return [NSString stringWithFormat:@"%ds", (int)deltaSeconds];
+        } else {
+            return @"0m";
+        }
 	} else if (deltaSeconds < (60 * 60)) {
         return [NSString stringWithFormat:@"%dm", (int)floor(deltaSeconds/60)];
     } else if (deltaSeconds < (24 * 60 * 60)) {
