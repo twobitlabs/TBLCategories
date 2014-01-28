@@ -22,5 +22,6 @@
 -(BOOL)isNewerThanMinutesSinceNow:(NSTimeInterval)min;
 -(BOOL)isToday;
 -(BOOL)isTomorrow;
+-(BOOL)isSoonerThanDaysFromNow:(NSTimeInterval)days;
 
 @end
