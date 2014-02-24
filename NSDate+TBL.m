@@ -106,7 +106,6 @@
     components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
     NSDate *fakeSelfDate = [calendar dateFromComponents:components];
     
-    TSLog(@"BBB: time Interval is %f", [fakeSelfDate timeIntervalSinceDate:today]);
     if([fakeSelfDate timeIntervalSinceDate:today] < 60*60*24*days) {
         return YES;
     }
