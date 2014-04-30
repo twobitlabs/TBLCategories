@@ -1,4 +1,5 @@
 #import "NSString+TBL.h"
+#import "Availability.h"
 
 @implementation NSString (TBL)
 
@@ -14,7 +15,14 @@
     NSRange range = NSMakeRange(resultString.length - 1, 1);
 
     CGSize fixedWidth = CGSizeMake(size.width, CGFLOAT_MAX);
-    while ([resultString sizeWithFont:font constrainedToSize:fixedWidth lineBreakMode:lineBreakMode].height > size.height) {
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
+    while ([resultString boundingRectWithSize:fixedWidth
+                                      options:NSStringDrawingUsesLineFragmentOrigin
+                                   attributes:@{NSFontAttributeName:font} context:nil].size.height > size.height && range.location > 0) {
+#else
+    while ([resultString sizeWithFont:font constrainedToSize:fixedWidth lineBreakMode:lineBreakMode].height > size.height && range.location > 0) {
+#endif
         // delete the last character
         [resultString deleteCharactersInRange:range];
         range.location--;
