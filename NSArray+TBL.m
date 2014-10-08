@@ -101,7 +101,7 @@
 
 -(id)randomObject {
     if ([self count] == 0) return nil;
-    uint32_t rnd = arc4random_uniform([self count]);
+    uint32_t rnd = arc4random_uniform((uint32_t) [self count]);
     return [self objectAtIndex:rnd];
 }
 

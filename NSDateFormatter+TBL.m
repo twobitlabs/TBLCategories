@@ -40,7 +40,7 @@
 }
 
 +(NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone {
-    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-dateStyle-%d", [timeZone abbreviation], style];
+    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-dateStyle-%d", [timeZone abbreviation], (int)style];
     NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
     NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
     if (dateFormatter == nil) {
@@ -60,7 +60,7 @@
 }
 
 +(NSDateFormatter *)dateFormatterWithTimeStyle:(NSDateFormatterStyle)style timeZone:(NSTimeZone *)timeZone {
-    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-timeStyle-%d", [timeZone abbreviation], style];
+    NSString *key = [NSString stringWithFormat:@"NSDateFormatter-%@-timeStyle-%d", [timeZone abbreviation], (int)style];
     NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
     NSDateFormatter* dateFormatter = [dictionary objectForKey:key];
     if (dateFormatter == nil) {
