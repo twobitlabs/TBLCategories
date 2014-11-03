@@ -2,6 +2,6 @@
 
 @interface UIColor (TBL)
 
-+ (UIColor *)parseColorValueFromHexString:(NSString *)hexString;
++ (UIColor *)colorFromHexString:(NSString *)hexString;
 
 @end

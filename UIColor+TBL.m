@@ -2,7 +2,7 @@
 
 @implementation UIColor (TBL)
 
-+ (UIColor *)parseColorValueFromHexString:(NSString *)hexString {
++ (UIColor *)colorFromHexString:(NSString *)hexString {
     NSScanner *colorScanner = [NSScanner scannerWithString:hexString];
     NSRange hashLocation = [hexString rangeOfString:@"#"];
     if (hashLocation.location != NSNotFound) {
