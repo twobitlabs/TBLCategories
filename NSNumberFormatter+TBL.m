@@ -1,8 +1,4 @@
-//
-//  NSNumberFormatter+TBL.m
 //  Thread safe reusable NSNumberFormatter
-//
-//
 
 #import "NSNumberFormatter+TBL.h"
 

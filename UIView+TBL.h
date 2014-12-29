@@ -1,11 +1,3 @@
-//
-//  UIView+TBL.h
-//  TeamStream
-//
-//  Created by Susan Detwiler on 5/21/12.
-//  Copyright (c) 2012 Two Bit Labs. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 @interface UIView (TBL)

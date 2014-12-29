@@ -1,11 +1,3 @@
-//
-//  NSArray+TBL.m
-//  TeamStream
-//
-//  Created by Todd Huss on 3/11/13.
-//  Copyright (c) 2013 Two Bit Labs. All rights reserved.
-//
-
 #import "NSArray+TBL.h"
 
 @implementation NSArray (TBL)

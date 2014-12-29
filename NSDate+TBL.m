@@ -1,11 +1,3 @@
-//
-//  NSDate+TBL.m
-//  iKu
-//
-//  Created by Christopher Pickslay on 2/24/11.
-//  Copyright 2011 Two Bit Labs. All rights reserved.
-//
-
 #import "NSDate+TBL.h"
 
 @implementation NSDate (TBL)

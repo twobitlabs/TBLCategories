@@ -1,11 +1,3 @@
-//
-//  NSDictionary+TBL.m
-//  TeamStream
-//
-//  Created by Todd Huss on 3/11/13.
-//  Copyright (c) 2013 Two Bit Labs. All rights reserved.
-//
-
 #import "NSDictionary+TBL.h"
 
 @implementation NSDictionary (TBL)
