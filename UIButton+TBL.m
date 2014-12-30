@@ -75,8 +75,6 @@ static char const * const kBackgroundStates = "kBackgroundStates";
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     
-    CLSLog(@"tapped button \"%@\"", [self titleForState:UIControlStateNormal]);
-
     UIColor *normalColor = [self.backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateNormal]];
     if (normalColor) {
         self.backgroundColor = normalColor;
