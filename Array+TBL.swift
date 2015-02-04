@@ -14,12 +14,12 @@ extension Array {
     }
     
     func contains<U : Equatable>(obj: U) -> Bool {
-        if (typeIsOptional()) {
-            NSException(name:"Not supported", reason: "Optional Array types not supported", userInfo: nil).raise()
-        }
-
         if isEmpty {
             return false
+        }
+
+        if (typeIsOptional()) {
+            NSException(name:"Not supported", reason: "Optional Array types not supported", userInfo: nil).raise()
         }
         
         // if item is an optional, casting it to a non-optional fails
@@ -34,6 +34,10 @@ extension Array {
     
     // without this version, contains("foo" as String?) won't compile
     func contains<U : Equatable>(obj: U?) -> Bool {
+        if isEmpty {
+            return false
+        }
+
         if (typeIsOptional()) {
             NSException(name:"Not supported", reason: "Optional Array types not supported", userInfo: nil).raise()
         }
