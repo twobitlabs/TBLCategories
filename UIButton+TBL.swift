@@ -6,9 +6,23 @@
 
 extension UIButton {
     
-    class func buttonWithImage(imageName: String) -> UIButton {
-        let image = UIImage(named: imageName)
-        let button = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+    class func buttonWithLabel(text: String, font: UIFont? = nil, color: UIColor? = nil) -> UIButton {
+        let button = UIButton.buttonWithType(.Custom) as UIButton
+        button.setTitle(text, forState: .Normal)
+        button.setTitleColor(color, forState: .Normal)
+        if font != nil {
+            button.titleLabel?.font = font!
+        }
+        return button
+    }
+    
+    class func buttonWithImage(imageName: String, tintColor: UIColor? = nil) -> UIButton {
+        var image = UIImage(named: imageName)
+        let button = UIButton.buttonWithType(.Custom) as UIButton
+        if tintColor != nil {
+            button.tintColor = tintColor
+            image = image?.imageWithRenderingMode(.AlwaysTemplate)
+        }
         button.setImage(image, forState: .Normal)
         button.frame = CGRect(origin: CGPointZero, size: image!.size)
         return button
