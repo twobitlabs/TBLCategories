@@ -81,29 +81,32 @@ extension UIView {
     }
     
     func pinToTop() {
-        let superview = self.superview!
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        let topOffset = NSLayoutConstraint(item: self,
-            attribute: .Top,
-            relatedBy: .Equal,
-            toItem: superview,
-            attribute: .Top,
-            multiplier: 1,
-            constant: 0)
-        superview.addConstraint(topOffset)
+        pinToEdge(.Top)
     }
     
     func pinToBottom() {
+        pinToEdge(.Bottom)
+    }
+    
+    func pinToLeft() {
+        pinToEdge(.Left)
+    }
+    
+    func pinToRight() {
+        pinToEdge(.Right)
+    }
+    
+    private func pinToEdge(edge: NSLayoutAttribute) {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
-        let topOffset = NSLayoutConstraint(item: self,
-            attribute: .Bottom,
+        let pin = NSLayoutConstraint(item: self,
+            attribute: edge,
             relatedBy: .Equal,
             toItem: superview,
-            attribute: .Bottom,
+            attribute: edge,
             multiplier: 1,
             constant: 0)
-        superview.addConstraint(topOffset)
+        superview.addConstraint(pin)
     }
     
     // MARK: - sizing
@@ -135,6 +138,13 @@ extension UIView {
     
     func matchParentHeight() {
         matchParentDimension(.Height)
+    }
+    
+    func fillParent() {
+        pinToTop()
+        pinToBottom()
+        pinToLeft()
+        pinToRight()
     }
     
     private func matchParentDimension(dimension: NSLayoutAttribute) {
