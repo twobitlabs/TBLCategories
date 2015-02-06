@@ -14,15 +14,15 @@ extension UIView {
     // MARK: - centering
     
     func centerChildHorizontally(childView: UIView) {
-        childView.setTranslatesAutoresizingMaskIntoConstraints(false);
+        childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let centerHorizontally = NSLayoutConstraint(item: childView,
             attribute: .CenterX,
             relatedBy: .Equal,
             toItem: self,
             attribute: .CenterX,
             multiplier: 1,
-            constant: 0);
-        addConstraint(centerHorizontally);
+            constant: 0)
+        addConstraint(centerHorizontally)
     }
     
     func centerChildrenHorizontally(childViews: [UIView]) {
@@ -32,15 +32,15 @@ extension UIView {
     }
     
     func centerChildVertically(childView: UIView) {
-        childView.setTranslatesAutoresizingMaskIntoConstraints(false);
+        childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let centerVertically = NSLayoutConstraint(item: childView,
             attribute: .CenterY,
             relatedBy: .Equal,
             toItem: self,
             attribute: .CenterY,
             multiplier: 1,
-            constant: 0);
-        addConstraint(centerVertically);
+            constant: 0)
+        addConstraint(centerVertically)
     }
 
     func centerChild(childView: UIView) {
@@ -59,8 +59,8 @@ extension UIView {
             toItem: superview,
             attribute: .Top,
             multiplier: 1,
-            constant: offset);
-        superview.addConstraint(topOffset);
+            constant: offset)
+        superview.addConstraint(topOffset)
     }
     
     func placeBelow(sibling: UIView, by offset: CGFloat) {
@@ -76,8 +76,8 @@ extension UIView {
             toItem: sibling,
             attribute: .Bottom,
             multiplier: 1,
-            constant: offset);
-        superview.addConstraint(topOffset);
+            constant: offset)
+        superview.addConstraint(topOffset)
     }
     
     func pinToTop() {
@@ -89,8 +89,8 @@ extension UIView {
             toItem: superview,
             attribute: .Top,
             multiplier: 1,
-            constant: 0);
-        superview.addConstraint(topOffset);
+            constant: 0)
+        superview.addConstraint(topOffset)
     }
     
     func pinToBottom() {
@@ -102,8 +102,8 @@ extension UIView {
             toItem: superview,
             attribute: .Bottom,
             multiplier: 1,
-            constant: 0);
-        superview.addConstraint(topOffset);
+            constant: 0)
+        superview.addConstraint(topOffset)
     }
     
     // MARK: - sizing
@@ -126,8 +126,27 @@ extension UIView {
             attribute: .NotAnAttribute,
             multiplier: 1,
             constant: size)
-        superview.addConstraint(widthConstraint);
+        superview.addConstraint(widthConstraint)
     }
     
-
+    func matchParentWidth() {
+        matchParentDimension(.Width)
+    }
+    
+    func matchParentHeight() {
+        matchParentDimension(.Height)
+    }
+    
+    private func matchParentDimension(dimension: NSLayoutAttribute) {
+        let superview = self.superview!
+        setTranslatesAutoresizingMaskIntoConstraints(false)
+        let widthConstraint = NSLayoutConstraint(item: self,
+            attribute: dimension,
+            relatedBy: .Equal,
+            toItem: superview,
+            attribute: dimension,
+            multiplier: 1,
+            constant: 0)
+        superview.addConstraint(widthConstraint)
+    }
 }
