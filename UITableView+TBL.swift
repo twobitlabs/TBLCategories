@@ -1,8 +1,4 @@
-//
-//  UITableView+TBL.swift
-//
-//  Created by Christopher Pickslay on 1/21/15.
-//
+import UIKit
 
 extension UITableView {
     public typealias CellFactory = String -> UITableViewCell

@@ -1,8 +1,4 @@
-//
-//  UIView+TBL.swift
-//
-//  Created by Christopher Pickslay on 1/15/15.
-//
+import UIKit
 
 extension UIView {
 

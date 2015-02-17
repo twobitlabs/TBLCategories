@@ -1,8 +1,4 @@
-//
-//  UIButton+TBL.swift
-//
-//  Created by Christopher Pickslay on 1/28/15.
-//
+import UIKit
 
 extension UIButton {
     

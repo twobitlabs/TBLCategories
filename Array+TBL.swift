@@ -1,3 +1,4 @@
+import Foundation
 
 func unwrapOptionals<T>(a: [T]) -> [T] {
     return a

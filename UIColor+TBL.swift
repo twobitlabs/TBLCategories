@@ -1,10 +1,4 @@
-//
-//  UIColor+TBL.swift
-//
-//  Created by Christopher Pickslay on 1/12/15.
-//
-
-import Foundation
+import UIKit
 
 extension UIColor {
     
