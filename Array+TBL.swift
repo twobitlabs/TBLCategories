@@ -23,8 +23,8 @@ extension Array {
             NSException(name:"Not supported", reason: "Optional Array types not supported", userInfo: nil).raise()
         }
         
-        // if item is an optional, casting it to a non-optional fails
-        for item in self.map({ $0 as? U }) { // cast type of array to type of argument to make it equatable
+        // cast type of array to type of argument to make it equatable
+        for item in self.map({ $0 as? U }) {
             if item == obj {
                 return true
             }
