@@ -7,9 +7,11 @@ extension UILabel {
         self.text = text
     }
     
-    convenience init(font: UIFont, textColor: UIColor? = nil) {
+    convenience init(font: UIFont, textColor: UIColor? = nil, text: String? = nil, alignment: NSTextAlignment = .Left) {
         self.init(text: nil)
         self.font = font
+        self.text = text
+        self.textAlignment = alignment
         if textColor != nil {
             self.textColor = textColor!
         }
