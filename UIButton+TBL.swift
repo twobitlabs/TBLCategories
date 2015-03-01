@@ -13,21 +13,18 @@ extension UIButton {
         return button
     }
     
-    class func buttonWithImage(imageName: String, tintColor: UIColor? = nil) -> UIButton {
-        var image = UIImage(named: imageName)
+    class func buttonWithImage(imageName: String, target: AnyObject? = nil, action: Selector? = nil, tintColor: UIColor? = nil) -> UIButton {
         let button = UIButton.buttonWithType(.Custom) as UIButton
+        var image = UIImage(named: imageName)
         if tintColor != nil {
             button.tintColor = tintColor
             image = image?.imageWithRenderingMode(.AlwaysTemplate)
         }
         button.setImage(image, forState: .Normal)
         button.frame = CGRect(origin: CGPointZero, size: image!.size)
-        return button
-    }
-    
-    class func buttonWithImage(imageName: String, target: AnyObject, action: Selector) -> UIButton {
-        let button = UIButton.buttonWithImage(imageName)
-        button.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+        if target != nil && action != nil {
+            button.addTarget(target!, action: action!, forControlEvents: .TouchUpInside)
+        }, tintColor: UIColor.rexIconColor()
         return button
     }
     
