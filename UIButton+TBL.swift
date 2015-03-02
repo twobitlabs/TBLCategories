@@ -24,7 +24,7 @@ extension UIButton {
         button.frame = CGRect(origin: CGPointZero, size: image!.size)
         if target != nil && action != nil {
             button.addTarget(target!, action: action!, forControlEvents: .TouchUpInside)
-        }, tintColor: UIColor.rexIconColor()
+        }
         return button
     }
     
