@@ -45,6 +45,7 @@ extension UIView {
             maskLayer.path = roundedPath.CGPath
             self.layer.mask = maskLayer
         }
+        clipsToBounds = true
     }
     
 }
