@@ -63,7 +63,7 @@ extension UIView {
             toItem: sibling,
             attribute: .Top,
             multiplier: 1,
-            constant: offset)
+            constant: -offset)
         superview.addConstraint(bottomOffset)
     }
 
