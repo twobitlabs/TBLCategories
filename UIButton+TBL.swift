@@ -2,13 +2,16 @@ import UIKit
 
 extension UIButton {
 
-    class func buttonWithLabel(text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil) -> UIButton {
+    class func buttonWithLabel(text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
         let button = UIButton.buttonWithType(.Custom) as UIButton
         button.setTitle(text, forState: .Normal)
         button.setTitleColor(textColor, forState: .Normal)
         button.setBackgroundImage(backgroundColor?.asImage(), forState: .Normal)
         if font != nil {
             button.titleLabel?.font = font!
+        }
+        if padding != nil {
+            button.contentEdgeInsets = UIEdgeInsets(top: padding!, left: padding!, bottom: padding!, right: padding!)
         }
         return button
     }
