@@ -50,6 +50,23 @@ extension UIView {
     
     // MARK: - positioning
      
+    func placeAbove(sibling: UIView, by offset: CGFloat = 0) {
+        let superview = self.superview!
+        if (superview != sibling.superview!) {
+            return
+        }
+        setTranslatesAutoresizingMaskIntoConstraints(false)
+        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let bottomOffset = NSLayoutConstraint(item: self,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: sibling,
+            attribute: .Top,
+            multiplier: 1,
+            constant: offset)
+        superview.addConstraint(bottomOffset)
+    }
+
     func placeBelow(sibling: UIView, by offset: CGFloat = 0) {
         let superview = self.superview!
         if (superview != sibling.superview!) {
@@ -66,7 +83,7 @@ extension UIView {
             constant: offset)
         superview.addConstraint(topOffset)
     }
-    
+
     func placeToRightOf(sibling: UIView, by offset: CGFloat) {
         let superview = self.superview!
         if (superview != sibling.superview!) {
