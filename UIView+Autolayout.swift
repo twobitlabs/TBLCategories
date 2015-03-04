@@ -13,7 +13,7 @@ extension UIView {
     
     // MARK: - centering
     
-    func centerChildHorizontally(childView: UIView) {
+    func centerChildHorizontally(childView: UIView) -> NSLayoutConstraint {
         childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let centerHorizontally = NSLayoutConstraint(item: childView,
             attribute: .CenterX,
@@ -23,6 +23,7 @@ extension UIView {
             multiplier: 1,
             constant: 0)
         addConstraint(centerHorizontally)
+        return centerHorizontally
     }
     
     func centerChildrenHorizontally(childViews: [UIView]) {
@@ -31,7 +32,7 @@ extension UIView {
         }
     }
     
-    func centerChildVertically(childView: UIView) {
+    func centerChildVertically(childView: UIView) -> NSLayoutConstraint {
         childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let centerVertically = NSLayoutConstraint(item: childView,
             attribute: .CenterY,
@@ -41,19 +42,19 @@ extension UIView {
             multiplier: 1,
             constant: 0)
         addConstraint(centerVertically)
+        return centerVertically
     }
 
-    func centerChild(childView: UIView) {
-        centerChildHorizontally(childView)
-        centerChildVertically(childView)
+    func centerChild(childView: UIView) -> [NSLayoutConstraint] {
+        return [centerChildHorizontally(childView), centerChildVertically(childView)]
     }
     
     // MARK: - positioning
      
-    func placeAbove(sibling: UIView, by offset: CGFloat = 0) {
+    func placeAbove(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
-            return
+            fatalError("views do not share the same superview")
         }
         setTranslatesAutoresizingMaskIntoConstraints(false)
         sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -65,12 +66,13 @@ extension UIView {
             multiplier: 1,
             constant: -offset)
         superview.addConstraint(bottomOffset)
+        return bottomOffset
     }
 
-    func placeBelow(sibling: UIView, by offset: CGFloat = 0) {
+    func placeBelow(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
-            return
+            fatalError("views do not share the same superview")
         }
         setTranslatesAutoresizingMaskIntoConstraints(false)
         sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -82,12 +84,13 @@ extension UIView {
             multiplier: 1,
             constant: offset)
         superview.addConstraint(topOffset)
+        return topOffset
     }
 
-    func placeToRightOf(sibling: UIView, by offset: CGFloat) {
+    func placeToRightOf(sibling: UIView, by offset: CGFloat) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
-            return
+            fatalError("views do not share the same superview")
         }
         setTranslatesAutoresizingMaskIntoConstraints(false)
         sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -99,51 +102,50 @@ extension UIView {
             multiplier: 1,
             constant: offset)
         superview.addConstraint(topOffset)
+        return topOffset
     }
     
-    func pinToTop() {
-        pinToEdge(.Top)
+    func pinToTop() -> NSLayoutConstraint {
+        return pinToEdge(.Top)
     }
     
-    func pinToBottom() {
-        pinToEdge(.Bottom)
+    func pinToBottom() -> NSLayoutConstraint {
+        return pinToEdge(.Bottom)
     }
     
-    func pinToLeft() {
-        pinToEdge(.Left)
+    func pinToLeft() -> NSLayoutConstraint {
+        return pinToEdge(.Left)
     }
     
-    func pinToRight() {
-        pinToEdge(.Right)
+    func pinToRight() -> NSLayoutConstraint {
+        return pinToEdge(.Right)
     }
     
-    func insetFromParentHorizontally(inset: CGFloat) {
-        pinToEdge(.Left, inset: inset)
-        pinToEdge(.Right, inset: -inset)
+    func insetFromParentHorizontally(inset: CGFloat) -> [NSLayoutConstraint] {
+        return [pinToEdge(.Left, inset: inset), pinToEdge(.Right, inset: -inset)]
     }
 
-    func insetFromParentVertically(inset: CGFloat) {
-        pinToEdge(.Top, inset: inset)
-        pinToEdge(.Bottom, inset: -inset)
+    func insetFromParentVertically(inset: CGFloat) -> [NSLayoutConstraint] {
+        return [pinToEdge(.Top, inset: inset), pinToEdge(.Bottom, inset: -inset)]
     }
     
-    func insetFromParentLeft(inset: CGFloat) {
-        pinToEdge(.Left, inset: inset)
+    func insetFromParentLeft(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Left, inset: inset)
     }
     
-    func insetFromParentRight(inset: CGFloat) {
-        pinToEdge(.Right, inset: -inset)
+    func insetFromParentRight(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Right, inset: -inset)
     }
     
-    func insetFromParentTop(inset: CGFloat) {
-        pinToEdge(.Top, inset: inset)
+    func insetFromParentTop(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Top, inset: inset)
     }
     
-    func insetFromParentBottom(inset: CGFloat) {
-        pinToEdge(.Bottom, inset: -inset)
+    func insetFromParentBottom(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Bottom, inset: -inset)
     }
     
-    private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0) {
+    private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0) -> NSLayoutConstraint {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
         let pin = NSLayoutConstraint(item: self,
@@ -154,28 +156,29 @@ extension UIView {
             multiplier: 1,
             constant: inset)
         superview.addConstraint(pin)
+        return pin
     }
     
-    func alignVerticallyWith(sibling: UIView) {
-        alignDimension(.CenterY, withSibling: sibling)
+    func alignVerticallyWith(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.CenterY, withSibling: sibling)
     }
     
-    func alignHorizontallyWith(sibling: UIView) {
-        alignDimension(.CenterX, withSibling: sibling)
+    func alignHorizontallyWith(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.CenterX, withSibling: sibling)
     }
 
-    func matchWidthOf(sibling: UIView) {
-        alignDimension(.Width, withSibling: sibling)
+    func matchWidthOf(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.Width, withSibling: sibling)
     }
 
-    func matchHeightOf(sibling: UIView) {
-        alignDimension(.Height, withSibling: sibling)
+    func matchHeightOf(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.Height, withSibling: sibling)
     }
     
-    private func alignDimension(dimension: NSLayoutAttribute, withSibling sibling: UIView) {
+    private func alignDimension(dimension: NSLayoutAttribute, withSibling sibling: UIView) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
-            return
+            fatalError("views do not share the same superview")
         }
         setTranslatesAutoresizingMaskIntoConstraints(false)
         sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -187,6 +190,7 @@ extension UIView {
             multiplier: 1,
             constant: 0)
         superview.addConstraint(align)
+        return align
     }
     
     // TODO: this only works if the superview is centered in its superview.
@@ -220,15 +224,15 @@ extension UIView {
     
     // MARK: - sizing
 
-    func setWidthConstraint(size: CGFloat) {
-        setSizeConstraint(size, dimension: .Width)
+    func setWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Width)
     }
     
-    func setHeightConstraint(size: CGFloat) {
-        setSizeConstraint(size, dimension: .Height)
+    func setHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Height)
     }
     
-    private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute) {
+    private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute) -> NSLayoutConstraint {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
         let widthConstraint = NSLayoutConstraint(item: self,
@@ -239,32 +243,33 @@ extension UIView {
             multiplier: 1,
             constant: size)
         superview.addConstraint(widthConstraint)
+        return widthConstraint
     }
     
-    func matchParentWidth() {
-        matchParentDimension(.Width)
+    func matchParentWidth() -> NSLayoutConstraint {
+        return matchParentDimension(.Width)
     }
     
-    func matchParentHeight() {
-        matchParentDimension(.Height)
+    func matchParentHeight() -> NSLayoutConstraint {
+        return matchParentDimension(.Height)
     }
     
-    func fillParent() {
-        fillParentVertically()
-        fillParentHorizontally()
+    func fillParent() -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        constraints += fillParentVertically()
+        constraints += fillParentHorizontally()
+        return constraints
     }
 
-    func fillParentVertically() {
-        pinToTop()
-        pinToBottom()
+    func fillParentVertically() -> [NSLayoutConstraint] {
+        return [pinToTop(), pinToBottom()]
     }
 
-    func fillParentHorizontally() {
-        pinToLeft()
-        pinToRight()
+    func fillParentHorizontally() -> [NSLayoutConstraint] {
+        return [pinToLeft(), pinToRight()]
     }
     
-    private func matchParentDimension(dimension: NSLayoutAttribute) {
+    private func matchParentDimension(dimension: NSLayoutAttribute) -> NSLayoutConstraint {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
         let widthConstraint = NSLayoutConstraint(item: self,
@@ -275,5 +280,6 @@ extension UIView {
             multiplier: 1,
             constant: 0)
         superview.addConstraint(widthConstraint)
+        return widthConstraint
     }
 }
