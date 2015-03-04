@@ -163,6 +163,14 @@ extension UIView {
     func alignHorizontallyWith(sibling: UIView) {
         alignDimension(.CenterX, withSibling: sibling)
     }
+
+    func matchWidthOf(sibling: UIView) {
+        alignDimension(.Width, withSibling: sibling)
+    }
+
+    func matchHeightOf(sibling: UIView) {
+        alignDimension(.Height, withSibling: sibling)
+    }
     
     private func alignDimension(dimension: NSLayoutAttribute, withSibling sibling: UIView) {
         let superview = self.superview!
@@ -242,8 +250,16 @@ extension UIView {
     }
     
     func fillParent() {
+        fillParentVertically()
+        fillParentHorizontally()
+    }
+
+    func fillParentVertically() {
         pinToTop()
         pinToBottom()
+    }
+
+    func fillParentHorizontally() {
         pinToLeft()
         pinToRight()
     }
