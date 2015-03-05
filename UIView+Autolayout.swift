@@ -104,7 +104,25 @@ extension UIView {
         superview.addConstraint(topOffset)
         return topOffset
     }
-    
+
+    func placeToLeftOf(sibling: UIView, by offset: CGFloat) -> NSLayoutConstraint {
+        let superview = self.superview!
+        if (superview != sibling.superview!) {
+            fatalError("views do not share the same superview")
+        }
+        setTranslatesAutoresizingMaskIntoConstraints(false)
+        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let topOffset = NSLayoutConstraint(item: self,
+            attribute: .Right,
+            relatedBy: .Equal,
+            toItem: sibling,
+            attribute: .Left,
+            multiplier: 1,
+            constant: -offset)
+        superview.addConstraint(topOffset)
+        return topOffset
+    }
+
     func pinToTop() -> NSLayoutConstraint {
         return pinToEdge(.Top)
     }
@@ -244,6 +262,16 @@ extension UIView {
             constant: size)
         superview.addConstraint(widthConstraint)
         return widthConstraint
+    }
+
+    func matchHeightOfTallest(children: UIView...) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for child in children {
+            let constraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.GreaterThanOrEqual, toItem: child, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+            constraints.append(constraint)
+        }
+        self.addConstraints(constraints)
+        return constraints
     }
     
     func matchParentWidth() -> NSLayoutConstraint {
