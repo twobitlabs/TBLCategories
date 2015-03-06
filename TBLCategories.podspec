@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'TBLCategories'
-  s.version = '1.4.2'
+  s.version = '1.4.3'
   s.platform = :ios, '6.0'
   s.license = 'MIT'
   s.summary = 'Some useful Objective-C categories'
