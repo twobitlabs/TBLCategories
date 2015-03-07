@@ -11,23 +11,14 @@ private class InsetTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func inset(bounds: CGRect) -> CGRect {
-        return CGRect(
-            x: bounds.origin.x + insets.left,
-            y: bounds.origin.y + insets.top,
-            width: bounds.size.width - (insets.left + insets.right),
-            height: bounds.size.height - (insets.top + insets.bottom)
-        )
-    }
-
     // placeholder position
     override func textRectForBounds(bounds: CGRect) -> CGRect {
-        return inset(bounds)
+        return super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, insets))
     }
 
     // text position
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return inset(bounds)
+        return super.editingRectForBounds(UIEdgeInsetsInsetRect(bounds, insets))
     }
 }
 
