@@ -15,8 +15,8 @@ private class InsetTextField: UITextField {
         return CGRect(
             x: bounds.origin.x + insets.left,
             y: bounds.origin.y + insets.top,
-            width: bounds.size.width - insets.right,
-            height: bounds.size.height - insets.bottom
+            width: bounds.size.width - (insets.left + insets.right),
+            height: bounds.size.height - (insets.top + insets.bottom)
         )
     }
 
