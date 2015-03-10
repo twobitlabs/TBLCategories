@@ -267,7 +267,13 @@ extension UIView {
     func matchHeightOfTallest(children: UIView...) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         for child in children {
-            let constraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.GreaterThanOrEqual, toItem: child, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+            let constraint = NSLayoutConstraint(item: self,
+                attribute: .Bottom,
+                relatedBy: .GreaterThanOrEqual,
+                toItem: child,
+                attribute: .Bottom,
+                multiplier: 1,
+                constant: 0)
             constraints.append(constraint)
         }
         self.addConstraints(constraints)
