@@ -87,7 +87,12 @@ extension UIView {
         return topOffset
     }
 
-    func placeToRightOf(sibling: UIView, by offset: CGFloat) -> NSLayoutConstraint {
+    /**
+        Add a `NSLayoutConstraint that positions the caller at least `offset` points below `sibling`
+    
+        :returns: The constraint that was added to the caller's superview
+    */
+    func placeBelow(sibling: UIView, byAtLeast offset: CGFloat) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -95,14 +100,55 @@ extension UIView {
         setTranslatesAutoresizingMaskIntoConstraints(false)
         sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
         let topOffset = NSLayoutConstraint(item: self,
+            attribute: .Top,
+            relatedBy: .GreaterThanOrEqual,
+            toItem: sibling,
+            attribute: .Bottom,
+            multiplier: 1,
+            constant: offset)
+        superview.addConstraint(topOffset)
+        return topOffset
+    }
+
+    func placeToRightOf(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
+        let superview = self.superview!
+        if (superview != sibling.superview!) {
+            fatalError("views do not share the same superview")
+        }
+        setTranslatesAutoresizingMaskIntoConstraints(false)
+        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let rightOffset = NSLayoutConstraint(item: self,
             attribute: .Left,
             relatedBy: .Equal,
             toItem: sibling,
             attribute: .Right,
             multiplier: 1,
             constant: offset)
-        superview.addConstraint(topOffset)
-        return topOffset
+        superview.addConstraint(rightOffset)
+        return rightOffset
+    }
+
+    /**
+        Add a `NSLayoutConstraint that positions the caller at least `offset` points to the right of `sibling`
+
+        :returns: The constraint that was added to the caller's superview
+    */
+    func placeToRightOf(sibling: UIView, byAtLeast offset: CGFloat) -> NSLayoutConstraint {
+        let superview = self.superview!
+        if (superview != sibling.superview!) {
+            fatalError("views do not share the same superview")
+        }
+        setTranslatesAutoresizingMaskIntoConstraints(false)
+        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let rightOffset = NSLayoutConstraint(item: self,
+            attribute: .Left,
+            relatedBy: .Equal,
+            toItem: sibling,
+            attribute: .Right,
+            multiplier: 1,
+            constant: offset)
+        superview.addConstraint(rightOffset)
+        return rightOffset
     }
 
     func placeToLeftOf(sibling: UIView, by offset: CGFloat) -> NSLayoutConstraint {
@@ -112,15 +158,15 @@ extension UIView {
         }
         setTranslatesAutoresizingMaskIntoConstraints(false)
         sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
-        let topOffset = NSLayoutConstraint(item: self,
+        let leftOffset = NSLayoutConstraint(item: self,
             attribute: .Right,
             relatedBy: .Equal,
             toItem: sibling,
             attribute: .Left,
             multiplier: 1,
             constant: -offset)
-        superview.addConstraint(topOffset)
-        return topOffset
+        superview.addConstraint(leftOffset)
+        return leftOffset
     }
 
     func pinToTop() -> NSLayoutConstraint {
