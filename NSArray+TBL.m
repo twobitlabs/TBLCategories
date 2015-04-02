@@ -83,9 +83,12 @@
     return [self subarrayWithRange:NSMakeRange(index, [self count] - index)];
 }
 
-// returns the whole array if index is outside of bounds
+/**
+ Returns a subarray of the current array, up to the specified item (0-based index)
+ If the array has fewer than index+1 items, return the whole array
+ */
 -(NSArray *)subarrayToIndex:(NSUInteger)index {
-    if (index > [self count]) {
+    if (index >= [self count]) {
         return self;
     }
     return [self subarrayWithRange:NSMakeRange(0, index + 1)];
