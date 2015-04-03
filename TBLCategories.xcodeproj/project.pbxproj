@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C73893A1ACE591600B1C778 /* TBLCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C7389391ACE591600B1C778 /* TBLCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C7389401ACE591600B1C778 /* TBLCategories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7389341ACE591600B1C778 /* TBLCategories.framework */; };
 		9C7389471ACE591600B1C778 /* TBLCategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389461ACE591600B1C778 /* TBLCategoriesTests.swift */; };
 		9C7389741ACE59F800B1C778 /* Array+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389501ACE59F800B1C778 /* Array+TBL.swift */; };
@@ -159,7 +158,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C73893A1ACE591600B1C778 /* TBLCategories.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
