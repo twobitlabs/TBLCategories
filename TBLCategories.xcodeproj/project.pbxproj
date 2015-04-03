@@ -25,6 +25,7 @@
 		9C73899B1ACF108A00B1C778 /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73899A1ACF108A00B1C778 /* OperatorTests.swift */; };
 		9C73899D1ACF1B8100B1C778 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C73899C1ACF1B8100B1C778 /* Foundation.framework */; };
 		9C73899F1ACF1B8900B1C778 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C73899E1ACF1B8900B1C778 /* UIKit.framework */; };
+		9CF910411ACF5F27002354F4 /* TBLCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C7389391ACE591600B1C778 /* TBLCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF910411ACF5F27002354F4 /* TBLCategories.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
