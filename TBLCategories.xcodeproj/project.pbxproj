@@ -23,6 +23,7 @@
 		9C7389811ACE59F800B1C778 /* UIView+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73895D1ACE59F800B1C778 /* UIView+TBL.swift */; };
 		9C73898C1ACE59F800B1C778 /* NSLayoutConstraint+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389681ACE59F800B1C778 /* NSLayoutConstraint+TBL.swift */; };
 		9C7389991ACEEAAB00B1C778 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389981ACEEAAB00B1C778 /* StringTests.swift */; };
+		9C73899B1ACF108A00B1C778 /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73899A1ACF108A00B1C778 /* OperatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9C73895D1ACE59F800B1C778 /* UIView+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+TBL.swift"; sourceTree = "<group>"; };
 		9C7389681ACE59F800B1C778 /* NSLayoutConstraint+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+TBL.swift"; sourceTree = "<group>"; };
 		9C7389981ACEEAAB00B1C778 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		9C73899A1ACF108A00B1C778 /* OperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				9C7389461ACE591600B1C778 /* TBLCategoriesTests.swift */,
 				9C7389441ACE591600B1C778 /* Supporting Files */,
 				9C7389981ACEEAAB00B1C778 /* StringTests.swift */,
+				9C73899A1ACF108A00B1C778 /* OperatorTests.swift */,
 			);
 			path = TBLCategoriesTests;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7389991ACEEAAB00B1C778 /* StringTests.swift in Sources */,
+				9C73899B1ACF108A00B1C778 /* OperatorTests.swift in Sources */,
 				9C7389471ACE591600B1C778 /* TBLCategoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
