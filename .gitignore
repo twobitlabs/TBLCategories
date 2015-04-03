@@ -1,5 +1,8 @@
 Build
 
+# Xcode
+*/*.xcuserstate
+
 # OSX
 .DS_Store
 
