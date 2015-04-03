@@ -1,10 +1,10 @@
 import Foundation
 
-func unwrapOptionals<T>(a: [T]) -> [T] {
+public func unwrapOptionals<T>(a: [T]) -> [T] {
     return a
 }
 
-func unwrapOptionals<T>(a: [T?]) -> [T] {
+public func unwrapOptionals<T>(a: [T?]) -> [T] {
     return a.filter { $0 != nil }.map { $0! }
 }
 

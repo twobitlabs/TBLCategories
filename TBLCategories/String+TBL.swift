@@ -1,8 +1,8 @@
 import Foundation
 
-extension String {
+public extension String {
     
-    func contains(substring: String, ignoreCase: Bool = false) -> Bool {
+    public func contains(substring: String, ignoreCase: Bool = false) -> Bool {
         if let range = ignoreCase ?
             rangeOfString(substring, options: .CaseInsensitiveSearch) :
             rangeOfString(substring) {
@@ -12,7 +12,7 @@ extension String {
         }
     }
 
-    static func localized(key: String, table: String) -> String {
+    public static func localized(key: String, table: String) -> String {
         return NSLocalizedString(key, tableName: table, comment: "")
     }
     
