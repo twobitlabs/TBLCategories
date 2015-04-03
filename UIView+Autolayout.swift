@@ -295,13 +295,21 @@ extension UIView {
     func setHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
         return setSizeConstraint(size, dimension: .Height)
     }
+
+    func setMinWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Width, relatedBy: .GreaterThanOrEqual)
+    }
+
+    func setMinHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Height, relatedBy: .GreaterThanOrEqual)
+    }
     
-    private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute) -> NSLayoutConstraint {
+    private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute, relatedBy: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
         let widthConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
-            relatedBy: .Equal,
+            relatedBy: relatedBy,
             toItem: nil,
             attribute: .NotAnAttribute,
             multiplier: 1,
@@ -310,16 +318,20 @@ extension UIView {
         return widthConstraint
     }
 
-    func matchHeightOfTallest(children: UIView...) -> [NSLayoutConstraint] {
+    func matchHeightOfTallest(views: UIView...) -> [NSLayoutConstraint] {
+        return matchHeightOfTallest(views)
+    }
+
+    func matchHeightOfTallest(views: [UIView], withBottomMargin bottomMargin: CGFloat = 0) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
-        for child in children {
+        for view in views {
             let constraint = NSLayoutConstraint(item: self,
                 attribute: .Bottom,
                 relatedBy: .GreaterThanOrEqual,
-                toItem: child,
+                toItem: view,
                 attribute: .Bottom,
                 multiplier: 1,
-                constant: 0)
+                constant: bottomMargin)
             constraints.append(constraint)
         }
         self.addConstraints(constraints)
