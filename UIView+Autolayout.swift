@@ -305,7 +305,6 @@ extension UIView {
     }
     
     private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute, relatedBy: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
-        let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
         let widthConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
@@ -314,7 +313,7 @@ extension UIView {
             attribute: .NotAnAttribute,
             multiplier: 1,
             constant: size)
-        superview.addConstraint(widthConstraint)
+        addConstraint(widthConstraint)
         return widthConstraint
     }
 
