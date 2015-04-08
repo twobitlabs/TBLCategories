@@ -208,13 +208,29 @@ extension UIView {
     func insetFromParentBottom(inset: CGFloat) -> NSLayoutConstraint {
         return pinToEdge(.Bottom, inset: -inset)
     }
+
+    func insetFromParentLeftByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Left, inset: inset, relatedBy: .GreaterThanOrEqual)
+    }
+
+    func insetFromParentRightByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Right, inset: -inset, relatedBy: .LessThanOrEqual)
+    }
+
+    func insetFromParentTopByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Top, inset: inset, relatedBy: .GreaterThanOrEqual)
+    }
+
+    func insetFromParentBottomByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
+        return pinToEdge(.Bottom, inset: -inset, relatedBy: .LessThanOrEqual)
+    }
     
-    private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0) -> NSLayoutConstraint {
+    private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0, relatedBy: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
         let pin = NSLayoutConstraint(item: self,
             attribute: edge,
-            relatedBy: .Equal,
+            relatedBy: relatedBy,
             toItem: superview,
             attribute: edge,
             multiplier: 1,
