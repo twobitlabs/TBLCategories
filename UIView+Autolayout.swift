@@ -88,7 +88,7 @@ extension UIView {
     }
 
     /**
-        Add a `NSLayoutConstraint that positions the caller at least `offset` points below `sibling`
+        Add a `NSLayoutConstraint` that positions the caller at least `offset` points below `sibling`
     
         :returns: The constraint that was added to the caller's superview
     */
@@ -129,7 +129,7 @@ extension UIView {
     }
 
     /**
-        Add a `NSLayoutConstraint that positions the caller at least `offset` points to the right of `sibling`
+        Add a `NSLayoutConstraint` that positions the caller at least `offset` points to the right of `sibling`
 
         :returns: The constraint that was added to the caller's superview
     */
