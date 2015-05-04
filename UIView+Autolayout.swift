@@ -142,7 +142,7 @@ extension UIView {
         sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
         let rightOffset = NSLayoutConstraint(item: self,
             attribute: .Left,
-            relatedBy: .Equal,
+            relatedBy: .GreaterThanOrEqual,
             toItem: sibling,
             attribute: .Right,
             multiplier: 1,
