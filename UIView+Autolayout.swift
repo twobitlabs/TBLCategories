@@ -375,7 +375,26 @@ extension UIView {
     func fillParentHorizontally() -> [NSLayoutConstraint] {
         return [pinToLeft(), pinToRight()]
     }
-    
+
+    /**
+    Add a `NSLayoutConstraint` that sets the height of the view by applying the given ratio to the view's width
+
+    :returns: The constraint that was added to self
+    */
+
+    func setAspectRatio(ratio: Float) -> NSLayoutConstraint {
+        setTranslatesAutoresizingMaskIntoConstraints(false)
+        let ratioConstraint = NSLayoutConstraint(item: self,
+            attribute: .Height,
+            relatedBy: .Equal,
+            toItem: self,
+            attribute: .Width,
+            multiplier: CGFloat(1/ratio),
+            constant: 0)
+        addConstraint(ratioConstraint)
+        return ratioConstraint
+    }
+
     private func matchParentDimension(dimension: NSLayoutAttribute) -> NSLayoutConstraint {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
