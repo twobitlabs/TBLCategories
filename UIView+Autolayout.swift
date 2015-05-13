@@ -193,20 +193,20 @@ extension UIView {
         return [pinToEdge(.Top, inset: inset), pinToEdge(.Bottom, inset: -inset)]
     }
     
-    func insetFromParentLeft(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Left, inset: inset)
+    func insetFromParentLeft(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Left, inset: inset, priority: priority)
     }
     
-    func insetFromParentRight(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Right, inset: -inset)
+    func insetFromParentRight(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Right, inset: -inset, priority: priority)
     }
     
-    func insetFromParentTop(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Top, inset: inset)
+    func insetFromParentTop(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Top, inset: inset, priority: priority)
     }
     
-    func insetFromParentBottom(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Bottom, inset: -inset)
+    func insetFromParentBottom(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Bottom, inset: -inset, priority: priority)
     }
 
     func insetFromParentLeftByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
@@ -225,7 +225,7 @@ extension UIView {
         return pinToEdge(.Bottom, inset: -inset, relatedBy: .LessThanOrEqual)
     }
     
-    private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0, relatedBy: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
+    private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0, relatedBy: NSLayoutRelation = .Equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         setTranslatesAutoresizingMaskIntoConstraints(false)
         let pin = NSLayoutConstraint(item: self,
@@ -235,6 +235,9 @@ extension UIView {
             attribute: edge,
             multiplier: 1,
             constant: inset)
+        if let priority = priority {
+            pin.priority = priority
+        }
         superview.addConstraint(pin)
         return pin
     }
@@ -304,33 +307,36 @@ extension UIView {
     
     // MARK: - sizing
 
-    func setWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
-        return setSizeConstraint(size, dimension: .Width)
+    func setWidthConstraint(size: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Width, priority: priority)
     }
     
-    func setHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
-        return setSizeConstraint(size, dimension: .Height)
+    func setHeightConstraint(size: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Height, priority: priority)
     }
 
-    func setMinWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
-        return setSizeConstraint(size, dimension: .Width, relatedBy: .GreaterThanOrEqual)
+    func setMinWidthConstraint(size: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Width, relatedBy: .GreaterThanOrEqual, priority: priority)
     }
 
-    func setMinHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
-        return setSizeConstraint(size, dimension: .Height, relatedBy: .GreaterThanOrEqual)
+    func setMinHeightConstraint(size: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Height, relatedBy: .GreaterThanOrEqual, priority: priority)
     }
     
-    private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute, relatedBy: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
+    private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute, relatedBy: NSLayoutRelation = .Equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         setTranslatesAutoresizingMaskIntoConstraints(false)
-        let widthConstraint = NSLayoutConstraint(item: self,
+        let sizeConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
             relatedBy: relatedBy,
             toItem: nil,
             attribute: .NotAnAttribute,
             multiplier: 1,
             constant: size)
-        addConstraint(widthConstraint)
-        return widthConstraint
+        if let priority = priority {
+            sizeConstraint.priority = priority
+        }
+        addConstraint(sizeConstraint)
+        return sizeConstraint
     }
 
     func matchHeightOfTallest(views: UIView...) -> [NSLayoutConstraint] {
