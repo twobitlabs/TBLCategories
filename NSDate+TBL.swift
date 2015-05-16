@@ -1,4 +1,12 @@
 
+let secondsInAMinute = Double(60)
+let secondsInAnHour = 60 * secondsInAMinute
+let secondsInADay = 24 * secondsInAnHour
+let secondsInAWeek = 7 * secondsInADay
+
+let minutesInAnHour = Double(60)
+let minutesInADay = 24 * minutesInAnHour
+
 extension NSDate {
 
     func timeAgo() -> String {
@@ -22,50 +30,54 @@ extension NSDate {
                 return "0m"
             }
         } else if (deltaSeconds < (60 * 60)) {
-            let minutes = Int(floor(deltaSeconds/60))
+            let minutes = Int(floor(deltaSeconds/secondsInAMinute))
             return "\(minutes)m"
         } else if (deltaSeconds < (24 * 60 * 60)) {
-            let hours = Int(floor(deltaSeconds/(60 * 60)))
+            let hours = Int(floor(deltaSeconds/secondsInAnHour))
             return "\(hours)h"
         } else if (deltaSeconds < (7 * 24 * 60 * 60)) {
-            let days = Int(floor(deltaSeconds/(24 * 60 * 60)))
+            let days = Int(floor(deltaSeconds/secondsInADay))
             return "\(days)d"
         } else {
-            let weeks = Int(floor(deltaSeconds/(7 * 24 * 60 * 60)))
+            let weeks = Int(floor(deltaSeconds/secondsInAWeek))
             return "\(weeks)w"
         }
     }
 
-    func isNewerThan(date: NSDate) -> Bool {
-        return compare(date) == .OrderedDescending
+    func isAfter(otherDate: NSDate) -> Bool {
+        return compare(otherDate) == .OrderedDescending
     }
 
-    func isOlderThan(date: NSDate) -> Bool {
-        return compare(date) == .OrderedAscending
+    func isBefore(otherDate: NSDate) -> Bool {
+        return compare(otherDate) == .OrderedAscending
     }
 
-    func isBefore(#daysAgo: Int) -> Bool {
-        return isBefore(minutesAgo: (daysAgo * 24 * 60))
+    func isBefore(#daysAgo: Double) -> Bool {
+        return isBefore(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    func isAfter(#daysAgo: Int) -> Bool {
-        return isAfter(minutesAgo: (daysAgo * 24 * 60))
+    func isAfter(#daysAgo: Double) -> Bool {
+        return isAfter(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    func isBefore(#hoursAgo: Int) -> Bool {
-        return isBefore(minutesAgo: (hoursAgo * 60))
+    func isBefore(#hoursAgo: Double) -> Bool {
+        return isBefore(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    func isAfter(#hoursAgo: Int) -> Bool {
-        return isAfter(minutesAgo: (hoursAgo * 60))
+    func isAfter(#hoursAgo: Double) -> Bool {
+        return isAfter(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    func isBefore(#minutesAgo: Int) -> Bool {
-        return timeIntervalSinceNow < NSTimeInterval(minutesAgo * 60)
+    func isBefore(#minutesAgo: Double) -> Bool {
+        return timeIntervalSinceNow < inThePast(minutesAgo * secondsInAMinute)
     }
 
-    func isAfter(#minutesAgo: Int) -> Bool {
-        return timeIntervalSinceNow > NSTimeInterval(minutesAgo * 60)
+    func isAfter(#minutesAgo: Double) -> Bool {
+        return timeIntervalSinceNow > inThePast(minutesAgo * secondsInAMinute)
+    }
+
+    private func inThePast(seconds: Double) -> NSTimeInterval {
+        return -seconds
     }
 
     func isToday() -> Bool {
