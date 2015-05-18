@@ -1,11 +1,11 @@
 Build
 
 # Xcode
-xcuserdata
-xcshareddata
-*.xcuserstate
-*.xccheckout
-*.xcworkspace
+**/xcuserdata
+**/xcshareddata
+**/*.xcuserstate
+**/*.xccheckout
+**/*.xcworkspace/**
 
 # OSX
 .DS_Store
