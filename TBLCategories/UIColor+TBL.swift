@@ -8,7 +8,7 @@ public extension UIColor {
         
         var value:UInt32 = 0
         
-        let characters = countElements(colorHexString)
+        let characters = count(colorHexString)
         if (characters == 6) {
             // no alpha supported
             if (colorScanner.scanHexInt(&value)) {
