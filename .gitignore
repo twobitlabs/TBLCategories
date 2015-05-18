@@ -3,6 +3,8 @@ Build
 # Xcode
 xcuserdata
 xcshareddata
+*.xcuserstate
+*.xccheckout
 
 # OSX
 .DS_Store
