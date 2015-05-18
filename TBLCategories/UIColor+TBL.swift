@@ -1,8 +1,8 @@
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
-    class func colorFromHexString(hexString: String) -> UIColor? {
+    public class func colorFromHexString(hexString: String) -> UIColor? {
         let colorHexString = hexString.stringByReplacingOccurrencesOfString("#", withString: "", options: NSStringCompareOptions.allZeros, range: nil)
         let colorScanner = NSScanner(string: colorHexString)
         
@@ -25,7 +25,7 @@ extension UIColor {
         return nil
     }
 
-    func asImage() -> UIImage {
+    public func asImage() -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         let context: CGContext = UIGraphicsGetCurrentContext()

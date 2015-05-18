@@ -1,40 +1,40 @@
 import UIKit
 
-extension UIView {
+public extension UIView {
 
-    func top() -> CGFloat {
+    public func top() -> CGFloat {
         return frame.origin.y
     }
     
-    func bottom() -> CGFloat {
+    public func bottom() -> CGFloat {
         return frame.origin.y + frame.size.height
     }
     
-    func left() -> CGFloat {
+    public func left() -> CGFloat {
         return frame.origin.x
     }
     
-    func right() -> CGFloat {
+    public func right() -> CGFloat {
         return frame.origin.x + frame.size.width
     }
     
-    func height() -> CGFloat {
+    public func height() -> CGFloat {
         return frame.size.height
     }
     
-    func width() -> CGFloat {
+    public func width() -> CGFloat {
         return frame.size.width
     }
     
-    func roundCorners() {
+    public func roundCorners() {
         roundCorners(.AllCorners)
     }
     
-    func roundCorners(corners: UIRectCorner) {
+    public func roundCorners(corners: UIRectCorner) {
         roundCorners(corners, withRadius:8)
     }
     
-    func roundCorners(corners: UIRectCorner, withRadius radius: CGFloat) {
+    public func roundCorners(corners: UIRectCorner, withRadius radius: CGFloat) {
         if (corners == .AllCorners) {
             self.layer.cornerRadius = radius;
         } else {

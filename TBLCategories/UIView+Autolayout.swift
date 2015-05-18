@@ -1,8 +1,8 @@
 import UIKit
 
-extension UIView {
+public extension UIView {
 
-    func addConstraintsFromDescriptions(constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutFormatOptions = NSLayoutFormatOptions.allZeros, metrics: Dictionary<String, NSNumber>? = nil) {
+    public func addConstraintsFromDescriptions(constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutFormatOptions = NSLayoutFormatOptions.allZeros, metrics: Dictionary<String, NSNumber>? = nil) {
         for view in views.values {
             view.setTranslatesAutoresizingMaskIntoConstraints(false)
         }
@@ -13,7 +13,7 @@ extension UIView {
     
     // MARK: - centering
     
-    func centerChildHorizontally(childView: UIView) -> NSLayoutConstraint {
+    public func centerChildHorizontally(childView: UIView) -> NSLayoutConstraint {
         childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let centerHorizontally = NSLayoutConstraint(item: childView,
             attribute: .CenterX,
@@ -26,13 +26,13 @@ extension UIView {
         return centerHorizontally
     }
     
-    func centerChildrenHorizontally(childViews: [UIView]) {
+    public func centerChildrenHorizontally(childViews: [UIView]) {
         for view in childViews {
             centerChildHorizontally(view)
         }
     }
     
-    func centerChildVertically(childView: UIView) -> NSLayoutConstraint {
+    public func centerChildVertically(childView: UIView) -> NSLayoutConstraint {
         childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let centerVertically = NSLayoutConstraint(item: childView,
             attribute: .CenterY,
@@ -45,13 +45,13 @@ extension UIView {
         return centerVertically
     }
 
-    func centerChild(childView: UIView) -> [NSLayoutConstraint] {
+    public func centerChild(childView: UIView) -> [NSLayoutConstraint] {
         return [centerChildHorizontally(childView), centerChildVertically(childView)]
     }
     
     // MARK: - positioning
      
-    func placeAbove(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
+    public func placeAbove(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -69,7 +69,7 @@ extension UIView {
         return bottomOffset
     }
 
-    func placeBelow(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
+    public func placeBelow(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -92,7 +92,7 @@ extension UIView {
     
         :returns: The constraint that was added to the caller's superview
     */
-    func placeBelow(sibling: UIView, byAtLeast offset: CGFloat) -> NSLayoutConstraint {
+    public func placeBelow(sibling: UIView, byAtLeast offset: CGFloat) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -110,7 +110,7 @@ extension UIView {
         return topOffset
     }
 
-    func placeToRightOf(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
+    public func placeToRightOf(sibling: UIView, by offset: CGFloat = 0) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -133,7 +133,7 @@ extension UIView {
 
         :returns: The constraint that was added to the caller's superview
     */
-    func placeToRightOf(sibling: UIView, byAtLeast offset: CGFloat) -> NSLayoutConstraint {
+    public func placeToRightOf(sibling: UIView, byAtLeast offset: CGFloat) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -151,7 +151,7 @@ extension UIView {
         return rightOffset
     }
 
-    func placeToLeftOf(sibling: UIView, by offset: CGFloat) -> NSLayoutConstraint {
+    public func placeToLeftOf(sibling: UIView, by offset: CGFloat) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -169,43 +169,43 @@ extension UIView {
         return leftOffset
     }
 
-    func pinToTop() -> NSLayoutConstraint {
+    public func pinToTop() -> NSLayoutConstraint {
         return pinToEdge(.Top)
     }
     
-    func pinToBottom() -> NSLayoutConstraint {
+    public func pinToBottom() -> NSLayoutConstraint {
         return pinToEdge(.Bottom)
     }
     
-    func pinToLeft() -> NSLayoutConstraint {
+    public func pinToLeft() -> NSLayoutConstraint {
         return pinToEdge(.Left)
     }
     
-    func pinToRight() -> NSLayoutConstraint {
+    public func pinToRight() -> NSLayoutConstraint {
         return pinToEdge(.Right)
     }
     
-    func insetFromParentHorizontally(inset: CGFloat) -> [NSLayoutConstraint] {
+    public func insetFromParentHorizontally(inset: CGFloat) -> [NSLayoutConstraint] {
         return [pinToEdge(.Left, inset: inset), pinToEdge(.Right, inset: -inset)]
     }
 
-    func insetFromParentVertically(inset: CGFloat) -> [NSLayoutConstraint] {
+    public func insetFromParentVertically(inset: CGFloat) -> [NSLayoutConstraint] {
         return [pinToEdge(.Top, inset: inset), pinToEdge(.Bottom, inset: -inset)]
     }
     
-    func insetFromParentLeft(inset: CGFloat) -> NSLayoutConstraint {
+    public func insetFromParentLeft(inset: CGFloat) -> NSLayoutConstraint {
         return pinToEdge(.Left, inset: inset)
     }
     
-    func insetFromParentRight(inset: CGFloat) -> NSLayoutConstraint {
+    public func insetFromParentRight(inset: CGFloat) -> NSLayoutConstraint {
         return pinToEdge(.Right, inset: -inset)
     }
     
-    func insetFromParentTop(inset: CGFloat) -> NSLayoutConstraint {
+    public func insetFromParentTop(inset: CGFloat) -> NSLayoutConstraint {
         return pinToEdge(.Top, inset: inset)
     }
     
-    func insetFromParentBottom(inset: CGFloat) -> NSLayoutConstraint {
+    public func insetFromParentBottom(inset: CGFloat) -> NSLayoutConstraint {
         return pinToEdge(.Bottom, inset: -inset)
     }
     
@@ -223,19 +223,19 @@ extension UIView {
         return pin
     }
     
-    func alignVerticallyWith(sibling: UIView) -> NSLayoutConstraint {
+    public func alignVerticallyWith(sibling: UIView) -> NSLayoutConstraint {
         return alignDimension(.CenterY, withSibling: sibling)
     }
     
-    func alignHorizontallyWith(sibling: UIView) -> NSLayoutConstraint {
+    public func alignHorizontallyWith(sibling: UIView) -> NSLayoutConstraint {
         return alignDimension(.CenterX, withSibling: sibling)
     }
 
-    func matchWidthOf(sibling: UIView) -> NSLayoutConstraint {
+    public func matchWidthOf(sibling: UIView) -> NSLayoutConstraint {
         return alignDimension(.Width, withSibling: sibling)
     }
 
-    func matchHeightOf(sibling: UIView) -> NSLayoutConstraint {
+    public func matchHeightOf(sibling: UIView) -> NSLayoutConstraint {
         return alignDimension(.Height, withSibling: sibling)
     }
     
@@ -260,7 +260,7 @@ extension UIView {
     // TODO: this only works if the superview is centered in its superview.
     // Can't use superview.Width as you can't base child's .CenterX on it
     // http://stackoverflow.com/questions/13867736/why-is-nslayoutattributecenterx-an-invalid-pairing-with-nslayoutattributewidth
-    func distributeHorizontally(children: [UIView]) {
+    public func distributeHorizontally(children: [UIView]) {
         if children.isEmpty {
             return
         }
@@ -288,19 +288,19 @@ extension UIView {
     
     // MARK: - sizing
 
-    func setWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
+    public func setWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
         return setSizeConstraint(size, dimension: .Width)
     }
     
-    func setHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
+    public func setHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
         return setSizeConstraint(size, dimension: .Height)
     }
 
-    func setMinWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
+    public func setMinWidthConstraint(size: CGFloat) -> NSLayoutConstraint {
         return setSizeConstraint(size, dimension: .Width, relatedBy: .GreaterThanOrEqual)
     }
 
-    func setMinHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
+    public func setMinHeightConstraint(size: CGFloat) -> NSLayoutConstraint {
         return setSizeConstraint(size, dimension: .Height, relatedBy: .GreaterThanOrEqual)
     }
     
@@ -318,11 +318,11 @@ extension UIView {
         return widthConstraint
     }
 
-    func matchHeightOfTallest(views: UIView...) -> [NSLayoutConstraint] {
+    public func matchHeightOfTallest(views: UIView...) -> [NSLayoutConstraint] {
         return matchHeightOfTallest(views)
     }
 
-    func matchHeightOfTallest(views: [UIView], withBottomMargin bottomMargin: CGFloat = 0) -> [NSLayoutConstraint] {
+    public func matchHeightOfTallest(views: [UIView], withBottomMargin bottomMargin: CGFloat = 0) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         for view in views {
             let constraint = NSLayoutConstraint(item: self,
@@ -338,26 +338,26 @@ extension UIView {
         return constraints
     }
     
-    func matchParentWidth() -> NSLayoutConstraint {
+    public func matchParentWidth() -> NSLayoutConstraint {
         return matchParentDimension(.Width)
     }
     
-    func matchParentHeight() -> NSLayoutConstraint {
+    public func matchParentHeight() -> NSLayoutConstraint {
         return matchParentDimension(.Height)
     }
     
-    func fillParent() -> [NSLayoutConstraint] {
+    public func fillParent() -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         constraints += fillParentVertically()
         constraints += fillParentHorizontally()
         return constraints
     }
 
-    func fillParentVertically() -> [NSLayoutConstraint] {
+    public func fillParentVertically() -> [NSLayoutConstraint] {
         return [pinToTop(), pinToBottom()]
     }
 
-    func fillParentHorizontally() -> [NSLayoutConstraint] {
+    public func fillParentHorizontally() -> [NSLayoutConstraint] {
         return [pinToLeft(), pinToRight()]
     }
     

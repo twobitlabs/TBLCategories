@@ -1,8 +1,8 @@
 import UIKit
 
-extension UIButton {
+public extension UIButton {
 
-    class func buttonWithLabel(text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
+    public class func buttonWithLabel(text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
         let button = UIButton.buttonWithType(.Custom) as UIButton
         button.setTitle(text, forState: .Normal)
         button.setTitleColor(textColor, forState: .Normal)
@@ -16,7 +16,7 @@ extension UIButton {
         return button
     }
     
-    class func buttonWithImage(imageName: String, target: AnyObject? = nil, action: Selector? = nil, tintColor: UIColor? = nil) -> UIButton {
+    public class func buttonWithImage(imageName: String, target: AnyObject? = nil, action: Selector? = nil, tintColor: UIColor? = nil) -> UIButton {
         let button = UIButton.buttonWithType(.Custom) as UIButton
         var image = UIImage(named: imageName)
         if tintColor != nil {

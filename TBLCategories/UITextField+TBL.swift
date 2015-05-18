@@ -23,9 +23,9 @@ private class InsetTextField: UITextField {
     }
 }
 
-extension UITextField {
+public extension UITextField {
 
-    class func textFieldWithInsets(insets: UIEdgeInsets) -> UITextField {
+    public class func textFieldWithInsets(insets: UIEdgeInsets) -> UITextField {
         return InsetTextField(insets: insets)
     }
 
