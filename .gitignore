@@ -5,6 +5,7 @@ xcuserdata
 xcshareddata
 *.xcuserstate
 *.xccheckout
+*.xcworkspace
 
 # OSX
 .DS_Store
