@@ -25,6 +25,9 @@
 		9C73899B1ACF108A00B1C778 /* OperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73899A1ACF108A00B1C778 /* OperatorTests.swift */; };
 		9C73899D1ACF1B8100B1C778 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C73899C1ACF1B8100B1C778 /* Foundation.framework */; };
 		9C73899F1ACF1B8900B1C778 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C73899E1ACF1B8900B1C778 /* UIKit.framework */; };
+		9CF1470F1B0AA1C400D62A4E /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1470E1B0AA1C400D62A4E /* NSDateTests.swift */; };
+		9CF147E81B0AA3E300D62A4E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF147E11B0AA2FE00D62A4E /* Nimble.framework */; };
+		9CF147EA1B0AA54900D62A4E /* NSDate+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF147E91B0AA54900D62A4E /* NSDate+TBL.swift */; };
 		9CF910411ACF5F27002354F4 /* TBLCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C7389391ACE591600B1C778 /* TBLCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9C7389331ACE591600B1C778;
 			remoteInfo = TBLCategories;
+		};
+		9CF147E01B0AA2FE00D62A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74291940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
+		9CF147E21B0AA2FE00D62A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74341940169200FFFC47;
+			remoteInfo = "Nimble-iOSTests";
+		};
+		9CF147E41B0AA2FE00D62A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EAD195C0D6300ED456B;
+			remoteInfo = "Nimble-OSX";
+		};
+		9CF147E61B0AA2FE00D62A4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EB7195C0D6300ED456B;
+			remoteInfo = "Nimble-OSXTests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -61,6 +92,9 @@
 		9C73899A1ACF108A00B1C778 /* OperatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorTests.swift; sourceTree = "<group>"; };
 		9C73899C1ACF1B8100B1C778 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C73899E1ACF1B8900B1C778 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9CF1470E1B0AA1C400D62A4E /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
+		9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Nimble.xcodeproj; sourceTree = "<group>"; };
+		9CF147E91B0AA54900D62A4E /* NSDate+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+TBL.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF147E81B0AA3E300D62A4E /* Nimble.framework in Frameworks */,
 				9C7389401ACE591600B1C778 /* TBLCategories.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +142,7 @@
 		9C7389361ACE591600B1C778 /* TBLCategories */ = {
 			isa = PBXGroup;
 			children = (
+				9CF147E91B0AA54900D62A4E /* NSDate+TBL.swift */,
 				9C7389501ACE59F800B1C778 /* Array+TBL.swift */,
 				9C7389521ACE59F800B1C778 /* NSNotificationCenter+TBL.swift */,
 				9C7389531ACE59F800B1C778 /* Operators.swift */,
@@ -136,10 +172,12 @@
 		9C7389431ACE591600B1C778 /* TBLCategoriesTests */ = {
 			isa = PBXGroup;
 			children = (
+				9CF147101B0AA2FD00D62A4E /* Nimble */,
 				9C7389461ACE591600B1C778 /* TBLCategoriesTests.swift */,
 				9C7389441ACE591600B1C778 /* Supporting Files */,
 				9C7389981ACEEAAB00B1C778 /* StringTests.swift */,
 				9C73899A1ACF108A00B1C778 /* OperatorTests.swift */,
+				9CF1470E1B0AA1C400D62A4E /* NSDateTests.swift */,
 			);
 			path = TBLCategoriesTests;
 			sourceTree = "<group>";
@@ -150,6 +188,25 @@
 				9C7389451ACE591600B1C778 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CF147101B0AA2FD00D62A4E /* Nimble */ = {
+			isa = PBXGroup;
+			children = (
+				9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */,
+			);
+			path = Nimble;
+			sourceTree = "<group>";
+		};
+		9CF147471B0AA2FD00D62A4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CF147E11B0AA2FE00D62A4E /* Nimble.framework */,
+				9CF147E31B0AA2FE00D62A4E /* NimbleTests.xctest */,
+				9CF147E51B0AA2FE00D62A4E /* Nimble.framework */,
+				9CF147E71B0AA2FE00D62A4E /* NimbleTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +286,12 @@
 			mainGroup = 9C73892A1ACE591600B1C778;
 			productRefGroup = 9C7389351ACE591600B1C778 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9CF147471B0AA2FD00D62A4E /* Products */;
+					ProjectRef = 9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9C7389331ACE591600B1C778 /* TBLCategories */,
@@ -236,6 +299,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9CF147E11B0AA2FE00D62A4E /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 9CF147E01B0AA2FE00D62A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CF147E31B0AA2FE00D62A4E /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = 9CF147E21B0AA2FE00D62A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CF147E51B0AA2FE00D62A4E /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 9CF147E41B0AA2FE00D62A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9CF147E71B0AA2FE00D62A4E /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = 9CF147E61B0AA2FE00D62A4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9C7389321ACE591600B1C778 /* Resources */ = {
@@ -268,6 +362,7 @@
 				9C7389791ACE59F800B1C778 /* UIButton+TBL.swift in Sources */,
 				9C73897F1ACE59F800B1C778 /* UITextField+TBL.swift in Sources */,
 				9C73898C1ACE59F800B1C778 /* NSLayoutConstraint+TBL.swift in Sources */,
+				9CF147EA1B0AA54900D62A4E /* NSDate+TBL.swift in Sources */,
 				9C7389811ACE59F800B1C778 /* UIView+TBL.swift in Sources */,
 				9C73897D1ACE59F800B1C778 /* UILabel+TBL.swift in Sources */,
 				9C73897B1ACE59F800B1C778 /* UIColor+TBL.swift in Sources */,
@@ -280,6 +375,7 @@
 			files = (
 				9C7389991ACEEAAB00B1C778 /* StringTests.swift in Sources */,
 				9C73899B1ACF108A00B1C778 /* OperatorTests.swift in Sources */,
+				9CF1470F1B0AA1C400D62A4E /* NSDateTests.swift in Sources */,
 				9C7389471ACE591600B1C778 /* TBLCategoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

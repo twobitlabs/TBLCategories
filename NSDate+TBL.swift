@@ -7,18 +7,18 @@ let secondsInAWeek = 7 * secondsInADay
 let minutesInAnHour = Double(60)
 let minutesInADay = 24 * minutesInAnHour
 
-extension NSDate {
+public extension NSDate {
 
-    func timeAgo() -> String {
+    public func timeAgo() -> String {
         return timeAgoWithSeconds(false)
     }
 
-    func timeAgoWithSeconds() -> String {
+    public func timeAgoWithSeconds() -> String {
         return timeAgoWithSeconds(true)
     }
 
     // TODO: add version with format specifier
-    func timeAgoWithSeconds(withSeconds: Bool) -> String {
+    public func timeAgoWithSeconds(withSeconds: Bool) -> String {
         let now = NSDate()
         let deltaSeconds: NSTimeInterval = now.timeIntervalSinceDate(self)
         if (deltaSeconds <= 0) {
@@ -44,35 +44,35 @@ extension NSDate {
         }
     }
 
-    func isAfter(otherDate: NSDate) -> Bool {
+    public func isAfter(otherDate: NSDate) -> Bool {
         return compare(otherDate) == .OrderedDescending
     }
 
-    func isBefore(otherDate: NSDate) -> Bool {
+    public func isBefore(otherDate: NSDate) -> Bool {
         return compare(otherDate) == .OrderedAscending
     }
 
-    func isBefore(#daysAgo: Double) -> Bool {
+    public func isBefore(#daysAgo: Double) -> Bool {
         return isBefore(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    func isAfter(#daysAgo: Double) -> Bool {
+    public func isAfter(#daysAgo: Double) -> Bool {
         return isAfter(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    func isBefore(#hoursAgo: Double) -> Bool {
+    public func isBefore(#hoursAgo: Double) -> Bool {
         return isBefore(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    func isAfter(#hoursAgo: Double) -> Bool {
+    public func isAfter(#hoursAgo: Double) -> Bool {
         return isAfter(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    func isBefore(#minutesAgo: Double) -> Bool {
+    public func isBefore(#minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow < inThePast(minutesAgo * secondsInAMinute)
     }
 
-    func isAfter(#minutesAgo: Double) -> Bool {
+    public func isAfter(#minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow > inThePast(minutesAgo * secondsInAMinute)
     }
 
@@ -80,7 +80,7 @@ extension NSDate {
         return -seconds
     }
 
-    func isToday() -> Bool {
+    public func isToday() -> Bool {
         let calendar = NSCalendar.currentCalendar()
         let nowComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate: NSDate())
         let selfComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate:self)
@@ -94,7 +94,7 @@ extension NSDate {
         return false
     }
 
-    func isTomorrow() -> Bool {
+    public func isTomorrow() -> Bool {
         let calendar = NSCalendar.currentCalendar()
         let nowComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate: NSDate())
         let selfComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate:self)
