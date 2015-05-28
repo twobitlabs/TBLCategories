@@ -169,20 +169,20 @@ public extension UIView {
         return leftOffset
     }
 
-    public func pinToTop() -> NSLayoutConstraint {
-        return pinToEdge(.Top)
+    public func pinToTop(priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Top, priority: priority)
     }
     
-    public func pinToBottom() -> NSLayoutConstraint {
-        return pinToEdge(.Bottom)
+    public func pinToBottom(priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Bottom, priority: priority)
     }
     
-    public func pinToLeft() -> NSLayoutConstraint {
-        return pinToEdge(.Left)
+    public func pinToLeft(priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Left, priority: priority)
     }
     
-    public func pinToRight() -> NSLayoutConstraint {
-        return pinToEdge(.Right)
+    public func pinToRight(priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Right, priority: priority)
     }
     
     public func insetFromParentHorizontally(inset: CGFloat) -> [NSLayoutConstraint] {
@@ -374,12 +374,12 @@ public extension UIView {
         return constraints
     }
 
-    public func fillParentVertically() -> [NSLayoutConstraint] {
-        return [pinToTop(), pinToBottom()]
+    public func fillParentVertically(priority: UILayoutPriority? = nil) -> [NSLayoutConstraint] {
+        return [pinToTop(priority: priority), pinToBottom(priority: priority)]
     }
 
-    public func fillParentHorizontally() -> [NSLayoutConstraint] {
-        return [pinToLeft(), pinToRight()]
+    public func fillParentHorizontally(priority: UILayoutPriority? = nil) -> [NSLayoutConstraint] {
+        return [pinToLeft(priority: priority), pinToRight(priority: priority)]
     }
 
     /**
