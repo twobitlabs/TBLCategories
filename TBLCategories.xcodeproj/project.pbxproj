@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B675FFA1B2A345C00AACEFE /* UIImage+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */; };
 		9C7389401ACE591600B1C778 /* TBLCategories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7389341ACE591600B1C778 /* TBLCategories.framework */; };
 		9C7389471ACE591600B1C778 /* TBLCategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389461ACE591600B1C778 /* TBLCategoriesTests.swift */; };
 		9C7389991ACEEAAB00B1C778 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389981ACEEAAB00B1C778 /* StringTests.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+TBL.swift"; path = "Swift Extensions/UIImage+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9C7389341ACE591600B1C778 /* TBLCategories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TBLCategories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7389381ACE591600B1C778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7389391ACE591600B1C778 /* TBLCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBLCategories.h; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		9C7389361ACE591600B1C778 /* TBLCategories */ = {
 			isa = PBXGroup;
 			children = (
+				8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */,
 				9CF1480B1B0AAE0B00D62A4E /* Array+TBL.swift */,
 				9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */,
 				9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */,
@@ -356,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B675FFA1B2A345C00AACEFE /* UIImage+TBL.swift in Sources */,
 				9CF1481C1B0AAE0C00D62A4E /* NSNotificationCenter+TBL.swift in Sources */,
 				9CF1481D1B0AAE0C00D62A4E /* Operators.swift in Sources */,
 				9CF148221B0AAE0C00D62A4E /* UILabel+TBL.swift in Sources */,
