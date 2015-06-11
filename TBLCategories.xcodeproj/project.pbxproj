@@ -19,7 +19,6 @@
 		9CF148191B0AAE0C00D62A4E /* Array+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480B1B0AAE0B00D62A4E /* Array+TBL.swift */; };
 		9CF1481A1B0AAE0C00D62A4E /* NSDate+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */; };
 		9CF1481B1B0AAE0C00D62A4E /* NSLayoutConstraint+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */; };
-		9CF1481C1B0AAE0C00D62A4E /* NSNotificationCenter+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480E1B0AAE0B00D62A4E /* NSNotificationCenter+TBL.swift */; };
 		9CF1481D1B0AAE0C00D62A4E /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480F1B0AAE0B00D62A4E /* Operators.swift */; };
 		9CF1481E1B0AAE0C00D62A4E /* Optional+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF148101B0AAE0B00D62A4E /* Optional+TBL.swift */; };
 		9CF1481F1B0AAE0C00D62A4E /* String+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF148111B0AAE0B00D62A4E /* String+TBL.swift */; };
@@ -88,7 +87,6 @@
 		9CF1480B1B0AAE0B00D62A4E /* Array+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+TBL.swift"; path = "Swift Extensions/Array+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+TBL.swift"; path = "Swift Extensions/NSDate+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLayoutConstraint+TBL.swift"; path = "Swift Extensions/NSLayoutConstraint+TBL.swift"; sourceTree = SOURCE_ROOT; };
-		9CF1480E1B0AAE0B00D62A4E /* NSNotificationCenter+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSNotificationCenter+TBL.swift"; path = "Swift Extensions/NSNotificationCenter+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF1480F1B0AAE0B00D62A4E /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = "Swift Extensions/Operators.swift"; sourceTree = SOURCE_ROOT; };
 		9CF148101B0AAE0B00D62A4E /* Optional+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Optional+TBL.swift"; path = "Swift Extensions/Optional+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF148111B0AAE0B00D62A4E /* String+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+TBL.swift"; path = "Swift Extensions/String+TBL.swift"; sourceTree = SOURCE_ROOT; };
@@ -150,7 +148,6 @@
 				9CF1480B1B0AAE0B00D62A4E /* Array+TBL.swift */,
 				9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */,
 				9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */,
-				9CF1480E1B0AAE0B00D62A4E /* NSNotificationCenter+TBL.swift */,
 				9CF1480F1B0AAE0B00D62A4E /* Operators.swift */,
 				9CF148101B0AAE0B00D62A4E /* Optional+TBL.swift */,
 				9CF148111B0AAE0B00D62A4E /* String+TBL.swift */,
@@ -360,7 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B675FFA1B2A345C00AACEFE /* UIImage+TBL.swift in Sources */,
-				9CF1481C1B0AAE0C00D62A4E /* NSNotificationCenter+TBL.swift in Sources */,
 				9CF1481D1B0AAE0C00D62A4E /* Operators.swift in Sources */,
 				9CF148221B0AAE0C00D62A4E /* UILabel+TBL.swift in Sources */,
 				9CF1481B1B0AAE0C00D62A4E /* NSLayoutConstraint+TBL.swift in Sources */,
