@@ -257,6 +257,22 @@ public extension UIView {
     public func matchHeightOf(sibling: UIView) -> NSLayoutConstraint {
         return alignDimension(.Height, withSibling: sibling)
     }
+
+    public func matchTopOf(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.Top, withSibling: sibling)
+    }
+
+    public func matchBottomOf(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.Bottom, withSibling: sibling)
+    }
+
+    public func matchLeftOf(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.Left, withSibling: sibling)
+    }
+
+    public func matchRightOf(sibling: UIView) -> NSLayoutConstraint {
+        return alignDimension(.Right, withSibling: sibling)
+    }
     
     private func alignDimension(dimension: NSLayoutAttribute, withSibling sibling: UIView) -> NSLayoutConstraint {
         let superview = self.superview!
