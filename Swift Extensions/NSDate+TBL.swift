@@ -3,6 +3,7 @@ let secondsInAMinute = Double(60)
 let secondsInAnHour = 60 * secondsInAMinute
 let secondsInADay = 24 * secondsInAnHour
 let secondsInAWeek = 7 * secondsInADay
+let secondsInAYear = 365 * secondsInADay
 
 let minutesInAnHour = Double(60)
 let minutesInADay = 24 * minutesInAnHour
@@ -23,24 +24,27 @@ public extension NSDate {
         let deltaSeconds: NSTimeInterval = now.timeIntervalSinceDate(self)
         if (deltaSeconds <= 0) {
             return (withSeconds ? "1s" : "1m") // special case for clock wonkiness
-        } else if (deltaSeconds < 60) {
+        } else if (deltaSeconds < secondsInAMinute) {
             if (withSeconds) {
                 return "\(deltaSeconds)s"
             } else {
                 return "0m"
             }
-        } else if (deltaSeconds < (60 * 60)) {
+        } else if (deltaSeconds < secondsInAnHour) {
             let minutes = Int(floor(deltaSeconds/secondsInAMinute))
             return "\(minutes)m"
-        } else if (deltaSeconds < (24 * 60 * 60)) {
+        } else if (deltaSeconds < secondsInADay) {
             let hours = Int(floor(deltaSeconds/secondsInAnHour))
             return "\(hours)h"
-        } else if (deltaSeconds < (7 * 24 * 60 * 60)) {
+        } else if (deltaSeconds < secondsInAWeek) {
             let days = Int(floor(deltaSeconds/secondsInADay))
             return "\(days)d"
-        } else {
+        } else if (deltaSeconds < secondsInAYear) {
             let weeks = Int(floor(deltaSeconds/secondsInAWeek))
             return "\(weeks)w"
+        } else {
+            let years = Int(floor(deltaSeconds/secondsInAYear))
+            return "\(years)y"
         }
     }
 
