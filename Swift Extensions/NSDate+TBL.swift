@@ -26,7 +26,8 @@ public extension NSDate {
             return (withSeconds ? "1s" : "1m") // special case for clock wonkiness
         } else if (deltaSeconds < secondsInAMinute) {
             if (withSeconds) {
-                return "\(Int(floor(deltaSeconds)))s"
+                let seconds = Int(floor(deltaSeconds))
+                return "\(seconds)s"
             } else {
                 return "0m"
             }
