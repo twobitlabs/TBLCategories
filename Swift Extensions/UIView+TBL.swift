@@ -2,6 +2,16 @@ import UIKit
 
 public extension UIView {
 
+    public var visible: Bool {
+        get {
+            return !hidden
+        }
+
+        set {
+            hidden = !newValue
+        }
+    }
+
     public func top() -> CGFloat {
         return frame.origin.y
     }
