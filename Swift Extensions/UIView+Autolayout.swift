@@ -2,13 +2,16 @@ import UIKit
 
 public extension UIView {
 
-    public func addConstraintsFromDescriptions(constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutFormatOptions = NSLayoutFormatOptions.allZeros, metrics: Dictionary<String, NSNumber>? = nil) {
+    public func addConstraintsFromDescriptions(constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutFormatOptions = NSLayoutFormatOptions.allZeros, metrics: Dictionary<String, NSNumber>? = nil) -> [NSLayoutConstraint] {
         for view in views.values {
             view.setTranslatesAutoresizingMaskIntoConstraints(false)
         }
+        var constraints = [NSLayoutConstraint]()
         for constraintDescription in constraintDescriptions {
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(constraintDescription, views: views, options:options, metrics:metrics))
+            constraints += NSLayoutConstraint.constraintsWithVisualFormat(constraintDescription, views: views, options:options, metrics:metrics)
         }
+        NSLayoutConstraint.activateConstraints(constraints)
+        return constraints
     }
     
     // MARK: - centering
@@ -22,14 +25,16 @@ public extension UIView {
             attribute: .CenterX,
             multiplier: 1,
             constant: 0)
-        addConstraint(centerHorizontally)
+        centerHorizontally.active = true
         return centerHorizontally
     }
     
-    public func centerChildrenHorizontally(childViews: [UIView]) {
+    public func centerChildrenHorizontally(childViews: [UIView]) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
         for view in childViews {
-            centerChildHorizontally(view)
+            constraints.append(centerChildHorizontally(view))
         }
+        return constraints
     }
     
     public func centerChildVertically(childView: UIView) -> NSLayoutConstraint {
@@ -41,7 +46,7 @@ public extension UIView {
             attribute: .CenterY,
             multiplier: 1,
             constant: 0)
-        addConstraint(centerVertically)
+        centerVertically.active = true
         return centerVertically
     }
 
@@ -65,7 +70,7 @@ public extension UIView {
             attribute: .Top,
             multiplier: 1,
             constant: -offset)
-        superview.addConstraint(bottomOffset)
+        bottomOffset.active = true
         return bottomOffset
     }
 
@@ -83,7 +88,7 @@ public extension UIView {
             attribute: .Bottom,
             multiplier: 1,
             constant: offset)
-        superview.addConstraint(topOffset)
+        topOffset.active = true
         return topOffset
     }
 
@@ -106,7 +111,7 @@ public extension UIView {
             attribute: .Bottom,
             multiplier: 1,
             constant: offset)
-        superview.addConstraint(topOffset)
+        topOffset.active = true
         return topOffset
     }
 
@@ -124,7 +129,7 @@ public extension UIView {
             attribute: .Right,
             multiplier: 1,
             constant: offset)
-        superview.addConstraint(rightOffset)
+        rightOffset.active = true
         return rightOffset
     }
 
@@ -147,7 +152,7 @@ public extension UIView {
             attribute: .Right,
             multiplier: 1,
             constant: offset)
-        superview.addConstraint(rightOffset)
+        rightOffset.active = true
         return rightOffset
     }
 
@@ -165,7 +170,7 @@ public extension UIView {
             attribute: .Left,
             multiplier: 1,
             constant: -offset)
-        superview.addConstraint(leftOffset)
+        leftOffset.active = true
         return leftOffset
     }
 
@@ -238,7 +243,7 @@ public extension UIView {
         if let priority = priority {
             pin.priority = priority
         }
-        superview.addConstraint(pin)
+        pin.active = true
         return pin
     }
     
@@ -288,7 +293,7 @@ public extension UIView {
             attribute: dimension,
             multiplier: 1,
             constant: 0)
-        superview.addConstraint(align)
+        align.active = true
         return align
     }
     
@@ -317,7 +322,7 @@ public extension UIView {
                 attribute: .CenterX,
                 multiplier: multiplier,
                 constant: 0)
-            superview.addConstraint(align)
+            align.active = true
         }
     }
     
@@ -351,7 +356,7 @@ public extension UIView {
         if let priority = priority {
             sizeConstraint.priority = priority
         }
-        addConstraint(sizeConstraint)
+        sizeConstraint.active = true
         return sizeConstraint
     }
 
@@ -371,7 +376,7 @@ public extension UIView {
                 constant: bottomMargin)
             constraints.append(constraint)
         }
-        self.addConstraints(constraints)
+        NSLayoutConstraint.activateConstraints(constraints)
         return constraints
     }
     
@@ -413,7 +418,7 @@ public extension UIView {
             attribute: .Width,
             multiplier: CGFloat(1/ratio),
             constant: 0)
-        addConstraint(ratioConstraint)
+        ratioConstraint.active = true
         return ratioConstraint
     }
 
@@ -427,7 +432,7 @@ public extension UIView {
             attribute: dimension,
             multiplier: 1,
             constant: 0)
-        superview.addConstraint(widthConstraint)
+        widthConstraint.active = true
         return widthConstraint
     }
 }
