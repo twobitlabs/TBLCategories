@@ -214,20 +214,20 @@ public extension UIView {
         return pinToEdge(.Bottom, inset: -inset, priority: priority)
     }
 
-    func insetFromParentLeftByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Left, inset: inset, relatedBy: .GreaterThanOrEqual)
+    func insetFromParentLeftByAtLeast(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Left, inset: inset, relatedBy: .GreaterThanOrEqual, priority: priority)
     }
 
-    func insetFromParentRightByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Right, inset: -inset, relatedBy: .LessThanOrEqual)
+    func insetFromParentRightByAtLeast(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Right, inset: -inset, relatedBy: .LessThanOrEqual, priority: priority)
     }
 
-    func insetFromParentTopByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Top, inset: inset, relatedBy: .GreaterThanOrEqual)
+    func insetFromParentTopByAtLeast(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Top, inset: inset, relatedBy: .GreaterThanOrEqual, priority: priority)
     }
 
-    public func insetFromParentBottomByAtLeast(inset: CGFloat) -> NSLayoutConstraint {
-        return pinToEdge(.Bottom, inset: -inset, relatedBy: .LessThanOrEqual)
+    public func insetFromParentBottomByAtLeast(inset: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return pinToEdge(.Bottom, inset: -inset, relatedBy: .LessThanOrEqual, priority: priority)
     }
     
     private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0, relatedBy: NSLayoutRelation = .Equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
@@ -364,7 +364,7 @@ public extension UIView {
         return matchHeightOfTallest(views)
     }
 
-    public func matchHeightOfTallest(views: [UIView], withBottomMargin bottomMargin: CGFloat = 0) -> [NSLayoutConstraint] {
+    public func matchHeightOfTallest(views: [UIView], withBottomMargin bottomMargin: CGFloat = 0, priority: UILayoutPriority? = nil) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         for view in views {
             let constraint = NSLayoutConstraint(item: self,
@@ -374,6 +374,9 @@ public extension UIView {
                 attribute: .Bottom,
                 multiplier: 1,
                 constant: bottomMargin)
+            if let priority = priority {
+                constraint.priority = priority
+            }
             constraints.append(constraint)
         }
         NSLayoutConstraint.activateConstraints(constraints)
