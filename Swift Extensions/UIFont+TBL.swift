@@ -29,9 +29,9 @@ extension UIFont {
         }
     }
 
-    public func preferredFontForTextStyle(style: UIFontTextStyle) -> UIFont {
+    public func preferredFontForTextStyle(style: UIFontTextStyle, sizeOffset: CGFloat = 0) -> UIFont {
         let descriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(style.style)
-        return self.fontWithSize(descriptor.pointSize)
+        return self.fontWithSize(descriptor.pointSize + sizeOffset)
     }
-    
+
 }
