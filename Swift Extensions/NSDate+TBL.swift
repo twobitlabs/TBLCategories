@@ -1,3 +1,4 @@
+import Foundation
 
 let secondsInAMinute = Double(60)
 let secondsInAnHour = 60 * secondsInAMinute

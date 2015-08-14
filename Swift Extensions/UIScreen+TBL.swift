@@ -1,4 +1,6 @@
 
+import UIKit
+
 extension UIScreen {
 
     public func isHighRes() -> Bool {
