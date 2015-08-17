@@ -19,4 +19,27 @@ extension UIImage {
 
         return newImage
     }
+
+    class func imageWithText(text: String, textAttributes: [NSObject: AnyObject]) -> UIImage {
+        let size = text.sizeWithAttributes(textAttributes)
+
+        UIGraphicsBeginImageContext(size)
+        text.drawInRect(CGRect(origin: CGPointZero, size: size), withAttributes: textAttributes)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    class func imageWithText(text: String, font: UIFont, color: UIColor? = UIColor.darkTextColor()) -> UIImage {
+        var attributes = [NSObject : AnyObject]()
+        attributes[NSFontAttributeName] = font
+        attributes[NSForegroundColorAttributeName] = color
+
+        return imageWithText(text, textAttributes: attributes)
+    }
+
+    class func imageWithText(text: String, fontSize: CGFloat, color: UIColor? = nil) -> UIImage {
+        return imageWithText(text, font: UIFont.systemFontOfSize(fontSize), color: color)
+    }
 }
