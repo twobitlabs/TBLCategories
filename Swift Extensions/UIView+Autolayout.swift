@@ -37,7 +37,7 @@ public extension UIView {
         return constraints
     }
     
-    public func centerChildVertically(childView: UIView) -> NSLayoutConstraint {
+    public func centerChildVertically(childView: UIView, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         childView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let centerVertically = NSLayoutConstraint(item: childView,
             attribute: .CenterY,
@@ -46,6 +46,9 @@ public extension UIView {
             attribute: .CenterY,
             multiplier: 1,
             constant: 0)
+        if let priority = priority {
+            centerVertically.priority = priority
+        }
         centerVertically.active = true
         return centerVertically
     }
