@@ -10,4 +10,8 @@ public extension UITableView {
             return cellFactory(identifier)
         }
     }
+
+    public func hideEmptySeparators() {
+        tableFooterView = UIView()
+    }
 }
