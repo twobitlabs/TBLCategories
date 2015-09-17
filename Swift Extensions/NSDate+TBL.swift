@@ -58,27 +58,27 @@ public extension NSDate {
         return compare(otherDate) == .OrderedAscending
     }
 
-    public func isBefore(#daysAgo: Double) -> Bool {
+    public func isBefore(daysAgo daysAgo: Double) -> Bool {
         return isBefore(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    public func isAfter(#daysAgo: Double) -> Bool {
+    public func isAfter(daysAgo daysAgo: Double) -> Bool {
         return isAfter(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    public func isBefore(#hoursAgo: Double) -> Bool {
+    public func isBefore(hoursAgo hoursAgo: Double) -> Bool {
         return isBefore(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    public func isAfter(#hoursAgo: Double) -> Bool {
+    public func isAfter(hoursAgo hoursAgo: Double) -> Bool {
         return isAfter(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    public func isBefore(#minutesAgo: Double) -> Bool {
+    public func isBefore(minutesAgo minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow < inThePast(minutesAgo * secondsInAMinute)
     }
 
-    public func isAfter(#minutesAgo: Double) -> Bool {
+    public func isAfter(minutesAgo minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow > inThePast(minutesAgo * secondsInAMinute)
     }
 
@@ -88,8 +88,8 @@ public extension NSDate {
 
     public func isToday() -> Bool {
         let calendar = NSCalendar.currentCalendar()
-        let nowComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate: NSDate())
-        let selfComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate:self)
+        let nowComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate: NSDate())
+        let selfComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate:self)
 
         if let definitelyToday = calendar.dateFromComponents(nowComponents),
             possiblyToday = calendar.dateFromComponents(selfComponents) {
@@ -102,8 +102,8 @@ public extension NSDate {
 
     public func isTomorrow() -> Bool {
         let calendar = NSCalendar.currentCalendar()
-        let nowComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate: NSDate())
-        let selfComponents = calendar.components((NSCalendarUnit.CalendarUnitYear|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitDay), fromDate:self)
+        let nowComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate: NSDate())
+        let selfComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate:self)
 
         if let definitelyToday = calendar.dateFromComponents(nowComponents),
             possiblyTomorrow = calendar.dateFromComponents(selfComponents) {
