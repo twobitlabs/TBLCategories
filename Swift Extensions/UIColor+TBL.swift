@@ -3,12 +3,12 @@ import UIKit
 public extension UIColor {
     
     public class func colorFromHexString(hexString: String) -> UIColor? {
-        let colorHexString = hexString.stringByReplacingOccurrencesOfString("#", withString: "", options: NSStringCompareOptions.allZeros, range: nil)
+        let colorHexString = hexString.stringByReplacingOccurrencesOfString("#", withString: "", options: NSStringCompareOptions(), range: nil)
         let colorScanner = NSScanner(string: colorHexString)
         
         var value:UInt32 = 0
-        
-        let characters = count(colorHexString)
+
+        let characters = colorHexString.characters.count
         if (characters == 6) {
             // no alpha supported
             if (colorScanner.scanHexInt(&value)) {
@@ -28,7 +28,7 @@ public extension UIColor {
     public func asImage() -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
-        let context: CGContext = UIGraphicsGetCurrentContext()
+        let context: CGContext = UIGraphicsGetCurrentContext()!
         CGContextSetFillColorWithColor(context, CGColor)
         CGContextFillRect(context, rect)
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()

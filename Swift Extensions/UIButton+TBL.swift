@@ -3,7 +3,7 @@ import UIKit
 public extension UIButton {
 
     public class func buttonWithLabel(text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
-        let button = UIButton.buttonWithType(.Custom) as! UIButton
+        let button = UIButton(type: .Custom)
         button.setTitle(text, forState: .Normal)
         button.setTitleColor(textColor, forState: .Normal)
         button.setBackgroundImage(backgroundColor?.asImage(), forState: .Normal)
@@ -17,7 +17,7 @@ public extension UIButton {
     }
     
     public class func buttonWithImage(imageName: String, target: AnyObject? = nil, action: Selector? = nil, tintColor: UIColor? = nil, accessibilityLabel: String? = nil) -> UIButton {
-        let button = UIButton.buttonWithType(.Custom) as! UIButton
+        let button = UIButton(type: .Custom)
         var image = UIImage(named: imageName)
         if tintColor != nil {
             button.tintColor = tintColor
