@@ -25,6 +25,18 @@ private class InsetTextField: UITextField {
 
 public extension UITextField {
 
+    public var isEmpty: Bool {
+        get {
+            return textOrEmptyString.isEmpty
+        }
+    }
+
+    public var textOrEmptyString: String {
+        get {
+            return text ?? ""
+        }
+    }
+
     public class func textFieldWithInsets(insets: UIEdgeInsets) -> UITextField {
         return InsetTextField(insets: insets)
     }
