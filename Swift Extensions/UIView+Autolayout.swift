@@ -2,9 +2,9 @@ import UIKit
 
 public extension UIView {
 
-    public func addConstraintsFromDescriptions(constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutFormatOptions = NSLayoutFormatOptions.allZeros, metrics: Dictionary<String, NSNumber>? = nil) -> [NSLayoutConstraint] {
+    public func addConstraintsFromDescriptions(constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutFormatOptions = NSLayoutFormatOptions(), metrics: Dictionary<String, NSNumber>? = nil) -> [NSLayoutConstraint] {
         for view in views.values {
-            view.setTranslatesAutoresizingMaskIntoConstraints(false)
+            view.translatesAutoresizingMaskIntoConstraints = false
         }
         var constraints = [NSLayoutConstraint]()
         for constraintDescription in constraintDescriptions {
@@ -17,7 +17,7 @@ public extension UIView {
     // MARK: - centering
     
     public func centerChildHorizontally(childView: UIView, identifier: String? = nil) -> NSLayoutConstraint {
-        childView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        childView.translatesAutoresizingMaskIntoConstraints = false
         let centerHorizontally = NSLayoutConstraint(item: childView,
             attribute: .CenterX,
             relatedBy: .Equal,
@@ -39,7 +39,7 @@ public extension UIView {
     }
     
     public func centerChildVertically(childView: UIView, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        childView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        childView.translatesAutoresizingMaskIntoConstraints = false
         let centerVertically = NSLayoutConstraint(item: childView,
             attribute: .CenterY,
             relatedBy: .Equal,
@@ -66,8 +66,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let bottomOffset = NSLayoutConstraint(item: self,
             attribute: .Bottom,
             relatedBy: .Equal,
@@ -85,8 +85,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let topOffset = NSLayoutConstraint(item: self,
             attribute: .Top,
             relatedBy: .Equal,
@@ -109,8 +109,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let topOffset = NSLayoutConstraint(item: self,
             attribute: .Top,
             relatedBy: .GreaterThanOrEqual,
@@ -128,8 +128,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let rightOffset = NSLayoutConstraint(item: self,
             attribute: .Left,
             relatedBy: .Equal,
@@ -152,8 +152,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let rightOffset = NSLayoutConstraint(item: self,
             attribute: .Left,
             relatedBy: .GreaterThanOrEqual,
@@ -171,8 +171,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let leftOffset = NSLayoutConstraint(item: self,
             attribute: .Right,
             relatedBy: .Equal,
@@ -195,8 +195,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let leftOffset = NSLayoutConstraint(item: self,
             attribute: .Right,
             relatedBy: .LessThanOrEqual,
@@ -209,19 +209,19 @@ public extension UIView {
         return leftOffset
     }
 
-    public func pinToTop(priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    public func pinToTop(priority priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         return pinToEdge(.Top, priority: priority, identifier: identifier)
     }
     
-    public func pinToBottom(priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    public func pinToBottom(priority priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         return pinToEdge(.Bottom, priority: priority, identifier: identifier)
     }
     
-    public func pinToLeft(priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    public func pinToLeft(priority priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         return pinToEdge(.Left, priority: priority, identifier: identifier)
     }
     
-    public func pinToRight(priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    public func pinToRight(priority priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         return pinToEdge(.Right, priority: priority, identifier: identifier)
     }
     
@@ -267,7 +267,7 @@ public extension UIView {
     
     private func pinToEdge(edge: NSLayoutAttribute, inset: CGFloat = 0, relatedBy: NSLayoutRelation = .Equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
-        setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
         let pin = NSLayoutConstraint(item: self,
             attribute: edge,
             relatedBy: relatedBy,
@@ -320,8 +320,8 @@ public extension UIView {
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
         }
-        setTranslatesAutoresizingMaskIntoConstraints(false)
-        sibling.setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
         let align = NSLayoutConstraint(item: self,
             attribute: dimension,
             relatedBy: .Equal,
@@ -349,8 +349,8 @@ public extension UIView {
             }
         }
         
-        for (index, child) in enumerate(children) {
-            child.setTranslatesAutoresizingMaskIntoConstraints(false)
+        for (index, child) in children.enumerate() {
+            child.translatesAutoresizingMaskIntoConstraints = false
             let multiplier = CGFloat((Float(index) + 0.5) * 2 / Float(children.count))
             let align = NSLayoutConstraint(item: child,
                 attribute: .CenterX,
@@ -383,7 +383,7 @@ public extension UIView {
     }
     
     private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute, relatedBy: NSLayoutRelation = .Equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
         let sizeConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
             relatedBy: relatedBy,
@@ -423,26 +423,26 @@ public extension UIView {
         return constraints
     }
     
-    public func matchParentWidth(identifier: String? = nil) -> NSLayoutConstraint {
+    public func matchParentWidth(identifier identifier: String? = nil) -> NSLayoutConstraint {
         return matchParentDimension(.Width, identifier: identifier)
     }
     
-    public func matchParentHeight(identifier: String? = nil) -> NSLayoutConstraint {
+    public func matchParentHeight(identifier identifier: String? = nil) -> NSLayoutConstraint {
         return matchParentDimension(.Height, identifier: identifier)
     }
     
-    public func fillParent(identifier: String? = nil) -> [NSLayoutConstraint] {
+    public func fillParent(identifier identifier: String? = nil) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         constraints += fillParentVertically(identifier: identifier)
         constraints += fillParentHorizontally(identifier: identifier)
         return constraints
     }
 
-    public func fillParentVertically(priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
+    public func fillParentVertically(priority priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
         return [pinToTop(priority: priority, identifier: identifier), pinToBottom(priority: priority, identifier: identifier)]
     }
 
-    public func fillParentHorizontally(priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
+    public func fillParentHorizontally(priority priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
         return [pinToLeft(priority: priority, identifier: identifier), pinToRight(priority: priority, identifier: identifier)]
     }
 
@@ -453,7 +453,7 @@ public extension UIView {
     */
 
     func setAspectRatio(ratio: Float, identifier: String? = nil) -> NSLayoutConstraint {
-        setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
         let ratioConstraint = NSLayoutConstraint(item: self,
             attribute: .Height,
             relatedBy: .Equal,
@@ -468,7 +468,7 @@ public extension UIView {
 
     private func matchParentDimension(dimension: NSLayoutAttribute, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
-        setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
         let widthConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
             relatedBy: .Equal,

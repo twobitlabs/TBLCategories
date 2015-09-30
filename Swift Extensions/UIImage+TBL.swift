@@ -4,10 +4,10 @@ extension UIImage {
     func imageWithColor(color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
 
-        let context = UIGraphicsGetCurrentContext() as CGContextRef
+        let context = UIGraphicsGetCurrentContext()!
         CGContextTranslateCTM(context, 0, self.size.height)
         CGContextScaleCTM(context, 1.0, -1.0);
-        CGContextSetBlendMode(context, kCGBlendModeNormal)
+        CGContextSetBlendMode(context, .Normal)
 
         let rect = CGRectMake(0, 0, self.size.width, self.size.height) as CGRect
         CGContextClipToMask(context, rect, self.CGImage)
@@ -20,7 +20,7 @@ extension UIImage {
         return newImage
     }
 
-    class func imageWithText(text: String, textAttributes: [NSObject: AnyObject]) -> UIImage {
+    class func imageWithText(text: String, textAttributes: [String: AnyObject]) -> UIImage {
         let size = text.sizeWithAttributes(textAttributes)
 
         UIGraphicsBeginImageContext(size)
@@ -32,7 +32,7 @@ extension UIImage {
     }
 
     class func imageWithText(text: String, font: UIFont, color: UIColor? = UIColor.darkTextColor()) -> UIImage {
-        var attributes = [NSObject : AnyObject]()
+        var attributes = [String : AnyObject]()
         attributes[NSFontAttributeName] = font
         attributes[NSForegroundColorAttributeName] = color
 
