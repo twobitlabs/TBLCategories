@@ -67,9 +67,9 @@
 
 -(BOOL)isToday{
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:[NSDate date]];
     NSDate *today = [calendar dateFromComponents:components];
-    components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
+    components = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:self];
     NSDate *fakeSelfDate = [calendar dateFromComponents:components];
     
     if([today isEqualToDate:fakeSelfDate]) {
@@ -80,9 +80,9 @@
 
 -(BOOL)isTomorrow{
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:[NSDate date]];
     NSDate *today = [calendar dateFromComponents:components];
-    components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
+    components = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:self];
     NSDate *fakeSelfDate = [calendar dateFromComponents:components];
     
     if([today timeIntervalSinceDate:fakeSelfDate] == -60*60*24) {
@@ -93,9 +93,9 @@
 
 -(BOOL)isSoonerThanDaysFromNow:(NSTimeInterval)days {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:[NSDate date]];
     NSDate *today = [calendar dateFromComponents:components];
-    components = [calendar components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:self];
+    components = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:self];
     NSDate *fakeSelfDate = [calendar dateFromComponents:components];
     
     if([fakeSelfDate timeIntervalSinceDate:today] < 60*60*24*days) {
