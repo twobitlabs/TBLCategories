@@ -1,11 +1,11 @@
 import UIKit
 
 public extension UIColor {
-    
-    public class func colorFromHexString(hexString: String) -> UIColor? {
+
+    public convenience init?(fromHexString hexString: String) {
         let colorHexString = hexString.stringByReplacingOccurrencesOfString("#", withString: "", options: NSStringCompareOptions(), range: nil)
         let colorScanner = NSScanner(string: colorHexString)
-        
+
         var value:UInt32 = 0
 
         let characters = colorHexString.characters.count
@@ -17,11 +17,11 @@ public extension UIColor {
                     let red = (CGFloat)((value & 0xFF0000) >> 16)/255.0
                     let green = (CGFloat)((value & 0xFF00) >> 8)/255.0
                     let blue = (CGFloat)(value & 0xFF)/255.0
-                    return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+                    self.init(red: red, green: green, blue: blue, alpha: 1.0)
                 }
             }
         }
-        
+
         return nil
     }
 
