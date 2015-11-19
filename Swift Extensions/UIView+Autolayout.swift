@@ -58,7 +58,33 @@ public extension UIView {
     public func centerChild(childView: UIView) -> [NSLayoutConstraint] {
         return [centerChildHorizontally(childView), centerChildVertically(childView)]
     }
+
+    private func centerSibling(sibling: UIView, onDimension dimension: NSLayoutAttribute, identifier: String? = nil)  -> NSLayoutConstraint {
+        sibling.translatesAutoresizingMaskIntoConstraints = false
+        let centerConstraint = NSLayoutConstraint(item: sibling,
+            attribute: dimension,
+            relatedBy: .Equal,
+            toItem: self,
+            attribute: dimension,
+            multiplier: 1,
+            constant: 0)
+        centerConstraint.active = true
+        centerConstraint.identifier = identifier
+        return centerConstraint
+    }
+
+    public func centerSiblingHorizontally(sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint  {
+        return centerSibling(sibling, onDimension: .CenterX, identifier: identifier)
+    }
     
+    public func centerSiblingVertically(sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint  {
+        return centerSibling(sibling, onDimension: .CenterY, identifier: identifier)
+    }
+
+    public func centerSibling(sibling: UIView, identifier: String? = nil) -> [NSLayoutConstraint]  {
+        return [centerSiblingHorizontally(sibling, identifier: identifier), centerSiblingVertically(sibling, identifier: identifier)]
+    }
+
     // MARK: - positioning
      
     public func placeAbove(sibling: UIView, by offset: CGFloat = 0, identifier: String? = nil) -> NSLayoutConstraint {
@@ -225,6 +251,10 @@ public extension UIView {
         return pinToEdge(.Right, priority: priority, identifier: identifier)
     }
     
+    public func insetFromParent(inset: CGFloat, identifier: String? = nil) -> [NSLayoutConstraint] {
+        return insetFromParentVertically(inset, identifier: identifier) + insetFromParentHorizontally(inset, identifier: identifier)
+    }
+
     public func insetFromParentHorizontally(inset: CGFloat, identifier: String? = nil) -> [NSLayoutConstraint] {
         return [pinToEdge(.Left, inset: inset, identifier: identifier), pinToEdge(.Right, inset: -inset, identifier: identifier)]
     }
@@ -469,15 +499,15 @@ public extension UIView {
     private func matchParentDimension(dimension: NSLayoutAttribute, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         translatesAutoresizingMaskIntoConstraints = false
-        let widthConstraint = NSLayoutConstraint(item: self,
+        let dimensionConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
             relatedBy: .Equal,
             toItem: superview,
             attribute: dimension,
             multiplier: 1,
             constant: 0)
-        widthConstraint.active = true
-        widthConstraint.identifier = identifier
-        return widthConstraint
+        dimensionConstraint.active = true
+        dimensionConstraint.identifier = identifier
+        return dimensionConstraint
     }
 }
