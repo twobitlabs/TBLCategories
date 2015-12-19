@@ -31,5 +31,17 @@ public extension String {
     public static func localized(key: String, table: String) -> String {
         return NSLocalizedString(key, tableName: table, comment: "")
     }
-    
+
+    func truncateTo(maxCharacters: Int, appendIfTruncated suffix: String? = nil) -> String {
+        guard characters.count > maxCharacters else {
+            return self
+        }
+
+        let truncated = (self as NSString).substringToIndex(maxCharacters - 1)
+        if let suffix = suffix {
+            return truncated + suffix
+        } else {
+            return truncated
+        }
+    }
 }
