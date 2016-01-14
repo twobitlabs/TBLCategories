@@ -6,7 +6,7 @@ public extension UIButton {
         let button = UIButton(type: .Custom)
         button.setTitle(text, forState: .Normal)
         button.setTitleColor(textColor, forState: .Normal)
-        button.setBackgroundImage(backgroundColor?.asImage(), forState: .Normal)
+        button.setBackgroundImage(backgroundColor?.asImage(), forState: .Normal) // asImage() defined in UIColor+TBL
         if font != nil {
             button.titleLabel?.font = font!
         }
