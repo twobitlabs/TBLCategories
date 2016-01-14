@@ -55,6 +55,14 @@ public extension UIView {
         return centerVertically
     }
 
+    public func centerChildrenVertically(childViews: [UIView], identifier: String? = nil) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        for view in childViews {
+            constraints.append(centerChildVertically(view, identifier: identifier))
+        }
+        return constraints
+    }
+
     public func centerChild(childView: UIView) -> [NSLayoutConstraint] {
         return [centerChildHorizontally(childView), centerChildVertically(childView)]
     }
