@@ -2,7 +2,7 @@
 
 @implementation NSDictionary (TBL)
 
--(id)objectForKey:(id)aKey kindOfClass:(Class)aClass {
+-(id _Nullable)objectForKey:(id _Nonnull)aKey kindOfClass:(Class _Nonnull)aClass {
     id object = [self objectForKey:aKey];
     if (![object isKindOfClass:aClass]) {
         return nil;
@@ -10,7 +10,7 @@
     return object;
 }
 
--(BOOL)boolForKey:(id)aKey defaultValue:(BOOL)defaultValue {
+-(BOOL)boolForKey:(id _Nonnull)aKey defaultValue:(BOOL)defaultValue {
     NSNumber *numValue = [self numberForKey:aKey];
     if (numValue == nil) {
         return defaultValue;
@@ -18,15 +18,15 @@
     return [numValue boolValue];
 }
 
--(NSNumber *)numberForKey:(id)aKey {
+-(NSNumber * _Nullable)numberForKey:(id _Nonnull)aKey {
     return [self objectForKey:aKey kindOfClass:[NSNumber class]];
 }
 
--(NSString *)stringForKey:(id)aKey {
+-(NSString * _Nullable)stringForKey:(id _Nonnull)aKey {
     return [self objectForKey:aKey kindOfClass:[NSString class]];
 }
 
--(NSString *)stringOrEmptyStringForKey:(id)aKey {
+-(NSString * _Nonnull)stringOrEmptyStringForKey:(id _Nonnull)aKey {
     NSString *aString = [self stringForKey:aKey];
     if (aString == nil) {
         return @"";
@@ -34,7 +34,7 @@
     return aString;
 }
 
--(NSString *)stringOrNilIfEmptyStringForKey:(id)aKey {
+-(NSString * _Nullable)stringOrNilIfEmptyStringForKey:(id _Nonnull)aKey {
     NSString *aString = [self stringForKey:aKey];
     if (aString != nil && [aString length] == 0) {
         return nil;
@@ -43,7 +43,7 @@
 }
 
 // converts the underlying object to a string or returns nil
--(NSString *)stringFromObjectForKey:(id)aKey {
+-(NSString * _Nullable)stringFromObjectForKey:(id _Nonnull)aKey {
     id object = [self objectForKey:aKey];
 	if (object == nil || [object isEqual:[NSNull null]]) {
 		return nil;
@@ -56,7 +56,7 @@
 }
 
 // converts the underlying object to a string or empty string, never nil
--(NSString *)stringFromObjectOrEmptyStringForKey:(id)aKey {
+-(NSString * _Nonnull)stringFromObjectOrEmptyStringForKey:(id _Nonnull)aKey {
     NSString *aString = [self stringFromObjectForKey:aKey];
     if (aString == nil) {
         return @"";
@@ -64,12 +64,11 @@
     return aString;
 }
 
-
--(NSArray *)arrayForKey:(id)aKey {
+-(NSArray * _Nullable)arrayForKey:(id _Nonnull)aKey {
     return [self objectForKey:aKey kindOfClass:[NSArray class]];
 }
 
--(NSDictionary *)dictionaryForKey:(id)aKey {
+-(NSDictionary * _Nullable)dictionaryForKey:(id _Nonnull)aKey {
     return [self objectForKey:aKey kindOfClass:[NSDictionary class]];
 }
 

@@ -2,15 +2,15 @@
 
 @interface NSDictionary (TBL)
 
--(id)objectForKey:(id)aKey kindOfClass:(Class)aClass;
--(BOOL)boolForKey:(id)aKey defaultValue:(BOOL)defaultValue;
--(NSNumber *)numberForKey:(id)aKey;
--(NSString *)stringForKey:(id)aKey;
--(NSString *)stringOrEmptyStringForKey:(id)aKey;
--(NSString *)stringOrNilIfEmptyStringForKey:(id)aKey;
--(NSString *)stringFromObjectForKey:(id)aKey;
--(NSString *)stringFromObjectOrEmptyStringForKey:(id)aKey;
--(NSArray *)arrayForKey:(id)aKey;
--(NSDictionary *)dictionaryForKey:(id)aKey;
+-(id _Nullable)objectForKey:(id _Nonnull)aKey kindOfClass:(Class _Nonnull)aClass;
+-(BOOL)boolForKey:(id _Nonnull)aKey defaultValue:(BOOL)defaultValue;
+-(NSNumber * _Nullable)numberForKey:(id _Nonnull)aKey;
+-(NSString * _Nullable)stringForKey:(id _Nonnull)aKey;
+-(NSString * _Nonnull)stringOrEmptyStringForKey:(id _Nonnull)aKey;
+-(NSString * _Nullable)stringOrNilIfEmptyStringForKey:(id _Nonnull)aKey;
+-(NSString * _Nullable)stringFromObjectForKey:(id _Nonnull)aKey;
+-(NSString * _Nonnull)stringFromObjectOrEmptyStringForKey:(id _Nonnull)aKey;
+-(NSArray * _Nullable)arrayForKey:(id _Nonnull)aKey;
+-(NSDictionary * _Nullable)dictionaryForKey:(id _Nonnull)aKey;
 
 @end
