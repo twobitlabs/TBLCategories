@@ -70,4 +70,12 @@ public extension UIView {
     public func objc_centerChildVertically(childView: UIView, identifier: String? = nil) -> NSLayoutConstraint {
         return centerChildVertically(childView, priority: nil, identifier: identifier)
     }
+
+    public func objc_setHeightConstraint(size: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+        return setHeightConstraint(size, priority: nil, identifier: identifier)
+    }
+
+    public func objc_setWidthConstraint(size: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+        return setWidthConstraint(size, priority: nil, identifier: identifier)
+    }
 }
