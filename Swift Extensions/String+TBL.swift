@@ -12,6 +12,10 @@ public extension String {
         }
     }
 
+    public var hasNonEmptyValue: Bool {
+        return !isEmpty
+    }
+
     /**
     Capitalize the first letter as opposed to .capitalizedString which lowercases
     the string and then capitalizes every word in it.
