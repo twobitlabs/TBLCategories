@@ -32,8 +32,8 @@ public extension String {
         return capitalized
     }
 
-    public static func localized(key: String, table: String) -> String {
-        return NSLocalizedString(key, tableName: table, comment: "")
+    public static func localized(key: String, table: String? = nil, comment: String? = nil) -> String {
+        return NSLocalizedString(key, tableName: table, comment: comment ?? "")
     }
 
     func truncateTo(maxCharacters: Int, appendIfTruncated suffix: String? = nil) -> String {
