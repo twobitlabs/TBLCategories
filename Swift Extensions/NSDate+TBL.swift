@@ -11,6 +11,10 @@ let minutesInADay = 24 * minutesInAnHour
 
 public extension NSDate {
 
+    public var isInThePast: Bool {
+        return timeIntervalSinceNow < 0
+    }
+
     public func timeAgo() -> String {
         return timeAgoWithSeconds(false)
     }
