@@ -1,27 +1,31 @@
 
 import TBLCategories
-import XCTest
+import Quick
+import Nimble
 
-class OperatorTests: XCTestCase {
+class GameScoreTests: QuickSpec {
 
-    func testNilCoalesceAndAssign() {
-        var left: String?
-        var right: String?
+    override func spec() {
+        let bar = "bar"
 
+        describe("nial coalesce operator") {
+            it("should overwite if left side is nil") {
+                var foo: String? = nil
+                foo ??= bar
+                expect(foo).to(equal(bar))
+            }
+
+            it("should not overwrite if left side is not nil") {
         left ??= right
-        XCTAssertEqual(left, nil, "Should not reassign left if right is nil")
+                var foo: String? = "foo"
 
-        right = "right"
-        left ??= right
-        XCTAssertEqual(left, "right", "Should reassign left if left is nil and right is not")
+                foo ??= bar
+                expect(foo).to(equal("foo"))
 
-        right = "foo"
-        left ??= right
-        XCTAssertEqual(left, "right", "Should not reassign left if left is not nil")
-
-        right = nil
-        left ??= right
-        XCTAssertEqual(left, "right", "Should not reassign left if left is not nil")
+                foo ??= nil
+                expect(foo).to(equal("foo"))
+            }
+        }
     }
 
 }

@@ -1,3 +1,6 @@
 [submodule "TBLCategoriesTests/Nimble"]
 	path = TBLCategoriesTests/Nimble
 	url = https://github.com/twobitlabs/Nimble.git
+[submodule "TBLCategoriesTests/Quick"]
+	path = TBLCategoriesTests/Quick
+	url = https://github.com/twobitlabs/Quick.git
