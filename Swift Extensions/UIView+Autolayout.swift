@@ -460,7 +460,7 @@ public extension UIView {
         NSLayoutConstraint.activateConstraints(constraints)
         return constraints
     }
-    
+
     public func matchParentWidth(identifier identifier: String? = nil) -> NSLayoutConstraint {
         return matchParentDimension(.Width, identifier: identifier)
     }
@@ -468,7 +468,11 @@ public extension UIView {
     public func matchParentHeight(identifier identifier: String? = nil) -> NSLayoutConstraint {
         return matchParentDimension(.Height, identifier: identifier)
     }
-    
+
+    public func pinToParentLayoutMargins(identifier identifier: String? = nil) -> [NSLayoutConstraint] {
+        return [match(.Top, toParentDimension: .TopMargin), match(.Bottom, toParentDimension: .BottomMargin), match(.Left, toParentDimension: .LeftMargin), match(.Right, toParentDimension: .RightMargin)]
+    }
+
     public func fillParent(identifier identifier: String? = nil) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         constraints += fillParentVertically(identifier: identifier)
@@ -502,6 +506,21 @@ public extension UIView {
         ratioConstraint.active = true
         ratioConstraint.identifier = identifier
         return ratioConstraint
+    }
+
+    public func match(dimension: NSLayoutAttribute, toParentDimension parentDimension: NSLayoutAttribute, identifier: String? = nil) -> NSLayoutConstraint {
+        let superview = self.superview!
+        translatesAutoresizingMaskIntoConstraints = false
+        let dimensionConstraint = NSLayoutConstraint(item: self,
+                                                     attribute: dimension,
+                                                     relatedBy: .Equal,
+                                                     toItem: superview,
+                                                     attribute: parentDimension,
+                                                     multiplier: 1,
+                                                     constant: 0)
+        dimensionConstraint.active = true
+        dimensionConstraint.identifier = identifier
+        return dimensionConstraint
     }
 
     private func matchParentDimension(dimension: NSLayoutAttribute, identifier: String? = nil) -> NSLayoutConstraint {
