@@ -419,7 +419,15 @@ public extension UIView {
     public func setMinHeightConstraint(size: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         return setSizeConstraint(size, dimension: .Height, relatedBy: .GreaterThanOrEqual, priority: priority, identifier: identifier)
     }
-    
+
+    public func setMaxWidthConstraint(size: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Width, relatedBy: .LessThanOrEqual, priority: priority, identifier: identifier)
+    }
+
+    public func setMaxHeightConstraint(size: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+        return setSizeConstraint(size, dimension: .Height, relatedBy: .LessThanOrEqual, priority: priority, identifier: identifier)
+    }
+
     private func setSizeConstraint(size: CGFloat, dimension: NSLayoutAttribute, relatedBy: NSLayoutRelation = .Equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let sizeConstraint = NSLayoutConstraint(item: self,
