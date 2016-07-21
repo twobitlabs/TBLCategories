@@ -114,6 +114,30 @@ public extension UIView {
         return bottomOffset
     }
 
+    /**
+     Add a `NSLayoutConstraint` that positions the caller at least `offset` points above `sibling`
+
+     :returns: The constraint that was added to the caller's superview
+     */
+    public func placeAbove(sibling: UIView, byAtLeast offset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+        let superview = self.superview!
+        if (superview != sibling.superview!) {
+            fatalError("views do not share the same superview")
+        }
+        translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
+        let bottomOffset = NSLayoutConstraint(item: self,
+                                           attribute: .Bottom,
+                                           relatedBy: .LessThanOrEqual,
+                                           toItem: sibling,
+                                           attribute: .Top,
+                                           multiplier: 1,
+                                           constant: -offset)
+        bottomOffset.active = true
+        bottomOffset.identifier = identifier
+        return bottomOffset
+    }
+
     public func placeBelow(sibling: UIView, by offset: CGFloat = 0, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
