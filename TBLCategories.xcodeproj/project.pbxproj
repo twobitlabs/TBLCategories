@@ -16,7 +16,6 @@
 		9C73899F1ACF1B8900B1C778 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C73899E1ACF1B8900B1C778 /* UIKit.framework */; };
 		9CF1470F1B0AA1C400D62A4E /* NSDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1470E1B0AA1C400D62A4E /* NSDateTests.swift */; };
 		9CF147E81B0AA3E300D62A4E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF147E11B0AA2FE00D62A4E /* Nimble.framework */; };
-		9CF148191B0AAE0C00D62A4E /* Array+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480B1B0AAE0B00D62A4E /* Array+TBL.swift */; };
 		9CF1481A1B0AAE0C00D62A4E /* NSDate+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */; };
 		9CF1481B1B0AAE0C00D62A4E /* NSLayoutConstraint+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */; };
 		9CF1481D1B0AAE0C00D62A4E /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1480F1B0AAE0B00D62A4E /* Operators.swift */; };
@@ -84,7 +83,6 @@
 		9C73899E1ACF1B8900B1C778 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CF1470E1B0AA1C400D62A4E /* NSDateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateTests.swift; sourceTree = "<group>"; };
 		9CF147461B0AA2FD00D62A4E /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Nimble.xcodeproj; sourceTree = "<group>"; };
-		9CF1480B1B0AAE0B00D62A4E /* Array+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+TBL.swift"; path = "Swift Extensions/Array+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+TBL.swift"; path = "Swift Extensions/NSDate+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLayoutConstraint+TBL.swift"; path = "Swift Extensions/NSLayoutConstraint+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF1480F1B0AAE0B00D62A4E /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = "Swift Extensions/Operators.swift"; sourceTree = SOURCE_ROOT; };
@@ -145,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */,
-				9CF1480B1B0AAE0B00D62A4E /* Array+TBL.swift */,
 				9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */,
 				9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */,
 				9CF1480F1B0AAE0B00D62A4E /* Operators.swift */,
@@ -364,7 +361,6 @@
 				9CF148251B0AAE0C00D62A4E /* UIView+Autolayout.swift in Sources */,
 				9CF1481E1B0AAE0C00D62A4E /* Optional+TBL.swift in Sources */,
 				9CF148261B0AAE0C00D62A4E /* UIView+TBL.swift in Sources */,
-				9CF148191B0AAE0C00D62A4E /* Array+TBL.swift in Sources */,
 				9CF1481A1B0AAE0C00D62A4E /* NSDate+TBL.swift in Sources */,
 				9CF1481F1B0AAE0C00D62A4E /* String+TBL.swift in Sources */,
 				9CF148201B0AAE0C00D62A4E /* UIButton+TBL.swift in Sources */,
