@@ -5,7 +5,7 @@ import XCTest
 class OperatorTests: XCTestCase {
 
     func testNilCoalesceAndAssign() {
-        var left = "left"
+        var left: String? = "left"
         var right: String?
 
         left ??= right
