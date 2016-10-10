@@ -12,6 +12,6 @@ import UIKit
 public extension UIScrollView {
     
     public func scrollToTop() {
-        self.setContentOffset(CGPointMake(0, -self.contentInset.top), animated: true)
+        self.setContentOffset(CGPoint(x: 0, y: -self.contentInset.top), animated: true)
     }
 }

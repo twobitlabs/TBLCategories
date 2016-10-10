@@ -3,10 +3,10 @@ import UIKit
 
 extension UIDevice {
     var isIpad: Bool {
-        return userInterfaceIdiom == .Pad
+        return userInterfaceIdiom == .pad
     }
 
     var isIphone: Bool {
-        return userInterfaceIdiom == .Phone
+        return userInterfaceIdiom == .phone
     }
 }

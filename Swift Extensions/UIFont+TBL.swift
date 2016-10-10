@@ -3,7 +3,7 @@ import UIKit
 
 extension UIFont {
 
-    public enum UIFontTextStyle {
+    public enum FontTextStyle {
         case Headline
         case Subheadline
         case Body
@@ -11,27 +11,27 @@ extension UIFont {
         case Caption1
         case Caption2
 
-        private var style: String {
+        fileprivate var style: UIFontTextStyle {
             switch self {
-            case Headline:
-                return UIFontTextStyleHeadline
-            case Subheadline:
-                return UIFontTextStyleSubheadline
-            case Body:
-                return UIFontTextStyleBody
-            case Footnote:
-                return UIFontTextStyleFootnote
-            case Caption1:
-                return UIFontTextStyleCaption1
-            case Caption2:
-                return UIFontTextStyleCaption2
+            case .Headline:
+                return UIFontTextStyle.headline
+            case .Subheadline:
+                return UIFontTextStyle.subheadline
+            case .Body:
+                return UIFontTextStyle.body
+            case .Footnote:
+                return UIFontTextStyle.footnote
+            case .Caption1:
+                return UIFontTextStyle.caption1
+            case .Caption2:
+                return UIFontTextStyle.caption2
             }
         }
     }
 
-    public func preferredFontForTextStyle(style: UIFontTextStyle, sizeOffset: CGFloat = 0) -> UIFont {
-        let descriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(style.style)
-        return self.fontWithSize(descriptor.pointSize + sizeOffset)
+    public func preferredFontForTextStyle(style: FontTextStyle, sizeOffset: CGFloat = 0) -> UIFont {
+        let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style.style)
+        return self.withSize(descriptor.pointSize + sizeOffset)
     }
 
 }

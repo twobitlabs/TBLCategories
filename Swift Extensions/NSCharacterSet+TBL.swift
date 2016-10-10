@@ -63,7 +63,7 @@ extension NSCharacterSet {
         ]
         var emojiCharacterSet = NSMutableCharacterSet()
         for range in ranges {
-            emojiCharacterSet.formUnionWithCharacterSet(NSCharacterSet(range: NSMakeRange(range.begin, (range.end - range.begin) + 1)))
+            emojiCharacterSet.formUnion(with: NSCharacterSet(range: NSMakeRange(range.begin, (range.end - range.begin) + 1)) as CharacterSet)
         }
         return emojiCharacterSet
     }()

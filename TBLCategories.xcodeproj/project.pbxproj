@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8B675FFA1B2A345C00AACEFE /* UIImage+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */; };
+		8B8C8EBA1DAB220A0014E69C /* Dictionary+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */; };
+		8B8C8EBB1DAB220A0014E69C /* NSCharacterSet+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB31DAB220A0014E69C /* NSCharacterSet+TBL.swift */; };
+		8B8C8EBC1DAB220A0014E69C /* UIDevice+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */; };
+		8B8C8EBD1DAB220A0014E69C /* UIFont+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */; };
+		8B8C8EBE1DAB220A0014E69C /* UIScreen+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */; };
+		8B8C8EBF1DAB220A0014E69C /* UIScrollView+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB71DAB220A0014E69C /* UIScrollView+TBL.swift */; };
+		8B8C8EC01DAB220A0014E69C /* UITextView+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB81DAB220A0014E69C /* UITextView+TBL.swift */; };
+		8B8C8EC11DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB91DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift */; };
 		9C7389401ACE591600B1C778 /* TBLCategories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7389341ACE591600B1C778 /* TBLCategories.framework */; };
 		9C7389471ACE591600B1C778 /* TBLCategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389461ACE591600B1C778 /* TBLCategoriesTests.swift */; };
 		9C7389991ACEEAAB00B1C778 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7389981ACEEAAB00B1C778 /* StringTests.swift */; };
@@ -85,6 +93,14 @@
 
 /* Begin PBXFileReference section */
 		8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+TBL.swift"; path = "Swift Extensions/UIImage+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+TBL.swift"; path = "Swift Extensions/Dictionary+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB31DAB220A0014E69C /* NSCharacterSet+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSCharacterSet+TBL.swift"; path = "Swift Extensions/NSCharacterSet+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIDevice+TBL.swift"; path = "Swift Extensions/UIDevice+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+TBL.swift"; path = "Swift Extensions/UIFont+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScreen+TBL.swift"; path = "Swift Extensions/UIScreen+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB71DAB220A0014E69C /* UIScrollView+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScrollView+TBL.swift"; path = "Swift Extensions/UIScrollView+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB81DAB220A0014E69C /* UITextView+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextView+TBL.swift"; path = "Swift Extensions/UITextView+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB91DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Autolayout-objc-compat.swift"; path = "Swift Extensions/UIView+Autolayout-objc-compat.swift"; sourceTree = SOURCE_ROOT; };
 		9C7389341ACE591600B1C778 /* TBLCategories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TBLCategories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7389381ACE591600B1C778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7389391ACE591600B1C778 /* TBLCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBLCategories.h; sourceTree = "<group>"; };
@@ -156,6 +172,14 @@
 		9C7389361ACE591600B1C778 /* TBLCategories */ = {
 			isa = PBXGroup;
 			children = (
+				8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */,
+				8B8C8EB31DAB220A0014E69C /* NSCharacterSet+TBL.swift */,
+				8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */,
+				8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */,
+				8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */,
+				8B8C8EB71DAB220A0014E69C /* UIScrollView+TBL.swift */,
+				8B8C8EB81DAB220A0014E69C /* UITextView+TBL.swift */,
+				8B8C8EB91DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift */,
 				8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */,
 				9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */,
 				9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */,
@@ -387,14 +411,22 @@
 			files = (
 				8B675FFA1B2A345C00AACEFE /* UIImage+TBL.swift in Sources */,
 				9CF1481D1B0AAE0C00D62A4E /* Operators.swift in Sources */,
+				8B8C8EC01DAB220A0014E69C /* UITextView+TBL.swift in Sources */,
 				9CF148221B0AAE0C00D62A4E /* UILabel+TBL.swift in Sources */,
 				9CF1481B1B0AAE0C00D62A4E /* NSLayoutConstraint+TBL.swift in Sources */,
+				8B8C8EBB1DAB220A0014E69C /* NSCharacterSet+TBL.swift in Sources */,
 				9CF148231B0AAE0C00D62A4E /* UITableView+TBL.swift in Sources */,
+				8B8C8EBE1DAB220A0014E69C /* UIScreen+TBL.swift in Sources */,
 				9CF148251B0AAE0C00D62A4E /* UIView+Autolayout.swift in Sources */,
+				8B8C8EBF1DAB220A0014E69C /* UIScrollView+TBL.swift in Sources */,
+				8B8C8EC11DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift in Sources */,
 				9CF1481E1B0AAE0C00D62A4E /* Optional+TBL.swift in Sources */,
+				8B8C8EBD1DAB220A0014E69C /* UIFont+TBL.swift in Sources */,
+				8B8C8EBC1DAB220A0014E69C /* UIDevice+TBL.swift in Sources */,
 				9CF148261B0AAE0C00D62A4E /* UIView+TBL.swift in Sources */,
 				9CF1481A1B0AAE0C00D62A4E /* NSDate+TBL.swift in Sources */,
 				9CF1481F1B0AAE0C00D62A4E /* String+TBL.swift in Sources */,
+				8B8C8EBA1DAB220A0014E69C /* Dictionary+TBL.swift in Sources */,
 				9CF148201B0AAE0C00D62A4E /* UIButton+TBL.swift in Sources */,
 				9CF148211B0AAE0C00D62A4E /* UIColor+TBL.swift in Sources */,
 				9CF148241B0AAE0C00D62A4E /* UITextField+TBL.swift in Sources */,
