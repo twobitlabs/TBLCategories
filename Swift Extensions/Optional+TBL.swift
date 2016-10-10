@@ -3,9 +3,9 @@ extension Optional {
     var hasValue: Bool {
         get {
             switch self {
-                case .None:
+                case .none:
                     return false
-                case .Some:
+                case .some:
                     return true
             }
         }
@@ -24,9 +24,9 @@ extension Optional where Wrapped : CanBeEmpty {
     var isEmpty: Bool {
         get {
             switch self {
-            case .None:
+            case .none:
                 return true
-            case .Some(let maybeEmpty):
+            case .some(let maybeEmpty):
                 return maybeEmpty.isEmpty
             }
         }
@@ -43,9 +43,9 @@ extension Optional where Wrapped: CanHaveNonEmptyValue {
     var hasNonEmptyValue: Bool {
         get {
             switch self {
-            case .None:
+            case .none:
                 return true
-            case .Some(let maybeEmpty):
+            case .some(let maybeEmpty):
                 return maybeEmpty.hasNonEmptyValue
             }
         }

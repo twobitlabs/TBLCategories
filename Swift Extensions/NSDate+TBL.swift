@@ -9,7 +9,7 @@ let secondsInAYear = 365 * secondsInADay
 let minutesInAnHour = Double(60)
 let minutesInADay = 24 * minutesInAnHour
 
-public extension NSDate {
+public extension Date {
 
     public var isInThePast: Bool {
         return timeIntervalSinceNow < 0
@@ -24,9 +24,9 @@ public extension NSDate {
     }
 
     // TODO: add version with format specifier
-    public func timeAgoWithSeconds(withSeconds: Bool) -> String {
-        let now = NSDate()
-        let deltaSeconds: NSTimeInterval = now.timeIntervalSinceDate(self)
+    public func timeAgoWithSeconds(_ withSeconds: Bool) -> String {
+        let now = Date()
+        let deltaSeconds: TimeInterval = now.timeIntervalSince(self)
         if (deltaSeconds <= 0) {
             return (withSeconds ? "1s" : "1m") // special case for clock wonkiness
         } else if (deltaSeconds < secondsInAMinute) {
@@ -54,50 +54,50 @@ public extension NSDate {
         }
     }
 
-    public func isAfter(otherDate: NSDate) -> Bool {
-        return compare(otherDate) == .OrderedDescending
+    public func isAfter(_ otherDate: Date) -> Bool {
+        return compare(otherDate) == .orderedDescending
     }
 
-    public func isBefore(otherDate: NSDate) -> Bool {
-        return compare(otherDate) == .OrderedAscending
+    public func isBefore(_ otherDate: Date) -> Bool {
+        return compare(otherDate) == .orderedAscending
     }
 
-    public func isBefore(daysAgo daysAgo: Double) -> Bool {
+    public func isBefore(daysAgo: Double) -> Bool {
         return isBefore(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    public func isAfter(daysAgo daysAgo: Double) -> Bool {
+    public func isAfter(daysAgo: Double) -> Bool {
         return isAfter(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    public func isBefore(hoursAgo hoursAgo: Double) -> Bool {
+    public func isBefore(hoursAgo: Double) -> Bool {
         return isBefore(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    public func isAfter(hoursAgo hoursAgo: Double) -> Bool {
+    public func isAfter(hoursAgo: Double) -> Bool {
         return isAfter(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    public func isBefore(minutesAgo minutesAgo: Double) -> Bool {
+    public func isBefore(minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow < inThePast(minutesAgo * secondsInAMinute)
     }
 
-    public func isAfter(minutesAgo minutesAgo: Double) -> Bool {
+    public func isAfter(minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow > inThePast(minutesAgo * secondsInAMinute)
     }
 
-    private func inThePast(seconds: Double) -> NSTimeInterval {
+    fileprivate func inThePast(_ seconds: Double) -> TimeInterval {
         return -seconds
     }
 
     public func isToday() -> Bool {
-        let calendar = NSCalendar.currentCalendar()
-        let nowComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate: NSDate())
-        let selfComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate:self)
+        let calendar = Calendar.current
+        let nowComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from: Date())
+        let selfComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from:self)
 
-        if let definitelyToday = calendar.dateFromComponents(nowComponents),
-            possiblyToday = calendar.dateFromComponents(selfComponents) {
-                return definitelyToday.isEqualToDate(possiblyToday)
+        if let definitelyToday = calendar.date(from: nowComponents),
+            let possiblyToday = calendar.date(from: selfComponents) {
+                return (definitelyToday == possiblyToday)
         }
 
         // TODO return an enum with true/false/unknown instead?
@@ -105,13 +105,13 @@ public extension NSDate {
     }
 
     public func isTomorrow() -> Bool {
-        let calendar = NSCalendar.currentCalendar()
-        let nowComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate: NSDate())
-        let selfComponents = calendar.components(([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day]), fromDate:self)
+        let calendar = Calendar.current
+        let nowComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from: Date())
+        let selfComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from:self)
 
-        if let definitelyToday = calendar.dateFromComponents(nowComponents),
-            possiblyTomorrow = calendar.dateFromComponents(selfComponents) {
-                return possiblyTomorrow.timeIntervalSinceDate(definitelyToday) == (60 * 60 * 24)
+        if let definitelyToday = calendar.date(from: nowComponents),
+            let possiblyTomorrow = calendar.date(from: selfComponents) {
+                return possiblyTomorrow.timeIntervalSince(definitelyToday) == (60 * 60 * 24)
         }
 
         // TODO return an enum with true/false/unknown instead?

@@ -5,9 +5,9 @@ import Nimble
 class NSDateTests : XCTestCase {
 
     func testDateComparison() {
-        let now = NSDate()
-        let tomorrow = now.dateByAddingTimeInterval(60 * 60 * 24)
-        let yesterday = now.dateByAddingTimeInterval(-1 * 60 * 60 * 24)
+        let now = Date()
+        let tomorrow = now.addingTimeInterval(60 * 60 * 24)
+        let yesterday = now.addingTimeInterval(-1 * 60 * 60 * 24)
 
         expect(now.isAfter(yesterday)).to(beTruthy())
         expect(now.isBefore(yesterday)).to(beFalsy())
@@ -28,14 +28,14 @@ class NSDateTests : XCTestCase {
         expect(tomorrow.isBefore(daysAgo: -2)).to(beTruthy())
         expect(tomorrow.isBefore(daysAgo: 0)).to(beFalsy())
 
-        let threeHoursAgo = now.dateByAddingTimeInterval(-(60 * 60 * 3))
+        let threeHoursAgo = now.addingTimeInterval(-(60 * 60 * 3))
 
         expect(threeHoursAgo.isAfter(hoursAgo: 4)).to(beTruthy())
         expect(threeHoursAgo.isAfter(hoursAgo: 2)).to(beFalsy())
         expect(threeHoursAgo.isBefore(hoursAgo: 2)).to(beTruthy())
         expect(threeHoursAgo.isBefore(hoursAgo: 4)).to(beFalsy())
 
-        let fiveMinutesAgo = now.dateByAddingTimeInterval(-(5 * 60))
+        let fiveMinutesAgo = now.addingTimeInterval(-(5 * 60))
 
         expect(fiveMinutesAgo.isAfter(minutesAgo: 6)).to(beTruthy())
         expect(fiveMinutesAgo.isAfter(minutesAgo: 4)).to(beFalsy())

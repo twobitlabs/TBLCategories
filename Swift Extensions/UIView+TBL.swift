@@ -4,11 +4,11 @@ public extension UIView {
 
     public var visible: Bool {
         get {
-            return !hidden
+            return !isHidden
         }
 
         set {
-            hidden = !newValue
+            isHidden = !newValue
         }
     }
 
@@ -37,22 +37,22 @@ public extension UIView {
     }
     
     public func roundCorners() {
-        roundCorners(.AllCorners)
+        roundCorners(.allCorners)
     }
     
-    public func roundCorners(corners: UIRectCorner) {
+    public func roundCorners(_ corners: UIRectCorner) {
         roundCorners(corners, withRadius:8)
     }
     
-    public func roundCorners(corners: UIRectCorner, withRadius radius: CGFloat) {
-        if (corners == .AllCorners) {
+    public func roundCorners(_ corners: UIRectCorner, withRadius radius: CGFloat) {
+        if (corners == .allCorners) {
             self.layer.cornerRadius = radius;
         } else {
             let roundedPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
             let maskLayer = CAShapeLayer()
-            maskLayer.backgroundColor = UIColor.clearColor().CGColor
-            maskLayer.fillColor = UIColor.whiteColor().CGColor
-            maskLayer.path = roundedPath.CGPath
+            maskLayer.backgroundColor = UIColor.clear.cgColor
+            maskLayer.fillColor = UIColor.white.cgColor
+            maskLayer.path = roundedPath.cgPath
             self.layer.mask = maskLayer
         }
         clipsToBounds = true

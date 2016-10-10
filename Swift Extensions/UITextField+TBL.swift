@@ -5,7 +5,7 @@ private class InsetTextField: UITextField {
 
     init(insets: UIEdgeInsets) {
         self.insets = insets
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -13,13 +13,13 @@ private class InsetTextField: UITextField {
     }
 
     // placeholder position
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
-        return super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, insets))
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets))
     }
 
     // text position
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return super.editingRectForBounds(UIEdgeInsetsInsetRect(bounds, insets))
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets))
     }
 }
 
@@ -37,7 +37,7 @@ public extension UITextField {
         }
     }
 
-    public class func textFieldWithInsets(insets: UIEdgeInsets) -> UITextField {
+    public class func textFieldWithInsets(_ insets: UIEdgeInsets) -> UITextField {
         return InsetTextField(insets: insets)
     }
 

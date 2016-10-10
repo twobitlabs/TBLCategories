@@ -2,10 +2,10 @@ import Foundation
 
 public extension String {
     
-    public func contains(substring: String, ignoreCase: Bool = false) -> Bool {
+    public func contains(_ substring: String, ignoreCase: Bool = false) -> Bool {
         if let range = ignoreCase ?
-            rangeOfString(substring, options: .CaseInsensitiveSearch) :
-            rangeOfString(substring) {
+            range(of: substring, options: .caseInsensitive) :
+            range(of: substring) {
             return !range.isEmpty
         } else {
             return false
@@ -26,22 +26,22 @@ public extension String {
         if startIndex == endIndex {
             return self
         }
-        let rest = startIndex.advancedBy(1)..<endIndex
-        let capitalized = self[startIndex...startIndex].uppercaseString + self[rest]
+        let rest = characters.index(startIndex, offsetBy: 1)..<endIndex
+        let capitalized = self[startIndex...startIndex].uppercased() + self[rest]
 
         return capitalized
     }
 
-    public static func localized(key: String, table: String? = nil, comment: String? = nil) -> String {
+    public static func localized(_ key: String, table: String? = nil, comment: String? = nil) -> String {
         return NSLocalizedString(key, tableName: table, comment: comment ?? "")
     }
 
-    func truncateTo(maxCharacters: Int, appendIfTruncated suffix: String? = nil) -> String {
+    func truncateTo(_ maxCharacters: Int, appendIfTruncated suffix: String? = nil) -> String {
         guard characters.count > maxCharacters else {
             return self
         }
 
-        let truncated = (self as NSString).substringToIndex(maxCharacters - 1)
+        let truncated = (self as NSString).substring(to: maxCharacters - 1)
         if let suffix = suffix {
             return truncated + suffix
         } else {
