@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode8
+
+## Setup
+
+# Travis initializes git submodules before `install` runs
+
+install:
+    # - `xctool`, required to build the unit test and documentation targets
+    #   Workaround for https://github.com/travis-ci/travis-ci/issues/2051#issuecomment-40817341
+    - brew update
+    - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+
+script:
+    - xctool -project TBLCategories.xcodeproj -scheme TBLCategories -sdk iphonesimulator
+    - xctool test -project TBLCategories.xcodeproj -scheme TBLCategories -sdk iphonesimulator
