@@ -12,5 +12,5 @@ install:
     - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 
 script:
-    - xctool -project TBLCategories.xcodeproj -scheme TBLCategories -sdk iphonesimulator
-    - xctool test -project TBLCategories.xcodeproj -scheme TBLCategories -sdk iphonesimulator
+    - xcodebuild -target TBLCategories
+    - xcodebuild -target TBLCategories -scheme TBLCategories -destination 'platform=iOS Simulator,name=iPhone 6' test
