@@ -1,6 +1,6 @@
 // MARK: - Null Coalesce & Assignment Operator
 
-infix operator ??= { associativity left precedence 90 }
+infix operator ??= : AssignmentPrecedence
 
 
 
