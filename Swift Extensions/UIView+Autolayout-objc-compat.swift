@@ -11,19 +11,19 @@ public extension UIView {
         return addConstraintsFromDescriptions(constraintDescriptions, views: views, metrics: metrics)
     }
 
-    public func objc_pinToTop(identifier identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_pinToTop(identifier: String? = nil) -> NSLayoutConstraint {
         return pinToTop(priority: nil, identifier: identifier)
     }
 
-    public func objc_pinToBottom(identifier identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_pinToBottom(identifier: String? = nil) -> NSLayoutConstraint {
         return pinToBottom(priority: nil, identifier: identifier)
     }
 
-    public func objc_pinToLeft(identifier identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_pinToLeft(identifier: String? = nil) -> NSLayoutConstraint {
         return pinToLeft(priority: nil, identifier: identifier)
     }
 
-    public func objc_pinToRight(identifier identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_pinToRight(identifier: String? = nil) -> NSLayoutConstraint {
         return pinToRight(priority: nil, identifier: identifier)
     }
 
@@ -59,11 +59,11 @@ public extension UIView {
         return insetFromParentBottomByAtLeast(inset, priority: nil, identifier: identifier)
     }
 
-    public func objc_fillParentVertically(identifier identifier: String? = nil) -> [NSLayoutConstraint] {
+    public func objc_fillParentVertically(identifier: String? = nil) -> [NSLayoutConstraint] {
         return fillParentVertically(priority: nil, identifier: identifier)
     }
 
-    public func objc_fillParentHorizontally(identifier identifier: String? = nil) -> [NSLayoutConstraint] {
+    public func objc_fillParentHorizontally(identifier: String? = nil) -> [NSLayoutConstraint] {
         return fillParentHorizontally(priority: nil, identifier: identifier)
     }
 
