@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B09A6951DB161EF00099F2B /* CharacterSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09A6941DB161EF00099F2B /* CharacterSetTests.swift */; };
 		8B675FFA1B2A345C00AACEFE /* UIImage+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */; };
 		8B8C8EBA1DAB220A0014E69C /* Dictionary+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */; };
-		8B8C8EBB1DAB220A0014E69C /* NSCharacterSet+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB31DAB220A0014E69C /* NSCharacterSet+TBL.swift */; };
+		8B8C8EBB1DAB220A0014E69C /* CharacterSet+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB31DAB220A0014E69C /* CharacterSet+TBL.swift */; };
 		8B8C8EBC1DAB220A0014E69C /* UIDevice+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */; };
 		8B8C8EBD1DAB220A0014E69C /* UIFont+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */; };
 		8B8C8EBE1DAB220A0014E69C /* UIScreen+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */; };
@@ -92,9 +93,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B09A6941DB161EF00099F2B /* CharacterSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSetTests.swift; sourceTree = "<group>"; };
 		8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+TBL.swift"; path = "Swift Extensions/UIImage+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+TBL.swift"; path = "Swift Extensions/Dictionary+TBL.swift"; sourceTree = SOURCE_ROOT; };
-		8B8C8EB31DAB220A0014E69C /* NSCharacterSet+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSCharacterSet+TBL.swift"; path = "Swift Extensions/NSCharacterSet+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		8B8C8EB31DAB220A0014E69C /* CharacterSet+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CharacterSet+TBL.swift"; path = "Swift Extensions/CharacterSet+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIDevice+TBL.swift"; path = "Swift Extensions/UIDevice+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+TBL.swift"; path = "Swift Extensions/UIFont+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIScreen+TBL.swift"; path = "Swift Extensions/UIScreen+TBL.swift"; sourceTree = SOURCE_ROOT; };
@@ -173,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */,
-				8B8C8EB31DAB220A0014E69C /* NSCharacterSet+TBL.swift */,
+				8B8C8EB31DAB220A0014E69C /* CharacterSet+TBL.swift */,
 				8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */,
 				8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */,
 				8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */,
@@ -216,6 +218,7 @@
 				9C7389981ACEEAAB00B1C778 /* StringTests.swift */,
 				9C73899A1ACF108A00B1C778 /* OperatorTests.swift */,
 				9CF1470E1B0AA1C400D62A4E /* NSDateTests.swift */,
+				8B09A6941DB161EF00099F2B /* CharacterSetTests.swift */,
 			);
 			path = TBLCategoriesTests;
 			sourceTree = "<group>";
@@ -414,7 +417,7 @@
 				8B8C8EC01DAB220A0014E69C /* UITextView+TBL.swift in Sources */,
 				9CF148221B0AAE0C00D62A4E /* UILabel+TBL.swift in Sources */,
 				9CF1481B1B0AAE0C00D62A4E /* NSLayoutConstraint+TBL.swift in Sources */,
-				8B8C8EBB1DAB220A0014E69C /* NSCharacterSet+TBL.swift in Sources */,
+				8B8C8EBB1DAB220A0014E69C /* CharacterSet+TBL.swift in Sources */,
 				9CF148231B0AAE0C00D62A4E /* UITableView+TBL.swift in Sources */,
 				8B8C8EBE1DAB220A0014E69C /* UIScreen+TBL.swift in Sources */,
 				9CF148251B0AAE0C00D62A4E /* UIView+Autolayout.swift in Sources */,
@@ -441,6 +444,7 @@
 				9C73899B1ACF108A00B1C778 /* OperatorTests.swift in Sources */,
 				9CF1470F1B0AA1C400D62A4E /* NSDateTests.swift in Sources */,
 				9C7389471ACE591600B1C778 /* TBLCategoriesTests.swift in Sources */,
+				8B09A6951DB161EF00099F2B /* CharacterSetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

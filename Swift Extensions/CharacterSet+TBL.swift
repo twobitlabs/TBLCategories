@@ -1,11 +1,11 @@
 
 import Foundation
 
-extension NSCharacterSet {
+extension CharacterSet {
 
-    @nonobjc static let emojiCharacterSet: NSCharacterSet = {
+    @nonobjc public static let emojiCharacterSet: CharacterSet = {
         // https://en.wikipedia.org/wiki/Emoji#Unicode_blocks
-        let ranges: [(begin: Int, end: Int)] = [
+        let ranges: [(begin: UInt32, end: UInt32)] = [
             (0x1F300, 0x1F321),
             (0x1F324, 0x1F393),
             (0x1F396, 0x1F397),
@@ -61,11 +61,29 @@ extension NSCharacterSet {
             (0x2701, 0x275E),
             (0x2761, 0x27BF)
         ]
-        var emojiCharacterSet = NSMutableCharacterSet()
+        var emojiCharacterSet = CharacterSet()
         for range in ranges {
-            emojiCharacterSet.formUnion(with: NSCharacterSet(range: NSMakeRange(range.begin, (range.end - range.begin) + 1)) as CharacterSet)
+            let charSet = CharacterSet(charactersIn: UnicodeScalar(range.begin)!...UnicodeScalar(range.end)!)
+            emojiCharacterSet.formUnion(charSet)
         }
         return emojiCharacterSet
     }()
-    
+
+    public var characters:[String] {
+        var chars = [String]()
+        for plane:UInt8 in 0...16 {
+            if (self as NSCharacterSet).hasMemberInPlane(plane) {
+                let p0 = UInt32(plane) << 16
+                let p1 = (UInt32(plane) + 1) << 16
+                for c:UTF32Char in p0..<p1 {
+                    if (self as NSCharacterSet).longCharacterIsMember(c) {
+                        var c1 = c.littleEndian
+                        let s = NSString(bytes: &c1, length: 4, encoding: String.Encoding.utf32LittleEndian.rawValue)!
+                        chars.append(String(s))
+                    }
+                }
+            }
+        }
+        return chars
+    }
 }
