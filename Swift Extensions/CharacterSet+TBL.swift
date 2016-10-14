@@ -63,8 +63,7 @@ extension CharacterSet {
         ]
         var emojiCharacterSet = CharacterSet()
         for range in ranges {
-            let charSet = CharacterSet(charactersIn: UnicodeScalar(range.begin)!...UnicodeScalar(range.end)!)
-            emojiCharacterSet.formUnion(charSet)
+            emojiCharacterSet.insert(charactersIn: UnicodeScalar(range.begin)!...UnicodeScalar(range.end)!)
         }
         return emojiCharacterSet
     }()
