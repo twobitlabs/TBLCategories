@@ -27,35 +27,35 @@ public extension UIView {
         return pinToRight(priority: nil, identifier: identifier)
     }
 
-    public func objc_insetFromParentLeft(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_insetFromParentLeft(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentLeft(inset, priority: nil, identifier: identifier)
     }
 
-    public func objc_insetFromParentRight(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_insetFromParentRight(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentRight(inset, priority: nil, identifier: identifier)
     }
 
-    public func objc_insetFromParentTop(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_insetFromParentTop(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentTop(inset, priority: nil, identifier: identifier)
     }
 
-    func objc_insetFromParentBottom(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    func objc_insetFromParentBottom(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentBottom(inset, priority: nil, identifier: identifier)
     }
 
-    func objc_insetFromParentLeftByAtLeast(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    func objc_insetFromParentLeftByAtLeast(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentLeftByAtLeast(inset, priority: nil, identifier: identifier)
     }
 
-    func objc_insetFromParentRightByAtLeast(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    func objc_insetFromParentRightByAtLeast(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentRightByAtLeast(inset, priority: nil, identifier: identifier)
     }
 
-    func objc_insetFromParentTopByAtLeast(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    func objc_insetFromParentTopByAtLeast(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentTopByAtLeast(inset, priority: nil, identifier: identifier)
     }
 
-    public func objc_insetFromParentBottomByAtLeast(inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_insetFromParentBottomByAtLeast(_ inset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return insetFromParentBottomByAtLeast(inset, priority: nil, identifier: identifier)
     }
 
@@ -67,15 +67,15 @@ public extension UIView {
         return fillParentHorizontally(priority: nil, identifier: identifier)
     }
 
-    public func objc_centerChildVertically(childView: UIView, identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_centerChildVertically(_ childView: UIView, identifier: String? = nil) -> NSLayoutConstraint {
         return centerChildVertically(childView, priority: nil, identifier: identifier)
     }
 
-    public func objc_setHeightConstraint(size: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_setHeightConstraint(_ size: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return setHeightConstraint(size, priority: nil, identifier: identifier)
     }
 
-    public func objc_setWidthConstraint(size: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    public func objc_setWidthConstraint(_ size: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
         return setWidthConstraint(size, priority: nil, identifier: identifier)
     }
 }
