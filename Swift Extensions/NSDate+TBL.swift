@@ -9,6 +9,64 @@ let secondsInAYear = 365 * secondsInADay
 let minutesInAnHour = Double(60)
 let minutesInADay = 24 * minutesInAnHour
 
+public extension NSDate {
+    public var isInThePast: Bool {
+        return (self as Date).isInThePast
+    }
+
+    public func timeAgo() -> String {
+        return (self as Date).timeAgo()
+    }
+
+    public func timeAgoWithSeconds() -> String {
+        return (self as Date).timeAgoWithSeconds()
+    }
+
+    public func timeAgoWithSeconds(_ withSeconds: Bool) -> String {
+        return (self as Date).timeAgoWithSeconds(withSeconds)
+    }
+
+    public func isAfter(_ otherDate: NSDate) -> Bool {
+        return (self as Date).isAfter(otherDate as Date)
+    }
+
+    public func isBefore(_ otherDate: NSDate) -> Bool {
+        return (self as Date).isBefore(otherDate as Date)
+    }
+
+    public func isBefore(daysAgo: Double) -> Bool {
+        return (self as Date).isBefore(daysAgo: daysAgo)
+    }
+
+    public func isAfter(daysAgo: Double) -> Bool {
+        return (self as Date).isAfter(daysAgo: daysAgo)
+    }
+
+    public func isBefore(hoursAgo: Double) -> Bool {
+        return (self as Date).isBefore(hoursAgo: hoursAgo)
+    }
+
+    public func isAfter(hoursAgo: Double) -> Bool {
+        return (self as Date).isAfter(hoursAgo: hoursAgo)
+    }
+
+    public func isBefore(minutesAgo: Double) -> Bool {
+        return (self as Date).isBefore(minutesAgo: minutesAgo)
+    }
+
+    public func isAfter(minutesAgo: Double) -> Bool {
+        return (self as Date).isAfter(minutesAgo: minutesAgo)
+    }
+
+    public func isToday() -> Bool {
+        return (self as Date).isToday()
+    }
+
+    public func isTomorrow() -> Bool {
+        return (self as Date).isTomorrow()
+    }
+}
+
 public extension Date {
 
     public var isInThePast: Bool {
