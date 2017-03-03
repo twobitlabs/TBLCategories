@@ -23,8 +23,8 @@ public extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 
-    public func asImage() -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+    public func asImage(width: CGFloat = 1, height: CGFloat = 1) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: width, height: height)
         UIGraphicsBeginImageContext(rect.size)
         let context: CGContext = UIGraphicsGetCurrentContext()!
         context.setFillColor(cgColor)
