@@ -376,7 +376,11 @@ public extension UIView {
     @discardableResult public func matchRightOf(_ sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint {
         return alignDimension(.right, withSibling: sibling, identifier: identifier)
     }
-    
+
+    @discardableResult public func matchFirstBaseline(of sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint {
+        return alignDimension(.firstBaseline, withSibling: sibling, identifier: identifier)
+    }
+
     fileprivate func alignDimension(_ dimension: NSLayoutAttribute, withSibling sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
