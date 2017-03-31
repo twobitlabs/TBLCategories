@@ -16,7 +16,7 @@ public extension UIView {
     
     // MARK: - centering
     
-    @discardableResult public func centerChildHorizontally(_ childView: UIView, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func centerChildHorizontally(_ childView: UIView, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         childView.translatesAutoresizingMaskIntoConstraints = false
         let centerHorizontally = NSLayoutConstraint(item: childView,
             attribute: .centerX,
@@ -25,6 +25,9 @@ public extension UIView {
             attribute: .centerX,
             multiplier: 1,
             constant: 0)
+        if let priority = priority {
+            centerHorizontally.priority = priority
+        }
         centerHorizontally.identifier = identifier
         centerHorizontally.isActive = true
         return centerHorizontally

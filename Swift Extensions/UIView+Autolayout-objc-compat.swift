@@ -67,6 +67,10 @@ public extension UIView {
         return fillParentHorizontally(priority: nil, identifier: identifier)
     }
 
+    @discardableResult public func objc_centerChildHorizontally(_ childView: UIView, identifier: String? = nil) -> NSLayoutConstraint {
+        return centerChildHorizontally(childView, priority: nil, identifier: identifier)
+    }
+
     @discardableResult public func objc_centerChildVertically(_ childView: UIView, identifier: String? = nil) -> NSLayoutConstraint {
         return centerChildVertically(childView, priority: nil, identifier: identifier)
     }
