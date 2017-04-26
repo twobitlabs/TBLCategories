@@ -16,6 +16,10 @@ public extension String {
         return !isEmpty
     }
 
+    public var nilIfEmpty: String? {
+        return isEmpty ? nil : self
+    }
+
     /**
     Capitalize the first letter as opposed to .capitalizedString which lowercases
     the string and then capitalizes every word in it.
