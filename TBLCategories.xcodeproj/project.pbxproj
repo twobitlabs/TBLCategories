@@ -37,6 +37,9 @@
 		9CF148241B0AAE0C00D62A4E /* UITextField+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF148161B0AAE0C00D62A4E /* UITextField+TBL.swift */; };
 		9CF148251B0AAE0C00D62A4E /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF148171B0AAE0C00D62A4E /* UIView+Autolayout.swift */; };
 		9CF148261B0AAE0C00D62A4E /* UIView+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF148181B0AAE0C00D62A4E /* UIView+TBL.swift */; };
+		9CF31CD91EB8103100D69812 /* UIStackView+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF31CD61EB8103100D69812 /* UIStackView+TBL.swift */; };
+		9CF31CDA1EB8103100D69812 /* Collection+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF31CD71EB8103100D69812 /* Collection+TBL.swift */; };
+		9CF31CDB1EB8103100D69812 /* UIViewController+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF31CD81EB8103100D69812 /* UIViewController+TBL.swift */; };
 		9CF910411ACF5F27002354F4 /* TBLCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C7389391ACE591600B1C778 /* TBLCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -127,6 +130,9 @@
 		9CF148161B0AAE0C00D62A4E /* UITextField+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+TBL.swift"; path = "Swift Extensions/UITextField+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		9CF148171B0AAE0C00D62A4E /* UIView+Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Autolayout.swift"; path = "Swift Extensions/UIView+Autolayout.swift"; sourceTree = SOURCE_ROOT; };
 		9CF148181B0AAE0C00D62A4E /* UIView+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+TBL.swift"; path = "Swift Extensions/UIView+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		9CF31CD61EB8103100D69812 /* UIStackView+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStackView+TBL.swift"; path = "Swift Extensions/UIStackView+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		9CF31CD71EB8103100D69812 /* Collection+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Collection+TBL.swift"; path = "Swift Extensions/Collection+TBL.swift"; sourceTree = SOURCE_ROOT; };
+		9CF31CD81EB8103100D69812 /* UIViewController+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+TBL.swift"; path = "Swift Extensions/UIViewController+TBL.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,28 +180,31 @@
 		9C7389361ACE591600B1C778 /* TBLCategories */ = {
 			isa = PBXGroup;
 			children = (
-				8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */,
 				8B8C8EB31DAB220A0014E69C /* CharacterSet+TBL.swift */,
-				8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */,
-				8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */,
-				8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */,
-				8B8C8EB71DAB220A0014E69C /* UIScrollView+TBL.swift */,
-				8B8C8EB81DAB220A0014E69C /* UITextView+TBL.swift */,
-				8B8C8EB91DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift */,
-				8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */,
+				9CF31CD71EB8103100D69812 /* Collection+TBL.swift */,
+				8B8C8EB21DAB220A0014E69C /* Dictionary+TBL.swift */,
 				9CF1480C1B0AAE0B00D62A4E /* NSDate+TBL.swift */,
 				9CF1480D1B0AAE0B00D62A4E /* NSLayoutConstraint+TBL.swift */,
 				9CF1480F1B0AAE0B00D62A4E /* Operators.swift */,
 				9CF148101B0AAE0B00D62A4E /* Optional+TBL.swift */,
 				9CF148111B0AAE0B00D62A4E /* String+TBL.swift */,
+				9C7389391ACE591600B1C778 /* TBLCategories.h */,
 				9CF148121B0AAE0B00D62A4E /* UIButton+TBL.swift */,
 				9CF148131B0AAE0C00D62A4E /* UIColor+TBL.swift */,
+				8B8C8EB41DAB220A0014E69C /* UIDevice+TBL.swift */,
+				8B8C8EB51DAB220A0014E69C /* UIFont+TBL.swift */,
+				8B675FF91B2A345C00AACEFE /* UIImage+TBL.swift */,
 				9CF148141B0AAE0C00D62A4E /* UILabel+TBL.swift */,
+				8B8C8EB61DAB220A0014E69C /* UIScreen+TBL.swift */,
+				8B8C8EB71DAB220A0014E69C /* UIScrollView+TBL.swift */,
+				9CF31CD61EB8103100D69812 /* UIStackView+TBL.swift */,
 				9CF148151B0AAE0C00D62A4E /* UITableView+TBL.swift */,
 				9CF148161B0AAE0C00D62A4E /* UITextField+TBL.swift */,
+				8B8C8EB81DAB220A0014E69C /* UITextView+TBL.swift */,
+				8B8C8EB91DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift */,
 				9CF148171B0AAE0C00D62A4E /* UIView+Autolayout.swift */,
 				9CF148181B0AAE0C00D62A4E /* UIView+TBL.swift */,
-				9C7389391ACE591600B1C778 /* TBLCategories.h */,
+				9CF31CD81EB8103100D69812 /* UIViewController+TBL.swift */,
 				9C7389371ACE591600B1C778 /* Supporting Files */,
 			);
 			path = TBLCategories;
@@ -412,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF31CDA1EB8103100D69812 /* Collection+TBL.swift in Sources */,
 				8B675FFA1B2A345C00AACEFE /* UIImage+TBL.swift in Sources */,
 				9CF1481D1B0AAE0C00D62A4E /* Operators.swift in Sources */,
 				8B8C8EC01DAB220A0014E69C /* UITextView+TBL.swift in Sources */,
@@ -424,7 +434,9 @@
 				8B8C8EBF1DAB220A0014E69C /* UIScrollView+TBL.swift in Sources */,
 				8B8C8EC11DAB220A0014E69C /* UIView+Autolayout-objc-compat.swift in Sources */,
 				9CF1481E1B0AAE0C00D62A4E /* Optional+TBL.swift in Sources */,
+				9CF31CD91EB8103100D69812 /* UIStackView+TBL.swift in Sources */,
 				8B8C8EBD1DAB220A0014E69C /* UIFont+TBL.swift in Sources */,
+				9CF31CDB1EB8103100D69812 /* UIViewController+TBL.swift in Sources */,
 				8B8C8EBC1DAB220A0014E69C /* UIDevice+TBL.swift in Sources */,
 				9CF148261B0AAE0C00D62A4E /* UIView+TBL.swift in Sources */,
 				9CF1481A1B0AAE0C00D62A4E /* NSDate+TBL.swift in Sources */,
@@ -562,6 +574,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = TBLCategories/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -580,6 +593,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = TBLCategories/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -600,6 +614,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = TBLCategoriesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -615,6 +630,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = TBLCategoriesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

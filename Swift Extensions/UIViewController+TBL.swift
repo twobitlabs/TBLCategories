@@ -9,7 +9,7 @@ extension UIViewController {
     }
 
     public func showAlert(title: String, message: String? = nil, actions: [UIAlertAction]? = nil)  {
-        let alert = LoggingAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         if actions == nil || actions!.isEmpty {
             alert.addAction(UIAlertAction(title: String.localized("OK"), style: UIAlertActionStyle.default, handler: nil))
         } else {
