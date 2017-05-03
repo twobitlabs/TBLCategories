@@ -23,6 +23,24 @@ public extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 
+    public func toHexString() -> String? {
+        guard let components = cgColor.components, components.count >= 3 else { return nil } // ignore alpha
+
+        let red = components[0]
+        let green = components[1]
+        let blue = components[2]
+
+        let red255 = Int((red * 255).rounded())
+        let green255 = Int((green * 255).rounded())
+        let blue255 = Int((blue * 255).rounded())
+
+        let redHex = String(format: "%X", red255)
+        let greenHex = String(format: "%X", green255)
+        let blueHex = String(format: "%X", blue255)
+
+        return "\(redHex)\(greenHex)\(blueHex)"
+    }
+
     public func asImage(width: CGFloat = 1, height: CGFloat = 1) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: width, height: height)
         UIGraphicsBeginImageContext(rect.size)
