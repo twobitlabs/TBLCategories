@@ -8,7 +8,7 @@ class GameScoreTests: QuickSpec {
     override func spec() {
         let bar = "bar"
 
-        describe("nial coalesce operator") {
+        describe("nil coalesce operator") {
             it("should overwite if left side is nil") {
                 var foo: String? = nil
                 foo ??= bar
@@ -16,7 +16,6 @@ class GameScoreTests: QuickSpec {
             }
 
             it("should not overwrite if left side is not nil") {
-        left ??= right
                 var foo: String? = "foo"
 
                 foo ??= bar
