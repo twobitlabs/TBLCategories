@@ -527,6 +527,12 @@ public extension UIView {
         return [pinToLeft(priority: priority, identifier: identifier), pinToRight(priority: priority, identifier: identifier)]
     }
 
+    @discardableResult public func fillParentHorizontallyUpTo(width: CGFloat, identifier: String? = nil) -> [NSLayoutConstraint] {
+        var constraints = fillParentHorizontally(priority: 999, identifier: identifier)
+        constraints.append(setMaxWidthConstraint(width, identifier: identifier))
+        return constraints
+    }
+
     /**
     Add a `NSLayoutConstraint` that sets the height of the view by applying the given ratio to the view's width
 
