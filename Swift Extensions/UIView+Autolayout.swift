@@ -533,7 +533,7 @@ public extension UIView {
     :returns: The constraint that was added to self
     */
 
-    @discardableResult func setAspectRatio(_ ratio: Float, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult func setAspectRatio(_ ratio: Float, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let ratioConstraint = NSLayoutConstraint(item: self,
             attribute: .height,
@@ -542,6 +542,9 @@ public extension UIView {
             attribute: .width,
             multiplier: CGFloat(1/ratio),
             constant: 0)
+        if let priority = priority {
+            ratioConstraint.priority = priority
+        }
         ratioConstraint.isActive = true
         ratioConstraint.identifier = identifier
         return ratioConstraint
