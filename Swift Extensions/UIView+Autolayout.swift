@@ -286,16 +286,16 @@ public extension UIView {
         return pinToEdge(.right, priority: priority, identifier: identifier)
     }
     
-    @discardableResult public func insetFromParent(_ inset: CGFloat, identifier: String? = nil) -> [NSLayoutConstraint] {
-        return insetFromParentVertically(inset, identifier: identifier) + insetFromParentHorizontally(inset, identifier: identifier)
+    @discardableResult public func insetFromParent(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
+        return insetFromParentVertically(inset, priority: priority, identifier: identifier) + insetFromParentHorizontally(inset, priority: priority, identifier: identifier)
     }
 
-    @discardableResult public func insetFromParentHorizontally(_ inset: CGFloat, identifier: String? = nil) -> [NSLayoutConstraint] {
-        return [pinToEdge(.left, inset: inset, identifier: identifier), pinToEdge(.right, inset: -inset, identifier: identifier)]
+    @discardableResult public func insetFromParentHorizontally(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
+        return [pinToEdge(.left, inset: inset, priority: priority, identifier: identifier), pinToEdge(.right, inset: -inset, priority: priority, identifier: identifier)]
     }
 
-    @discardableResult public func insetFromParentVertically(_ inset: CGFloat, identifier: String? = nil) -> [NSLayoutConstraint] {
-        return [pinToEdge(.top, inset: inset, identifier: identifier), pinToEdge(.bottom, inset: -inset, identifier: identifier)]
+    @discardableResult public func insetFromParentVertically(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
+        return [pinToEdge(.top, inset: inset, priority: priority, identifier: identifier), pinToEdge(.bottom, inset: -inset, priority: priority, identifier: identifier)]
     }
     
     @discardableResult public func insetFromParentLeft(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
@@ -527,9 +527,9 @@ public extension UIView {
         return [pinToLeft(priority: priority, identifier: identifier), pinToRight(priority: priority, identifier: identifier)]
     }
 
-    @discardableResult public func fillParentHorizontallyUpTo(width: CGFloat, identifier: String? = nil) -> [NSLayoutConstraint] {
-        var constraints = fillParentHorizontally(priority: 999, identifier: identifier)
-        constraints.append(setMaxWidthConstraint(width, identifier: identifier))
+    @discardableResult public func fillParentHorizontallyUpTo(width: CGFloat, withInsets insets: CGFloat = 0, identifier: String? = nil) -> [NSLayoutConstraint] {
+        var constraints = insetFromParentHorizontally(insets, priority: 999, identifier: identifier)
+        constraints.append(setMaxWidthConstraint(width - (2 * insets), identifier: identifier))
         return constraints
     }
 
