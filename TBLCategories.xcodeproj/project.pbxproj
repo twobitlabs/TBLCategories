@@ -45,6 +45,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8BD079781F784ACF00B8E688 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CCE25761CE26BB700A31BA5 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64076CF51D6D7C2000E2B499;
+			remoteInfo = "QuickAfterSuite - macOSTests";
+		};
+		8BD0797A1F784ACF00B8E688 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CCE25761CE26BB700A31BA5 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64076D081D6D7CD600E2B499;
+			remoteInfo = "QuickAfterSuite - iOSTests";
+		};
+		8BD0797C1F784ACF00B8E688 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CCE25761CE26BB700A31BA5 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64076D1A1D6D7CEA00E2B499;
+			remoteInfo = "QuickAfterSuite - tvOSTests";
+		};
 		9C7389411ACE591600B1C778 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C73892B1ACE591600B1C778 /* Project object */;
@@ -311,14 +332,17 @@
 			isa = PBXGroup;
 			children = (
 				9CCE25831CE26BB700A31BA5 /* Quick.framework */,
-				9CCE25851CE26BB700A31BA5 /* Quick-OSXTests.xctest */,
-				9CCE25871CE26BB700A31BA5 /* QuickFocused-OSXTests.xctest */,
+				9CCE25851CE26BB700A31BA5 /* Quick - macOSTests.xctest */,
+				9CCE25871CE26BB700A31BA5 /* QuickFocused - macOSTests.xctest */,
+				8BD079791F784ACF00B8E688 /* QuickAfterSuite - macOSTests.xctest */,
 				9CCE25891CE26BB700A31BA5 /* Quick.framework */,
-				9CCE258B1CE26BB700A31BA5 /* Quick-iOSTests.xctest */,
-				9CCE258D1CE26BB700A31BA5 /* QuickFocused-iOSTests.xctest */,
+				9CCE258B1CE26BB700A31BA5 /* Quick - iOSTests.xctest */,
+				9CCE258D1CE26BB700A31BA5 /* QuickFocused - iOSTests.xctest */,
+				8BD0797B1F784ACF00B8E688 /* QuickAfterSuite - iOSTests.xctest */,
 				9CCE258F1CE26BB700A31BA5 /* Quick.framework */,
-				9CCE25911CE26BB700A31BA5 /* Quick-tvOSTests.xctest */,
-				9CCE25931CE26BB700A31BA5 /* QuickFocused-tvOSTests.xctest */,
+				9CCE25911CE26BB700A31BA5 /* Quick - tvOSTests.xctest */,
+				9CCE25931CE26BB700A31BA5 /* QuickFocused - tvOSTests.xctest */,
+				8BD0797D1F784ACF00B8E688 /* QuickAfterSuite - tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,10 +350,10 @@
 		9CCE25951CE26BC700A31BA5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9CCE259E1CE26BC700A31BA5 /* Nimble.framework */,
-				9CCE25A01CE26BC700A31BA5 /* NimbleTests.xctest */,
 				9CCE25A21CE26BC700A31BA5 /* Nimble.framework */,
 				9CCE25A41CE26BC700A31BA5 /* NimbleTests.xctest */,
+				9CCE259E1CE26BC700A31BA5 /* Nimble.framework */,
+				9CCE25A01CE26BC700A31BA5 /* NimbleTests.xctest */,
 				9CCE25A61CE26BC700A31BA5 /* Nimble.framework */,
 				9CCE25A81CE26BC700A31BA5 /* NimbleTests.xctest */,
 			);
@@ -393,7 +417,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Two Bit Labs";
 				TargetAttributes = {
 					9C7389331ACE591600B1C778 = {
@@ -435,6 +459,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		8BD079791F784ACF00B8E688 /* QuickAfterSuite - macOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickAfterSuite - macOSTests.xctest";
+			remoteRef = 8BD079781F784ACF00B8E688 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8BD0797B1F784ACF00B8E688 /* QuickAfterSuite - iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickAfterSuite - iOSTests.xctest";
+			remoteRef = 8BD0797A1F784ACF00B8E688 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8BD0797D1F784ACF00B8E688 /* QuickAfterSuite - tvOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickAfterSuite - tvOSTests.xctest";
+			remoteRef = 8BD0797C1F784ACF00B8E688 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9CCE25831CE26BB700A31BA5 /* Quick.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -442,17 +487,17 @@
 			remoteRef = 9CCE25821CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9CCE25851CE26BB700A31BA5 /* Quick-OSXTests.xctest */ = {
+		9CCE25851CE26BB700A31BA5 /* Quick - macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Quick-OSXTests.xctest";
+			path = "Quick - macOSTests.xctest";
 			remoteRef = 9CCE25841CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9CCE25871CE26BB700A31BA5 /* QuickFocused-OSXTests.xctest */ = {
+		9CCE25871CE26BB700A31BA5 /* QuickFocused - macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "QuickFocused-OSXTests.xctest";
+			path = "QuickFocused - macOSTests.xctest";
 			remoteRef = 9CCE25861CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -463,17 +508,17 @@
 			remoteRef = 9CCE25881CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9CCE258B1CE26BB700A31BA5 /* Quick-iOSTests.xctest */ = {
+		9CCE258B1CE26BB700A31BA5 /* Quick - iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Quick-iOSTests.xctest";
+			path = "Quick - iOSTests.xctest";
 			remoteRef = 9CCE258A1CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9CCE258D1CE26BB700A31BA5 /* QuickFocused-iOSTests.xctest */ = {
+		9CCE258D1CE26BB700A31BA5 /* QuickFocused - iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "QuickFocused-iOSTests.xctest";
+			path = "QuickFocused - iOSTests.xctest";
 			remoteRef = 9CCE258C1CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -484,17 +529,17 @@
 			remoteRef = 9CCE258E1CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9CCE25911CE26BB700A31BA5 /* Quick-tvOSTests.xctest */ = {
+		9CCE25911CE26BB700A31BA5 /* Quick - tvOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Quick-tvOSTests.xctest";
+			path = "Quick - tvOSTests.xctest";
 			remoteRef = 9CCE25901CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9CCE25931CE26BB700A31BA5 /* QuickFocused-tvOSTests.xctest */ = {
+		9CCE25931CE26BB700A31BA5 /* QuickFocused - tvOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "QuickFocused-tvOSTests.xctest";
+			path = "QuickFocused - tvOSTests.xctest";
 			remoteRef = 9CCE25921CE26BB700A31BA5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -622,14 +667,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -672,14 +723,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
