@@ -1,6 +1,6 @@
 import UIKit
 
-private class InsetTextField: UITextField {
+open class InsetTextField: UITextField {
     var insets: UIEdgeInsets
 
     init(insets: UIEdgeInsets) {
@@ -8,17 +8,17 @@ private class InsetTextField: UITextField {
         super.init(frame: CGRect.zero)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         fatalError("not implemented for use in a NIB")
     }
 
     // placeholder position
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets))
     }
 
     // text position
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets))
     }
 }
