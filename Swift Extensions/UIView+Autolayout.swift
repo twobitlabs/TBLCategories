@@ -528,7 +528,7 @@ public extension UIView {
     }
 
     @discardableResult public func fillParentHorizontallyUpTo(width: CGFloat, withInsets insets: CGFloat = 0, identifier: String? = nil) -> [NSLayoutConstraint] {
-        var constraints = insetFromParentHorizontally(insets, priority: 999, identifier: identifier)
+        var constraints = insetFromParentHorizontally(insets, priority: UILayoutPriority(rawValue: 999), identifier: identifier)
         constraints.append(setMaxWidthConstraint(width - (2 * insets), identifier: identifier))
         return constraints
     }

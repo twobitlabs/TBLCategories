@@ -20,8 +20,8 @@ extension UIImage {
         return newImage
     }
 
-    class func imageWithText(_ text: String, textAttributes: [String: AnyObject]) -> UIImage {
-        let size = text.size(attributes: textAttributes)
+    class func imageWithText(_ text: String, textAttributes: [NSAttributedStringKey: Any]) -> UIImage {
+        let size = text.size(withAttributes: textAttributes)
 
         UIGraphicsBeginImageContext(size)
         text.draw(in: CGRect(origin: CGPoint.zero, size: size), withAttributes: textAttributes)
@@ -32,9 +32,9 @@ extension UIImage {
     }
 
     class func imageWithText(_ text: String, font: UIFont, color: UIColor? = UIColor.darkText) -> UIImage {
-        var attributes = [String : AnyObject]()
-        attributes[NSFontAttributeName] = font
-        attributes[NSForegroundColorAttributeName] = color
+        var attributes = [NSAttributedStringKey: Any]()
+        attributes[NSAttributedStringKey.font] = font
+        attributes[NSAttributedStringKey.foregroundColor] = color
 
         return imageWithText(text, textAttributes: attributes)
     }
