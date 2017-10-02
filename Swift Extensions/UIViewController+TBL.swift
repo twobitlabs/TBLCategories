@@ -1,7 +1,7 @@
 
 import UIKit
 
-extension UIViewController {
+@objc extension UIViewController {
     public func dismissAlertIfNecessary() {
         if presentedViewController is UIAlertController {
             dismiss(animated: false, completion: nil)

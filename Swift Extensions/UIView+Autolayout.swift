@@ -66,7 +66,7 @@ public extension UIView {
         return constraints
     }
 
-    @discardableResult public func centerChild(_ childView: UIView) -> [NSLayoutConstraint] {
+    @objc @discardableResult public func centerChild(_ childView: UIView) -> [NSLayoutConstraint] {
         return [centerChildHorizontally(childView), centerChildVertically(childView)]
     }
 
@@ -512,7 +512,7 @@ public extension UIView {
         return [match(.top, toParentDimension: .topMargin), match(.bottom, toParentDimension: .bottomMargin), match(.left, toParentDimension: .leftMargin), match(.right, toParentDimension: .rightMargin)]
     }
 
-    @discardableResult public func fillParent(identifier: String? = nil) -> [NSLayoutConstraint] {
+    @objc @discardableResult public func fillParent(identifier: String? = nil) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         constraints += fillParentVertically(identifier: identifier)
         constraints += fillParentHorizontally(identifier: identifier)

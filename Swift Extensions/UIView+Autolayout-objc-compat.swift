@@ -2,12 +2,12 @@ import UIKit
 /*
     Compatibility methods for our old UIView+Autolayout objc category and objc code that can't pass priority, which is a Float
 */
-public extension UIView {
+@objc public extension UIView {
     @discardableResult public func addConstraintsFromDescriptions(_ constraintDescriptions: [String], views: Dictionary<String, UIView>) -> [NSLayoutConstraint] {
         return addConstraintsFromDescriptions(constraintDescriptions, views: views, metrics: nil)
     }
 
-    @discardableResult public func addConstraintsFromDescriptions(_ constraintDescriptions: [String], metrics: Dictionary<String, NSNumber>? = nil, views: Dictionary<String, UIView>) -> [NSLayoutConstraint] {
+    @objc @discardableResult public func addConstraintsFromDescriptions(_ constraintDescriptions: [String], metrics: Dictionary<String, NSNumber>? = nil, views: Dictionary<String, UIView>) -> [NSLayoutConstraint] {
         return addConstraintsFromDescriptions(constraintDescriptions, views: views, metrics: metrics)
     }
 

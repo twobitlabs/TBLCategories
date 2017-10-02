@@ -1,6 +1,6 @@
 import UIKit
 
-public extension UIView {
+@objc public extension UIView {
 
     public var visible: Bool {
         get {
