@@ -9,7 +9,7 @@ let secondsInAYear = 365 * secondsInADay
 let minutesInAnHour = Double(60)
 let minutesInADay = 24 * minutesInAnHour
 
-public extension NSDate {
+@objc public extension NSDate {
     public var isInThePast: Bool {
         return (self as Date).isInThePast
     }
