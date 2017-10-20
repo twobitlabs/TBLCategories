@@ -13,4 +13,8 @@ extension UIDevice {
     var isIphone: Bool {
         return userInterfaceIdiom == .phone
     }
+
+    var isIphoneX: Bool {
+        return isIphone && (UIScreen.main.bounds.size.height == 812 || UIScreen.main.bounds.size.width == 812)
+    }
 }
