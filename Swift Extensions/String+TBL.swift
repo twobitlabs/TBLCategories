@@ -30,7 +30,7 @@ public extension String {
         if startIndex == endIndex {
             return self
         }
-        let rest = characters.index(startIndex, offsetBy: 1)..<endIndex
+        let rest = index(startIndex, offsetBy: 1)..<endIndex
         let capitalized = self[startIndex...startIndex].uppercased() + self[rest]
 
         return capitalized
@@ -41,7 +41,7 @@ public extension String {
     }
 
     func truncateTo(_ maxCharacters: Int, appendIfTruncated suffix: String? = nil) -> String {
-        guard characters.count > maxCharacters else {
+        guard count > maxCharacters else {
             return self
         }
 

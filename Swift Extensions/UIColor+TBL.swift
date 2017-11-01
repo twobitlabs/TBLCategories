@@ -12,7 +12,7 @@ public extension UIColor {
 
         var value:UInt32 = 0
 
-        let characters = colorHexString.characters.count
+        let characters = colorHexString.count
         guard characters == 6 && colorScanner.scanHexInt32(&value) &&  value < maxColorValue else {
             return nil
         }
