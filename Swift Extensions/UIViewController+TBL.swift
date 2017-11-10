@@ -1,6 +1,8 @@
 
 import UIKit
 
+typealias SimpleBlock = () -> Void
+
 @objc extension UIViewController {
     public func dismissAlertIfNecessary() {
         if presentedViewController is UIAlertController {
@@ -19,4 +21,19 @@ import UIKit
         }
         present(alert, animated: true, completion: nil)
     }
+
+    func showRetryAlert(title: String, message: String? = nil, cancel: SimpleBlock?, retry: SimpleBlock?) {
+        var actions = [
+            UIAlertAction(title: .localized("Cancel"), style: .default, handler: { (alert: UIAlertAction) in
+                cancel?()
+            })
+        ]
+        if let retry = retry {
+            actions.append(UIAlertAction(title: .localized("Retry"), style: .default, handler: { (alert: UIAlertAction) in
+                retry()
+            }))
+        }
+        showAlert(title: title, message: message, actions: actions)
+    }
+
 }
