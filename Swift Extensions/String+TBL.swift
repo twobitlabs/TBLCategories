@@ -41,15 +41,15 @@ public extension String {
     }
 
     func truncateTo(_ maxCharacters: Int, appendIfTruncated suffix: String? = nil) -> String {
-        guard count > maxCharacters else {
+        guard maxCharacters >= 0, count > maxCharacters else {
             return self
         }
 
-        let truncated = (self as NSString).substring(to: maxCharacters - 1)
+        let truncated = prefix(maxCharacters)
         if let suffix = suffix {
             return truncated + suffix
         } else {
-            return truncated
+            return String(truncated)
         }
     }
 }
