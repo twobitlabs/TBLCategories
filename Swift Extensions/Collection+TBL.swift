@@ -15,4 +15,8 @@ extension Collection {
             return ""
         }
     }
+
+    func printJson() {
+        print(debugJson)
+    }
 }
