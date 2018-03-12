@@ -2,6 +2,10 @@ import Foundation
 
 public extension String {
     
+    public var localized: String {
+        return NSLocalizedString(self, tableName: nil, comment: "")
+    }
+
     public func contains(_ substring: String, ignoreCase: Bool = false) -> Bool {
         if let range = ignoreCase ?
             range(of: substring, options: .caseInsensitive) :
