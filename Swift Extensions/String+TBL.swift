@@ -44,7 +44,7 @@ public extension String {
         return NSLocalizedString(key, tableName: table, comment: comment ?? "")
     }
 
-    public func localized(with params: CVarArg...) -> String {
+    public func localized(with params: String...) -> String {
         return String(format: localized, arguments: params)
     }
 
