@@ -44,6 +44,10 @@ public extension String {
         return NSLocalizedString(key, tableName: table, comment: comment ?? "")
     }
 
+    public func localized(with params: CVarArg...) -> String {
+        return String(format: localized, arguments: params)
+    }
+
     func truncateTo(_ maxCharacters: Int, appendIfTruncated suffix: String? = nil) -> String {
         guard maxCharacters >= 0, count > maxCharacters else {
             return self
