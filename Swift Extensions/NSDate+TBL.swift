@@ -68,6 +68,63 @@ let minutesInADay = 24 * minutesInAnHour
 }
 
 public extension Date {
+    public enum TimeAgoStyle {
+        case short
+        case long
+    }
+
+    private enum TimeAgo {
+        case seconds(Int)
+        case minutes(Int)
+        case hours(Int)
+        case days(Int)
+        case weeks(Int)
+        case years(Int)
+
+        func text(for style: TimeAgoStyle) -> String {
+            switch style {
+            case .short:
+                switch self {
+                case .seconds(let seconds):
+                    return "\(seconds)s"
+                case .minutes(let minutes):
+                    return "\(minutes)m"
+                case .hours(let hours):
+                    return "\(hours)h"
+                case .days(let days):
+                    return "\(days)d"
+                case .weeks(let weeks):
+                    return "\(weeks)w"
+                case .years(let years):
+                    return "\(years)y"
+                }
+            case .long:
+                let label: String
+                let count: Int
+                switch self {
+                case .seconds(let seconds):
+                    label = "second"
+                    count = seconds
+                case .minutes(let minutes):
+                    label = "minute"
+                    count = minutes
+                case .hours(let hours):
+                    label = "hour"
+                    count = hours
+                case .days(let days):
+                    label = "day"
+                    count = days
+                case .weeks(let weeks):
+                    label = "week"
+                    count = weeks
+                case .years(let years):
+                    label = "year"
+                    count = years
+                }
+                return "\(count) \(label)\(count != 1 ? "s" : "") ago"
+            }
+        }
+    }
 
     public var isInThePast: Bool {
         return timeIntervalSinceNow < 0
@@ -82,34 +139,36 @@ public extension Date {
     }
 
     // TODO: add version with format specifier
-    public func timeAgoWithSeconds(_ withSeconds: Bool) -> String {
+    public func timeAgoWithSeconds(_ withSeconds: Bool, style: TimeAgoStyle = .short) -> String {
         let now = Date()
+        let timeAgo: TimeAgo
         let deltaSeconds: TimeInterval = now.timeIntervalSince(self)
         if (deltaSeconds <= 0) {
-            return (withSeconds ? "1s" : "1m") // special case for clock wonkiness
+            timeAgo = (withSeconds ? .seconds(1) : .minutes(1)) // special case for clock wonkiness
         } else if (deltaSeconds < secondsInAMinute) {
             if (withSeconds) {
                 let seconds = Int(floor(deltaSeconds))
-                return "\(seconds)s"
+                timeAgo = .seconds(seconds)
             } else {
-                return "0m"
+                timeAgo = .minutes(0)
             }
         } else if (deltaSeconds < secondsInAnHour) {
             let minutes = Int(floor(deltaSeconds/secondsInAMinute))
-            return "\(minutes)m"
+            timeAgo = .minutes(minutes)
         } else if (deltaSeconds < secondsInADay) {
             let hours = Int(floor(deltaSeconds/secondsInAnHour))
-            return "\(hours)h"
+            timeAgo = .hours(hours)
         } else if (deltaSeconds < secondsInAWeek) {
             let days = Int(floor(deltaSeconds/secondsInADay))
-            return "\(days)d"
+            timeAgo = .days(days)
         } else if (deltaSeconds < secondsInAYear) {
             let weeks = Int(floor(deltaSeconds/secondsInAWeek))
-            return "\(weeks)w"
+            timeAgo = .weeks(weeks)
         } else {
             let years = Int(floor(deltaSeconds/secondsInAYear))
-            return "\(years)y"
+            timeAgo = .years(years)
         }
+        return timeAgo.text(for: style)
     }
 
     public func isAfter(_ otherDate: Date) -> Bool {

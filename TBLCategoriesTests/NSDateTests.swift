@@ -54,5 +54,50 @@ class NSDateTests : XCTestCase {
         expect(yesterday.timeAgo()).to(equal("1d"))
         expect(fiveMinutesAgo.timeAgo()).to(equal("5m"))
         expect(threeHoursAgo.timeAgo()).to(equal("3h"))
+
+        let fourDaysAgo = now.addingTimeInterval(-(60 * 60 * 24 * 4))
+        expect(fourDaysAgo.timeAgo()).to(equal("4d"))
+
+        let elevenWeeksAgo = now.addingTimeInterval(-(60 * 60 * 24 * 7 * 11))
+        expect(elevenWeeksAgo.timeAgo()).to(equal("11w"))
+
+        let twoYearsAgo = now.addingTimeInterval(-(60 * 60 * 24 * 365 * 2))
+        expect(twoYearsAgo.timeAgo()).to(equal("2y"))
+
+        expect(now.timeAgoWithSeconds(false, style: .short)).to(equal("0m"))
+        expect(tomorrow.timeAgoWithSeconds(false, style: .short)).to(equal("1m")) // we assume future times are very recent
+        expect(yesterday.timeAgoWithSeconds(false, style: .short)).to(equal("1d"))
+        expect(fiveMinutesAgo.timeAgoWithSeconds(false, style: .short)).to(equal("5m"))
+        expect(threeHoursAgo.timeAgoWithSeconds(false, style: .short)).to(equal("3h"))
+        expect(fourDaysAgo.timeAgoWithSeconds(false, style: .short)).to(equal("4d"))
+        expect(elevenWeeksAgo.timeAgoWithSeconds(false, style: .short)).to(equal("11w"))
+        expect(twoYearsAgo.timeAgoWithSeconds(false, style: .short)).to(equal("2y"))
+
+        expect(now.timeAgoWithSeconds(true, style: .short)).to(equal("0s"))
+        expect(tomorrow.timeAgoWithSeconds(true, style: .short)).to(equal("1s")) // we assume future times are very recent
+        expect(yesterday.timeAgoWithSeconds(true, style: .short)).to(equal("1d"))
+        expect(fiveMinutesAgo.timeAgoWithSeconds(true, style: .short)).to(equal("5m"))
+        expect(threeHoursAgo.timeAgoWithSeconds(true, style: .short)).to(equal("3h"))
+        expect(fourDaysAgo.timeAgoWithSeconds(true, style: .short)).to(equal("4d"))
+        expect(elevenWeeksAgo.timeAgoWithSeconds(true, style: .short)).to(equal("11w"))
+        expect(twoYearsAgo.timeAgoWithSeconds(true, style: .short)).to(equal("2y"))
+
+        expect(now.timeAgoWithSeconds(false, style: .long)).to(equal("0 minutes ago"))
+        expect(tomorrow.timeAgoWithSeconds(false, style: .long)).to(equal("1 minute ago")) // we assume future times are very recent
+        expect(yesterday.timeAgoWithSeconds(false, style: .long)).to(equal("1 day ago"))
+        expect(fiveMinutesAgo.timeAgoWithSeconds(false, style: .long)).to(equal("5 minutes ago"))
+        expect(threeHoursAgo.timeAgoWithSeconds(false, style: .long)).to(equal("3 hours ago"))
+        expect(fourDaysAgo.timeAgoWithSeconds(false, style: .long)).to(equal("4 days ago"))
+        expect(elevenWeeksAgo.timeAgoWithSeconds(false, style: .long)).to(equal("11 weeks ago"))
+        expect(twoYearsAgo.timeAgoWithSeconds(false, style: .long)).to(equal("2 years ago"))
+
+        expect(now.timeAgoWithSeconds(true, style: .long)).to(equal("0 seconds ago"))
+        expect(tomorrow.timeAgoWithSeconds(true, style: .long)).to(equal("1 second ago")) // we assume future times are very recent
+        expect(yesterday.timeAgoWithSeconds(true, style: .long)).to(equal("1 day ago"))
+        expect(fiveMinutesAgo.timeAgoWithSeconds(true, style: .long)).to(equal("5 minutes ago"))
+        expect(threeHoursAgo.timeAgoWithSeconds(true, style: .long)).to(equal("3 hours ago"))
+        expect(fourDaysAgo.timeAgoWithSeconds(true, style: .long)).to(equal("4 days ago"))
+        expect(elevenWeeksAgo.timeAgoWithSeconds(true, style: .long)).to(equal("11 weeks ago"))
+        expect(twoYearsAgo.timeAgoWithSeconds(true, style: .long)).to(equal("2 years ago"))
     }
 }
