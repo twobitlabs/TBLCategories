@@ -50,6 +50,7 @@ class NSDateTests : XCTestCase {
         expect(yesterday.isTomorrow()).to(beFalsy())
 
         expect(now.timeAgo()).to(equal("0m"))
+        expect(now.timeAgo(showNowIfZero: true)).to(equal("now"))
         expect(tomorrow.timeAgo()).to(equal("1m")) // we assume future times are very recent
         expect(yesterday.timeAgo()).to(equal("1d"))
         expect(fiveMinutesAgo.timeAgo()).to(equal("5m"))
@@ -64,7 +65,10 @@ class NSDateTests : XCTestCase {
         let twoYearsAgo = now.addingTimeInterval(-(60 * 60 * 24 * 365 * 2))
         expect(twoYearsAgo.timeAgo()).to(equal("2y"))
 
+        expect(now.timeAgoWithSeconds(showNowIfZero: true)).to(equal("now"))
+
         expect(now.timeAgoWithSeconds(false, style: .short)).to(equal("0m"))
+        expect(now.timeAgoWithSeconds(false, style: .short, showNowIfZero: true)).to(equal("now"))
         expect(tomorrow.timeAgoWithSeconds(false, style: .short)).to(equal("1m")) // we assume future times are very recent
         expect(yesterday.timeAgoWithSeconds(false, style: .short)).to(equal("1d"))
         expect(fiveMinutesAgo.timeAgoWithSeconds(false, style: .short)).to(equal("5m"))
@@ -74,6 +78,7 @@ class NSDateTests : XCTestCase {
         expect(twoYearsAgo.timeAgoWithSeconds(false, style: .short)).to(equal("2y"))
 
         expect(now.timeAgoWithSeconds(true, style: .short)).to(equal("0s"))
+        expect(now.timeAgoWithSeconds(true, style: .short, showNowIfZero: true)).to(equal("now"))
         expect(tomorrow.timeAgoWithSeconds(true, style: .short)).to(equal("1s")) // we assume future times are very recent
         expect(yesterday.timeAgoWithSeconds(true, style: .short)).to(equal("1d"))
         expect(fiveMinutesAgo.timeAgoWithSeconds(true, style: .short)).to(equal("5m"))
@@ -83,6 +88,7 @@ class NSDateTests : XCTestCase {
         expect(twoYearsAgo.timeAgoWithSeconds(true, style: .short)).to(equal("2y"))
 
         expect(now.timeAgoWithSeconds(false, style: .long)).to(equal("0 minutes ago"))
+        expect(now.timeAgoWithSeconds(false, style: .long, showNowIfZero: true)).to(equal("now"))
         expect(tomorrow.timeAgoWithSeconds(false, style: .long)).to(equal("1 minute ago")) // we assume future times are very recent
         expect(yesterday.timeAgoWithSeconds(false, style: .long)).to(equal("1 day ago"))
         expect(fiveMinutesAgo.timeAgoWithSeconds(false, style: .long)).to(equal("5 minutes ago"))
@@ -92,6 +98,7 @@ class NSDateTests : XCTestCase {
         expect(twoYearsAgo.timeAgoWithSeconds(false, style: .long)).to(equal("2 years ago"))
 
         expect(now.timeAgoWithSeconds(true, style: .long)).to(equal("0 seconds ago"))
+        expect(now.timeAgoWithSeconds(true, style: .long, showNowIfZero: true)).to(equal("now"))
         expect(tomorrow.timeAgoWithSeconds(true, style: .long)).to(equal("1 second ago")) // we assume future times are very recent
         expect(yesterday.timeAgoWithSeconds(true, style: .long)).to(equal("1 day ago"))
         expect(fiveMinutesAgo.timeAgoWithSeconds(true, style: .long)).to(equal("5 minutes ago"))

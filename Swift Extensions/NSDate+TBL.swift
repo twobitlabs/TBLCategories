@@ -81,14 +81,24 @@ public extension Date {
         case weeks(Int)
         case years(Int)
 
-        func text(for style: TimeAgoStyle) -> String {
+        static let nowText = "now"
+
+        func text(for style: TimeAgoStyle, showNowIfZero: Bool = false) -> String {
             switch style {
             case .short:
                 switch self {
                 case .seconds(let seconds):
-                    return "\(seconds)s"
+                    if showNowIfZero && seconds == 0 {
+                        return TimeAgo.nowText
+                    } else {
+                        return "\(seconds)s"
+                    }
                 case .minutes(let minutes):
-                    return "\(minutes)m"
+                    if showNowIfZero && minutes == 0 {
+                        return TimeAgo.nowText
+                    } else {
+                        return "\(minutes)m"
+                    }
                 case .hours(let hours):
                     return "\(hours)h"
                 case .days(let days):
@@ -103,11 +113,19 @@ public extension Date {
                 let count: Int
                 switch self {
                 case .seconds(let seconds):
-                    label = "second"
-                    count = seconds
+                    if showNowIfZero && seconds == 0 {
+                        return TimeAgo.nowText
+                    } else {
+                        label = "second"
+                        count = seconds
+                    }
                 case .minutes(let minutes):
-                    label = "minute"
-                    count = minutes
+                    if showNowIfZero && minutes == 0 {
+                        return TimeAgo.nowText
+                    } else {
+                        label = "minute"
+                        count = minutes
+                    }
                 case .hours(let hours):
                     label = "hour"
                     count = hours
@@ -130,16 +148,16 @@ public extension Date {
         return timeIntervalSinceNow < 0
     }
 
-    public func timeAgo() -> String {
-        return timeAgoWithSeconds(false)
+    public func timeAgo(showNowIfZero: Bool = false) -> String {
+        return timeAgoWithSeconds(false, showNowIfZero: showNowIfZero)
     }
 
-    public func timeAgoWithSeconds() -> String {
-        return timeAgoWithSeconds(true)
+    public func timeAgoWithSeconds(showNowIfZero: Bool = false) -> String {
+        return timeAgoWithSeconds(true, showNowIfZero: showNowIfZero)
     }
 
     // TODO: add version with format specifier
-    public func timeAgoWithSeconds(_ withSeconds: Bool, style: TimeAgoStyle = .short) -> String {
+    public func timeAgoWithSeconds(_ withSeconds: Bool, style: TimeAgoStyle = .short, showNowIfZero: Bool = false) -> String {
         let now = Date()
         let timeAgo: TimeAgo
         let deltaSeconds: TimeInterval = now.timeIntervalSince(self)
@@ -168,7 +186,7 @@ public extension Date {
             let years = Int(floor(deltaSeconds/secondsInAYear))
             timeAgo = .years(years)
         }
-        return timeAgo.text(for: style)
+        return timeAgo.text(for: style, showNowIfZero: showNowIfZero)
     }
 
     public func isAfter(_ otherDate: Date) -> Bool {
