@@ -98,7 +98,7 @@ public extension UIView {
 
     // MARK: - positioning
      
-    @discardableResult public func placeAbove(_ sibling: UIView, by offset: CGFloat = 0, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeAbove(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -112,6 +112,9 @@ public extension UIView {
             attribute: .top,
             multiplier: 1,
             constant: -offset)
+        if let priority = priority {
+            bottomOffset.priority = priority
+        }
         bottomOffset.isActive = true
         bottomOffset.identifier = identifier
         return bottomOffset
@@ -122,7 +125,7 @@ public extension UIView {
 
      :returns: The constraint that was added to the caller's superview
      */
-    @discardableResult public func placeAbove(_ sibling: UIView, byAtLeast offset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeAbove(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -136,12 +139,15 @@ public extension UIView {
                                            attribute: .top,
                                            multiplier: 1,
                                            constant: -offset)
+        if let priority = priority {
+            bottomOffset.priority = priority
+        }
         bottomOffset.isActive = true
         bottomOffset.identifier = identifier
         return bottomOffset
     }
 
-    @discardableResult public func placeBelow(_ sibling: UIView, by offset: CGFloat = 0, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeBelow(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -155,6 +161,9 @@ public extension UIView {
             attribute: .bottom,
             multiplier: 1,
             constant: offset)
+        if let priority = priority {
+            topOffset.priority = priority
+        }
         topOffset.isActive = true
         topOffset.identifier = identifier
         return topOffset
@@ -165,7 +174,7 @@ public extension UIView {
     
         :returns: The constraint that was added to the caller's superview
     */
-    @discardableResult public func placeBelow(_ sibling: UIView, byAtLeast offset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeBelow(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -179,12 +188,15 @@ public extension UIView {
             attribute: .bottom,
             multiplier: 1,
             constant: offset)
+        if let priority = priority {
+            topOffset.priority = priority
+        }
         topOffset.isActive = true
         topOffset.identifier = identifier
         return topOffset
     }
 
-    @discardableResult public func placeToRightOf(_ sibling: UIView, by offset: CGFloat = 0, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeToRightOf(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -198,6 +210,9 @@ public extension UIView {
             attribute: .right,
             multiplier: 1,
             constant: offset)
+        if let priority = priority {
+            rightOffset.priority = priority
+        }
         rightOffset.isActive = true
         rightOffset.identifier = identifier
         return rightOffset
@@ -208,7 +223,7 @@ public extension UIView {
 
         :returns: The constraint that was added to the caller's superview
     */
-    @discardableResult public func placeToRightOf(_ sibling: UIView, byAtLeast offset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeToRightOf(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -222,12 +237,15 @@ public extension UIView {
             attribute: .right,
             multiplier: 1,
             constant: offset)
+        if let priority = priority {
+            rightOffset.priority = priority
+        }
         rightOffset.isActive = true
         rightOffset.identifier = identifier
         return rightOffset
     }
 
-    @discardableResult public func placeToLeftOf(_ sibling: UIView, by offset: CGFloat = 0, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeToLeftOf(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -241,6 +259,9 @@ public extension UIView {
             attribute: .left,
             multiplier: 1,
             constant: -offset)
+        if let priority = priority {
+            leftOffset.priority = priority
+        }
         leftOffset.isActive = true
         leftOffset.identifier = identifier
         return leftOffset
@@ -251,7 +272,7 @@ public extension UIView {
 
     :returns: The constraint that was added to the caller's superview
     */
-    @discardableResult public func placeToLeftOf(_ sibling: UIView, byAtLeast offset: CGFloat, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func placeToLeftOf(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -265,6 +286,9 @@ public extension UIView {
             attribute: .left,
             multiplier: 1,
             constant: -offset)
+        if let priority = priority {
+            leftOffset.priority = priority
+        }
         leftOffset.isActive = true
         leftOffset.identifier = identifier
         return leftOffset
