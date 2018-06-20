@@ -318,7 +318,7 @@ public extension UIView {
         return [pinToEdge(.left, inset: inset, priority: priority, identifier: identifier), pinToEdge(.right, inset: -inset, priority: priority, identifier: identifier)]
     }
 
-    @discardableResult public func insetFromParentHorizontallyByAtLeast(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
+    @discardableResult public func insetFromParentHorizontally(byAtLeast inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
         return [pinToEdge(.left, inset: inset, relatedBy: .greaterThanOrEqual, priority: priority, identifier: identifier), pinToEdge(.right, inset: -inset, relatedBy: .lessThanOrEqual, priority: priority, identifier: identifier)]
     }
 
@@ -326,7 +326,7 @@ public extension UIView {
         return [pinToEdge(.top, inset: inset, priority: priority, identifier: identifier), pinToEdge(.bottom, inset: -inset, priority: priority, identifier: identifier)]
     }
 
-    @discardableResult public func insetFromParentVerticallyByAtLeast(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
+    @discardableResult public func insetFromParentVertically(byAtLeast inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> [NSLayoutConstraint] {
         return [pinToEdge(.top, inset: inset, relatedBy: .greaterThanOrEqual, priority: priority, identifier: identifier), pinToEdge(.bottom, inset: -inset, relatedBy: .lessThanOrEqual, priority: priority, identifier: identifier)]
     }
     
