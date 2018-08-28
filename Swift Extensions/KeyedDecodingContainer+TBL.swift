@@ -52,6 +52,11 @@ extension KeyedDecodingContainer {
 }
 
 extension JSONDecoder {
+    public func decodeSafely<T: Decodable>(_ type: T.Type, from data: Data) -> T? {
+        let decoded = try? decode(Safe<T>.self, from: data)
+        return decoded?.value
+    }
+
     public func decodeSafelyArray<T: Decodable>(of type: T.Type, from data: Data) -> [T]? {
         guard let array = try? decode([Safe<T>].self, from: data) else { return nil }
         return array.compactMap { $0.value }
