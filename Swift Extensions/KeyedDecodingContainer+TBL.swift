@@ -36,9 +36,18 @@ extension KeyedDecodingContainer {
         return decoded??.value
     }
 
+    public func decodeArray<T: Decodable>(_ key: KeyedDecodingContainer.Key) throws -> [T] {
+        return try decodeArray(of: T.self, forKey: key)
+    }
+
     public func decodeArray<T: Decodable>(of type: T.Type, forKey key: KeyedDecodingContainer.Key) throws -> [T] {
         let array = try decode([OptionalDecodable<T>].self, forKey: key)
         return array.compactMap { $0.value }
+    }
+
+    public func decodeOptionalArray<T: Decodable>(_ key: KeyedDecodingContainer.Key) -> [T]? {
+        let array = decodeOptional([OptionalDecodable<T>].self, forKey: key)
+        return array?.compactMap { $0.value }
     }
 
     public func decodeOptionalArray<T: Decodable>(of type: T.Type, forKey key: KeyedDecodingContainer.Key) -> [T]? {
