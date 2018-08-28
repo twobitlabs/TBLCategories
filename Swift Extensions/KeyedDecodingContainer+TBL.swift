@@ -36,6 +36,11 @@ extension KeyedDecodingContainer {
         return decoded??.value
     }
 
+    public func decodeArray<T: Decodable>(of type: T.Type, forKey key: KeyedDecodingContainer.Key) throws -> [T]? {
+        let array = try decode([OptionalDecodable<T>].self, forKey: key)
+        return array.compactMap { $0.value }
+    }
+
     public func decodeOptionalArray<T: Decodable>(of type: T.Type, forKey key: KeyedDecodingContainer.Key) -> [T]? {
         let array = decodeOptional([OptionalDecodable<T>].self, forKey: key)
         return array?.compactMap { $0.value }
@@ -48,8 +53,13 @@ extension JSONDecoder {
         return decoded?.value
     }
 
-    public func decodeOptionalArray<T: Decodable>(of type: T.Type, from data: Data) -> [T]? {
-        guard let array = try? decode([OptionalDecodable<T>].self, from: data) else { return nil }
+    public func decodeArray<T: Decodable>(of type: T.Type, from data: Data) throws -> [T]? {
+        let array = try decode([OptionalDecodable<T>].self, from: data)
         return array.compactMap { $0.value }
+    }
+
+    public func decodeOptionalArray<T: Decodable>(of type: T.Type, from data: Data) -> [T]? {
+        let array = decodeOptional([OptionalDecodable<T>].self, from: data)
+        return array?.compactMap { $0.value }
     }
 }
