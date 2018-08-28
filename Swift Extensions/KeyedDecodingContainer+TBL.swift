@@ -17,7 +17,7 @@ struct OptionalDecodable<T: Decodable>: Decodable {
 }
 
 extension KeyedDecodingContainer {
-    public func decode<T: Decodable>(_ key: Key, as type: T.Type = T.self) throws -> T {
+    public func decode<T: Decodable>(_ key: Key) throws -> T {
         return try self.decode(T.self, forKey: key)
     }
 
