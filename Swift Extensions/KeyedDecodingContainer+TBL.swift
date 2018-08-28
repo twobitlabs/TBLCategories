@@ -36,7 +36,7 @@ extension KeyedDecodingContainer {
         return decoded??.value
     }
 
-    public func decodeArray<T: Decodable>(of type: T.Type, forKey key: KeyedDecodingContainer.Key) throws -> [T]? {
+    public func decodeArray<T: Decodable>(of type: T.Type, forKey key: KeyedDecodingContainer.Key) throws -> [T] {
         let array = try decode([OptionalDecodable<T>].self, forKey: key)
         return array.compactMap { $0.value }
     }
@@ -53,7 +53,7 @@ extension JSONDecoder {
         return decoded?.value
     }
 
-    public func decodeArray<T: Decodable>(of type: T.Type, from data: Data) throws -> [T]? {
+    public func decodeArray<T: Decodable>(of type: T.Type, from data: Data) throws -> [T] {
         let array = try decode([OptionalDecodable<T>].self, from: data)
         return array.compactMap { $0.value }
     }
