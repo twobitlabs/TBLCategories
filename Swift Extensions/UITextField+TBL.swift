@@ -14,12 +14,12 @@ open class InsetTextField: UITextField {
 
     // placeholder position
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets))
+        return super.textRect(forBounds: bounds.inset(by: insets))
     }
 
     // text position
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets))
+        return super.editingRect(forBounds: bounds.inset(by: insets))
     }
 }
 
