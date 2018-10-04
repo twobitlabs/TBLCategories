@@ -4,9 +4,9 @@ public extension UIButton {
 
     public class func buttonWithLabel(_ text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
         let button = UIButton(type: .custom)
-        button.setTitle(text, for: UIControlState())
-        button.setTitleColor(textColor, for: UIControlState())
-        button.setBackgroundImage(backgroundColor?.asImage(), for: UIControlState()) // asImage() defined in UIColor+TBL
+        button.setTitle(text, for: UIControl.State())
+        button.setTitleColor(textColor, for: UIControl.State())
+        button.setBackgroundImage(backgroundColor?.asImage(), for: UIControl.State()) // asImage() defined in UIColor+TBL
         if font != nil {
             button.titleLabel?.font = font!
         }
@@ -23,7 +23,7 @@ public extension UIButton {
             button.tintColor = tintColor
             image = image?.withRenderingMode(.alwaysTemplate)
         }
-        button.setImage(image, for: UIControlState())
+        button.setImage(image, for: UIControl.State())
         button.frame = CGRect(origin: CGPoint.zero, size: image!.size)
         if target != nil && action != nil {
             button.addTarget(target!, action: action!, for: .touchUpInside)

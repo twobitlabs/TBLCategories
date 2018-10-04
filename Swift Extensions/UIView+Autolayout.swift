@@ -2,7 +2,7 @@ import UIKit
 
 public extension UIView {
 
-    @discardableResult public func addConstraintsFromDescriptions(_ constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutFormatOptions = NSLayoutFormatOptions(), metrics: Dictionary<String, NSNumber>? = nil) -> [NSLayoutConstraint] {
+    @discardableResult public func addConstraintsFromDescriptions(_ constraintDescriptions: [String], views: Dictionary<String, UIView>, options: NSLayoutConstraint.FormatOptions = NSLayoutConstraint.FormatOptions(), metrics: Dictionary<String, NSNumber>? = nil) -> [NSLayoutConstraint] {
         for view in views.values {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -70,7 +70,7 @@ public extension UIView {
         return [centerChildHorizontally(childView), centerChildVertically(childView)]
     }
 
-    fileprivate func centerSibling(_ sibling: UIView, onDimension dimension: NSLayoutAttribute, identifier: String? = nil)  -> NSLayoutConstraint {
+    fileprivate func centerSibling(_ sibling: UIView, onDimension dimension: NSLayoutConstraint.Attribute, identifier: String? = nil)  -> NSLayoutConstraint {
         sibling.translatesAutoresizingMaskIntoConstraints = false
         let centerConstraint = NSLayoutConstraint(item: sibling,
             attribute: dimension,
@@ -362,7 +362,7 @@ public extension UIView {
         return pinToEdge(.bottom, inset: -inset, relatedBy: .lessThanOrEqual, priority: priority, identifier: identifier)
     }
     
-    fileprivate func pinToEdge(_ edge: NSLayoutAttribute, inset: CGFloat = 0, relatedBy: NSLayoutRelation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    fileprivate func pinToEdge(_ edge: NSLayoutConstraint.Attribute, inset: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         translatesAutoresizingMaskIntoConstraints = false
         let pin = NSLayoutConstraint(item: self,
@@ -416,7 +416,7 @@ public extension UIView {
         return alignDimension(.firstBaseline, withSibling: sibling, identifier: identifier)
     }
 
-    fileprivate func alignDimension(_ dimension: NSLayoutAttribute, withSibling sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint {
+    fileprivate func alignDimension(_ dimension: NSLayoutConstraint.Attribute, withSibling sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         if (superview != sibling.superview!) {
             fatalError("views do not share the same superview")
@@ -491,7 +491,7 @@ public extension UIView {
         return setSizeConstraint(size, dimension: .height, relatedBy: .lessThanOrEqual, priority: priority, identifier: identifier)
     }
 
-    fileprivate func setSizeConstraint(_ size: CGFloat, dimension: NSLayoutAttribute, relatedBy: NSLayoutRelation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    fileprivate func setSizeConstraint(_ size: CGFloat, dimension: NSLayoutConstraint.Attribute, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let sizeConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
@@ -588,7 +588,7 @@ public extension UIView {
         return ratioConstraint
     }
 
-    @discardableResult public func match(_ dimension: NSLayoutAttribute, toParentDimension parentDimension: NSLayoutAttribute, identifier: String? = nil) -> NSLayoutConstraint {
+    @discardableResult public func match(_ dimension: NSLayoutConstraint.Attribute, toParentDimension parentDimension: NSLayoutConstraint.Attribute, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         translatesAutoresizingMaskIntoConstraints = false
         let dimensionConstraint = NSLayoutConstraint(item: self,
@@ -603,7 +603,7 @@ public extension UIView {
         return dimensionConstraint
     }
 
-    fileprivate func matchParentDimension(_ dimension: NSLayoutAttribute, identifier: String? = nil) -> NSLayoutConstraint {
+    fileprivate func matchParentDimension(_ dimension: NSLayoutConstraint.Attribute, identifier: String? = nil) -> NSLayoutConstraint {
         let superview = self.superview!
         translatesAutoresizingMaskIntoConstraints = false
         let dimensionConstraint = NSLayoutConstraint(item: self,

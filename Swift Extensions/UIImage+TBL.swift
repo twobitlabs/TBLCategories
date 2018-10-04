@@ -20,7 +20,7 @@ extension UIImage {
         return newImage
     }
 
-    class func imageWithText(_ text: String, textAttributes: [NSAttributedStringKey: Any]) -> UIImage {
+    class func imageWithText(_ text: String, textAttributes: [NSAttributedString.Key: Any]) -> UIImage {
         let size = text.size(withAttributes: textAttributes)
 
         UIGraphicsBeginImageContext(size)
@@ -32,9 +32,9 @@ extension UIImage {
     }
 
     class func imageWithText(_ text: String, font: UIFont, color: UIColor? = UIColor.darkText) -> UIImage {
-        var attributes = [NSAttributedStringKey: Any]()
-        attributes[NSAttributedStringKey.font] = font
-        attributes[NSAttributedStringKey.foregroundColor] = color
+        var attributes = [NSAttributedString.Key: Any]()
+        attributes[NSAttributedString.Key.font] = font
+        attributes[NSAttributedString.Key.foregroundColor] = color
 
         return imageWithText(text, textAttributes: attributes)
     }

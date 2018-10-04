@@ -11,20 +11,20 @@ extension UIFont {
         case Caption1
         case Caption2
 
-        fileprivate var style: UIFontTextStyle {
+        fileprivate var style: UIFont.TextStyle {
             switch self {
             case .Headline:
-                return UIFontTextStyle.headline
+                return UIFont.TextStyle.headline
             case .Subheadline:
-                return UIFontTextStyle.subheadline
+                return UIFont.TextStyle.subheadline
             case .Body:
-                return UIFontTextStyle.body
+                return UIFont.TextStyle.body
             case .Footnote:
-                return UIFontTextStyle.footnote
+                return UIFont.TextStyle.footnote
             case .Caption1:
-                return UIFontTextStyle.caption1
+                return UIFont.TextStyle.caption1
             case .Caption2:
-                return UIFontTextStyle.caption2
+                return UIFont.TextStyle.caption2
             }
         }
     }
