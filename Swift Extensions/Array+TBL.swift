@@ -10,4 +10,8 @@ extension Array {
         }
         insert(element, at: safeIndex)
     }
+
+    var nilIfEmpty: [Element]? {
+        return isEmpty ? nil : self
+    }
 }
