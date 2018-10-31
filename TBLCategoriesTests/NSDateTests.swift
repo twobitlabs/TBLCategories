@@ -42,6 +42,13 @@ class NSDateTests : XCTestCase {
         expect(fiveMinutesAgo.isBefore(minutesAgo: 4)).to(beTruthy())
         expect(fiveMinutesAgo.isBefore(minutesAgo: 6)).to(beFalsy())
 
+        let fiveSecondsAgo = now.addingTimeInterval(-5)
+
+        expect(fiveSecondsAgo.isAfter(secondsAgo: 6)).to(beTruthy())
+        expect(fiveSecondsAgo.isAfter(secondsAgo: 4)).to(beFalsy())
+        expect(fiveSecondsAgo.isBefore(secondsAgo: 4)).to(beTruthy())
+        expect(fiveSecondsAgo.isBefore(secondsAgo: 6)).to(beFalsy())
+
         expect(now.isToday()).to(beTruthy())
         expect(now.isTomorrow()).to(beFalsy())
         expect(tomorrow.isToday()).to(beFalsy())

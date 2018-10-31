@@ -58,6 +58,14 @@ let minutesInADay = 24 * minutesInAnHour
         return (self as Date).isAfter(minutesAgo: minutesAgo)
     }
 
+    public func isBefore(secondsAgo: Double) -> Bool {
+        return (self as Date).isBefore(secondsAgo: secondsAgo)
+    }
+
+    public func isAfter(secondsAgo: Double) -> Bool {
+        return (self as Date).isAfter(secondsAgo: secondsAgo)
+    }
+
     public func isToday() -> Bool {
         return (self as Date).isToday()
     }
@@ -219,6 +227,14 @@ public extension Date {
 
     public func isAfter(minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow > inThePast(minutesAgo * secondsInAMinute)
+    }
+
+    public func isBefore(secondsAgo: Double) -> Bool {
+        return timeIntervalSinceNow < inThePast(secondsAgo)
+    }
+
+    public func isAfter(secondsAgo: Double) -> Bool {
+        return timeIntervalSinceNow > inThePast(secondsAgo)
     }
 
     fileprivate func inThePast(_ seconds: Double) -> TimeInterval {
