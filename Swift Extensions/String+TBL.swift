@@ -2,11 +2,11 @@ import Foundation
 
 public extension String {
     
-    public var localized: String {
+    var localized: String {
         return NSLocalizedString(self, tableName: nil, comment: "")
     }
 
-    public func contains(_ substring: String, ignoreCase: Bool = false) -> Bool {
+    func contains(_ substring: String, ignoreCase: Bool = false) -> Bool {
         if let range = ignoreCase ?
             range(of: substring, options: .caseInsensitive) :
             range(of: substring) {
@@ -16,11 +16,11 @@ public extension String {
         }
     }
 
-    public var hasNonEmptyValue: Bool {
+    var hasNonEmptyValue: Bool {
         return !isEmpty
     }
 
-    public var nilIfEmpty: String? {
+    var nilIfEmpty: String? {
         return isEmpty ? nil : self
     }
 
@@ -40,11 +40,11 @@ public extension String {
         return capitalized
     }
 
-    public static func localized(_ key: String, table: String? = nil, comment: String? = nil) -> String {
+    static func localized(_ key: String, table: String? = nil, comment: String? = nil) -> String {
         return NSLocalizedString(key, tableName: table, comment: comment ?? "")
     }
 
-    public func localized(with params: String...) -> String {
+    func localized(with params: String...) -> String {
         return String(format: localized, arguments: params)
     }
 

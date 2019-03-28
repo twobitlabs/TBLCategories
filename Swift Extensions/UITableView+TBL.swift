@@ -1,9 +1,9 @@
 import UIKit
 
 public extension UITableView {
-    public typealias CellFactory = (String) -> UITableViewCell
+    typealias CellFactory = (String) -> UITableViewCell
 
-    public func dequeueReusableCellWithIdentifier(_ identifier: String, orCreateWith cellFactory: CellFactory) -> UITableViewCell {
+    func dequeueReusableCellWithIdentifier(_ identifier: String, orCreateWith cellFactory: CellFactory) -> UITableViewCell {
         if let cell = dequeueReusableCell(withIdentifier: identifier) {
             return cell
         } else {
@@ -11,7 +11,7 @@ public extension UITableView {
         }
     }
 
-    public func hideEmptySeparators() {
+    func hideEmptySeparators() {
         tableFooterView = UIView()
     }
 }

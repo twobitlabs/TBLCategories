@@ -2,7 +2,7 @@ import UIKit
 
 public extension UIButton {
 
-    public class func buttonWithLabel(_ text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
+    class func buttonWithLabel(_ text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
         let button = UIButton(type: .custom)
         button.setTitle(text, for: UIControl.State())
         button.setTitleColor(textColor, for: UIControl.State())
@@ -16,7 +16,7 @@ public extension UIButton {
         return button
     }
     
-    public class func buttonWithImage(_ imageName: String, target: AnyObject? = nil, action: Selector? = nil, tintColor: UIColor? = nil, accessibilityLabel: String? = nil) -> UIButton {
+    class func buttonWithImage(_ imageName: String, target: AnyObject? = nil, action: Selector? = nil, tintColor: UIColor? = nil, accessibilityLabel: String? = nil) -> UIButton {
         let button = UIButton(type: .custom)
         var image = UIImage(named: imageName)
         if tintColor != nil {

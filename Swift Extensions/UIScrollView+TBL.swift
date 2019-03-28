@@ -4,7 +4,7 @@ import UIKit
 
 public extension UIScrollView {
     
-    public func scrollToTop(animated: Bool = true) {
+    func scrollToTop(animated: Bool = true) {
         let y: CGFloat = {
             if #available(iOS 11.0, *) {
                 return -self.adjustedContentInset.top

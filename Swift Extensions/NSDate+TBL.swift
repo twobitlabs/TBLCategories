@@ -10,73 +10,73 @@ let minutesInAnHour = Double(60)
 let minutesInADay = 24 * minutesInAnHour
 
 @objc public extension NSDate {
-    public var isInThePast: Bool {
+    var isInThePast: Bool {
         return (self as Date).isInThePast
     }
 
-    public func timeAgo() -> String {
+    func timeAgo() -> String {
         return (self as Date).timeAgo()
     }
 
-    public func timeAgoWithSeconds() -> String {
+    func timeAgoWithSeconds() -> String {
         return (self as Date).timeAgoWithSeconds()
     }
 
-    public func timeAgoWithSeconds(_ withSeconds: Bool) -> String {
+    func timeAgoWithSeconds(_ withSeconds: Bool) -> String {
         return (self as Date).timeAgoWithSeconds(withSeconds)
     }
 
-    public func isAfter(_ otherDate: NSDate) -> Bool {
+    func isAfter(_ otherDate: NSDate) -> Bool {
         return (self as Date).isAfter(otherDate as Date)
     }
 
-    public func isBefore(_ otherDate: NSDate) -> Bool {
+    func isBefore(_ otherDate: NSDate) -> Bool {
         return (self as Date).isBefore(otherDate as Date)
     }
 
-    public func isBefore(daysAgo: Double) -> Bool {
+    func isBefore(daysAgo: Double) -> Bool {
         return (self as Date).isBefore(daysAgo: daysAgo)
     }
 
-    public func isAfter(daysAgo: Double) -> Bool {
+    func isAfter(daysAgo: Double) -> Bool {
         return (self as Date).isAfter(daysAgo: daysAgo)
     }
 
-    public func isBefore(hoursAgo: Double) -> Bool {
+    func isBefore(hoursAgo: Double) -> Bool {
         return (self as Date).isBefore(hoursAgo: hoursAgo)
     }
 
-    public func isAfter(hoursAgo: Double) -> Bool {
+    func isAfter(hoursAgo: Double) -> Bool {
         return (self as Date).isAfter(hoursAgo: hoursAgo)
     }
 
-    public func isBefore(minutesAgo: Double) -> Bool {
+    func isBefore(minutesAgo: Double) -> Bool {
         return (self as Date).isBefore(minutesAgo: minutesAgo)
     }
 
-    public func isAfter(minutesAgo: Double) -> Bool {
+    func isAfter(minutesAgo: Double) -> Bool {
         return (self as Date).isAfter(minutesAgo: minutesAgo)
     }
 
-    public func isBefore(secondsAgo: Double) -> Bool {
+    func isBefore(secondsAgo: Double) -> Bool {
         return (self as Date).isBefore(secondsAgo: secondsAgo)
     }
 
-    public func isAfter(secondsAgo: Double) -> Bool {
+    func isAfter(secondsAgo: Double) -> Bool {
         return (self as Date).isAfter(secondsAgo: secondsAgo)
     }
 
-    public func isToday() -> Bool {
+    func isToday() -> Bool {
         return (self as Date).isToday()
     }
 
-    public func isTomorrow() -> Bool {
+    func isTomorrow() -> Bool {
         return (self as Date).isTomorrow()
     }
 }
 
 public extension Date {
-    public enum TimeAgoStyle {
+    enum TimeAgoStyle {
         case short
         case long
     }
@@ -152,20 +152,20 @@ public extension Date {
         }
     }
 
-    public var isInThePast: Bool {
+    var isInThePast: Bool {
         return timeIntervalSinceNow < 0
     }
 
-    public func timeAgo() -> String {
+    func timeAgo() -> String {
         return timeAgoWithSeconds(false)
     }
 
-    public func timeAgoWithSeconds() -> String {
+    func timeAgoWithSeconds() -> String {
         return timeAgoWithSeconds(true)
     }
 
     // TODO: add version with format specifier
-    public func timeAgoWithSeconds(_ withSeconds: Bool, style: TimeAgoStyle = .short) -> String {
+    func timeAgoWithSeconds(_ withSeconds: Bool, style: TimeAgoStyle = .short) -> String {
         let now = Date()
         let timeAgo: TimeAgo
         let deltaSeconds: TimeInterval = now.timeIntervalSince(self)
@@ -197,43 +197,43 @@ public extension Date {
         return timeAgo.text(for: style)
     }
 
-    public func isAfter(_ otherDate: Date) -> Bool {
+    func isAfter(_ otherDate: Date) -> Bool {
         return compare(otherDate) == .orderedDescending
     }
 
-    public func isBefore(_ otherDate: Date) -> Bool {
+    func isBefore(_ otherDate: Date) -> Bool {
         return compare(otherDate) == .orderedAscending
     }
 
-    public func isBefore(daysAgo: Double) -> Bool {
+    func isBefore(daysAgo: Double) -> Bool {
         return isBefore(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    public func isAfter(daysAgo: Double) -> Bool {
+    func isAfter(daysAgo: Double) -> Bool {
         return isAfter(minutesAgo: (daysAgo * minutesInADay))
     }
 
-    public func isBefore(hoursAgo: Double) -> Bool {
+    func isBefore(hoursAgo: Double) -> Bool {
         return isBefore(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    public func isAfter(hoursAgo: Double) -> Bool {
+    func isAfter(hoursAgo: Double) -> Bool {
         return isAfter(minutesAgo: (hoursAgo * minutesInAnHour))
     }
 
-    public func isBefore(minutesAgo: Double) -> Bool {
+    func isBefore(minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow < inThePast(minutesAgo * secondsInAMinute)
     }
 
-    public func isAfter(minutesAgo: Double) -> Bool {
+    func isAfter(minutesAgo: Double) -> Bool {
         return timeIntervalSinceNow > inThePast(minutesAgo * secondsInAMinute)
     }
 
-    public func isBefore(secondsAgo: Double) -> Bool {
+    func isBefore(secondsAgo: Double) -> Bool {
         return timeIntervalSinceNow < inThePast(secondsAgo)
     }
 
-    public func isAfter(secondsAgo: Double) -> Bool {
+    func isAfter(secondsAgo: Double) -> Bool {
         return timeIntervalSinceNow > inThePast(secondsAgo)
     }
 
@@ -241,7 +241,7 @@ public extension Date {
         return -seconds
     }
 
-    public func isToday() -> Bool {
+    func isToday() -> Bool {
         let calendar = Calendar.current
         let nowComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from: Date())
         let selfComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from:self)
@@ -255,7 +255,7 @@ public extension Date {
         return false
     }
 
-    public func isTomorrow() -> Bool {
+    func isTomorrow() -> Bool {
         let calendar = Calendar.current
         let nowComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from: Date())
         let selfComponents = (calendar as NSCalendar).components(([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day]), from:self)

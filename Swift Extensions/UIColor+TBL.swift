@@ -5,7 +5,7 @@ public extension UIColor {
     /**
         Parse a string for a hex color value. Currently does not support 8-character strings with alpha components
      */
-    @objc public convenience init?(fromHexString hexString: String) {
+    @objc convenience init?(fromHexString hexString: String) {
         let colorHexString = hexString.replacingOccurrences(of: "#", with: "", options: NSString.CompareOptions(), range: nil)
         let colorScanner = Scanner(string: colorHexString)
         let maxColorValue = UInt32(pow(Float(16), Float(6)))
@@ -23,7 +23,7 @@ public extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 
-    @objc public func toHexString() -> String? {
+    @objc func toHexString() -> String? {
         guard let components = cgColor.components, components.count >= 3 else { return nil } // ignore alpha
 
         let red = components[0]
@@ -41,7 +41,7 @@ public extension UIColor {
         return "\(redHex)\(greenHex)\(blueHex)"
     }
 
-    @objc public func asImage(width: CGFloat = 1, height: CGFloat = 1) -> UIImage {
+    @objc func asImage(width: CGFloat = 1, height: CGFloat = 1) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: width, height: height)
         UIGraphicsBeginImageContext(rect.size)
         let context: CGContext = UIGraphicsGetCurrentContext()!

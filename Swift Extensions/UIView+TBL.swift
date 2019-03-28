@@ -2,7 +2,7 @@ import UIKit
 
 @objc public extension UIView {
 
-    public var visible: Bool {
+    var visible: Bool {
         get {
             return !isHidden
         }
@@ -12,39 +12,39 @@ import UIKit
         }
     }
 
-    public func top() -> CGFloat {
+    func top() -> CGFloat {
         return frame.origin.y
     }
     
-    public func bottom() -> CGFloat {
+    func bottom() -> CGFloat {
         return frame.origin.y + frame.size.height
     }
     
-    public func left() -> CGFloat {
+    func left() -> CGFloat {
         return frame.origin.x
     }
     
-    public func right() -> CGFloat {
+    func right() -> CGFloat {
         return frame.origin.x + frame.size.width
     }
     
-    public func height() -> CGFloat {
+    func height() -> CGFloat {
         return frame.size.height
     }
     
-    public func width() -> CGFloat {
+    func width() -> CGFloat {
         return frame.size.width
     }
     
-    public func roundCorners() {
+    func roundCorners() {
         roundCorners(.allCorners)
     }
     
-    public func roundCorners(_ corners: UIRectCorner) {
+    func roundCorners(_ corners: UIRectCorner) {
         roundCorners(corners, withRadius:8)
     }
     
-    public func roundCorners(_ corners: UIRectCorner, withRadius radius: CGFloat) {
+    func roundCorners(_ corners: UIRectCorner, withRadius radius: CGFloat) {
         if (corners == .allCorners) {
             self.layer.cornerRadius = radius;
         } else {
