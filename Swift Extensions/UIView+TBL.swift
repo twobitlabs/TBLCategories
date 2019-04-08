@@ -44,18 +44,18 @@ import UIKit
         roundCorners(corners, withRadius:8)
     }
     
+    /**
+        Note only works for .allCorners, or if view has a native size. If view is sized by autolayout, bounds will be 0.
+     */
     func roundCorners(_ corners: UIRectCorner, withRadius radius: CGFloat) {
         if (corners == .allCorners) {
             self.layer.cornerRadius = radius;
         } else {
             let roundedPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
             let maskLayer = CAShapeLayer()
-            maskLayer.backgroundColor = UIColor.clear.cgColor
-            maskLayer.fillColor = UIColor.white.cgColor
             maskLayer.path = roundedPath.cgPath
             self.layer.mask = maskLayer
         }
         clipsToBounds = true
     }
-    
 }
