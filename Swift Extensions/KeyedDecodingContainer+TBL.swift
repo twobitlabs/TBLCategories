@@ -33,7 +33,7 @@ extension KeyedDecodingContainer {
 
     public func decodeOptional<T: Decodable>(_ type: T.Type, forKey key: KeyedDecodingContainer.Key) -> T? {
         let decoded = try? decodeIfPresent(OptionalDecodable<T>.self, forKey: key)
-        return decoded??.value
+        return decoded?.value
     }
 
     public func decodeArray<T: Decodable>(_ key: KeyedDecodingContainer.Key) throws -> [T] {
