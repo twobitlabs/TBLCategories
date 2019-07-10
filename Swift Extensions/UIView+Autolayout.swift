@@ -338,8 +338,22 @@ public extension UIView {
         return pinToEdge(.right, inset: -inset, priority: priority, identifier: identifier)
     }
     
-    @discardableResult func insetFromParentTop(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        return pinToEdge(.top, inset: inset, priority: priority, identifier: identifier)
+    @discardableResult func insetFromParentTop(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil, safeArea: Bool = false) -> NSLayoutConstraint {
+        guard let superview = superview else {
+            assert(false, "view must have a superview")
+            return NSLayoutConstraint()
+        }
+        translatesAutoresizingMaskIntoConstraints = false
+        let constraint: NSLayoutConstraint
+        if #available(iOS 11.0, *), safeArea {
+            constraint = topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: inset)
+        } else {
+            constraint = topAnchor.constraint(equalTo: superview.topAnchor, constant: inset)
+        }
+        constraint.isActive = true
+        constraint.identifier = identifier
+        if let priority = priority { constraint.priority = priority }
+        return constraint
     }
     
     @discardableResult func insetFromParentBottom(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil, safeArea: Bool = false) -> NSLayoutConstraint {
@@ -355,6 +369,8 @@ public extension UIView {
             constraint = bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset)
         }
         constraint.isActive = true
+        constraint.identifier = identifier
+        if let priority = priority { constraint.priority = priority }
         return constraint
     }
 
