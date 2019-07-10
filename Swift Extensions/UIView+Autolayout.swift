@@ -369,6 +369,8 @@ public extension UIView {
             constraint = bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset)
         }
         constraint.isActive = true
+        constraint.identifier = identifier
+        if let priority = priority { constraint.priority = priority }
         return constraint
     }
 
