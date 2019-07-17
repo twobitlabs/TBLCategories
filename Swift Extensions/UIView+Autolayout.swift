@@ -350,9 +350,9 @@ public extension UIView {
         } else {
             constraint = topAnchor.constraint(equalTo: superview.topAnchor, constant: inset)
         }
-        constraint.isActive = true
-        constraint.identifier = identifier
         if let priority = priority { constraint.priority = priority }
+        constraint.identifier = identifier
+        constraint.isActive = true
         return constraint
     }
     
@@ -368,9 +368,9 @@ public extension UIView {
         } else {
             constraint = bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset)
         }
-        constraint.isActive = true
-        constraint.identifier = identifier
         if let priority = priority { constraint.priority = priority }
+        constraint.identifier = identifier
+        constraint.isActive = true
         return constraint
     }
 
