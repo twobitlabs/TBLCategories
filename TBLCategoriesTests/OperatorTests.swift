@@ -3,7 +3,7 @@ import TBLCategories
 import Quick
 import Nimble
 
-class GameScoreTests: QuickSpec {
+class OperatorTests: QuickSpec {
 
     override func spec() {
         let bar = "bar"

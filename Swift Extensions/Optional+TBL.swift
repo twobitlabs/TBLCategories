@@ -44,7 +44,7 @@ extension Optional where Wrapped: CanHaveNonEmptyValue {
         get {
             switch self {
             case .none:
-                return true
+                return false
             case .some(let maybeEmpty):
                 return maybeEmpty.hasNonEmptyValue
             }
