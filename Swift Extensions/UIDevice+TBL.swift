@@ -17,4 +17,12 @@ extension UIDevice {
     var isIphoneX: Bool {
         return isIphone && (UIScreen.main.bounds.size.height == 812 || UIScreen.main.bounds.size.width == 812)
     }
+    
+    var isMacCatalyst: Bool {
+        #if targetEnvironment(macCatalyst)
+        return true
+        #else
+        return false
+        #endif
+    }
 }
