@@ -3,8 +3,9 @@ import Foundation
 import UIKit
 
 public extension UIScrollView {
-    
-    func scrollToTop(animated: Bool = true) {
+
+    // This is an @objc declaration so that it can be overridden in subclasses.
+    @objc func scrollToTop(animated: Bool = true) {
         let y: CGFloat = {
             if #available(iOS 11.0, *) {
                 return -self.adjustedContentInset.top
