@@ -1,7 +1,14 @@
 import Foundation
+import NaturalLanguage
 
 public extension String {
-    
+
+    enum ContainsEmoji {
+        case yes
+        case no
+        case unknown
+    }
+
     var localized: String {
         return NSLocalizedString(self, tableName: nil, comment: "")
     }
@@ -12,6 +19,7 @@ public extension String {
             range(of: substring) {
             return !range.isEmpty
         } else {
+            print("foo")
             return false
         }
     }
@@ -22,6 +30,26 @@ public extension String {
 
     var nilIfEmpty: String? {
         return isEmpty ? nil : self
+    }
+
+    var containsEmoji: ContainsEmoji {
+        if #available(iOS 13.0, *) {
+            let tokenizer = NLTokenizer(unit: .word)
+            tokenizer.string = self
+            var hasEmoji = false
+            tokenizer.enumerateTokens(in: self.startIndex..<self.endIndex) { (range, attributes) -> Bool in
+                print("enumerating \(self) \(range) \(attributes)")
+                if attributes.contains(.emoji) || attributes.contains(.symbolic) { // flag emoji are symbols
+                    hasEmoji = true
+                    return false
+                } else {
+                    return true
+                }
+            }
+            return hasEmoji ? .yes : .no
+        } else {
+            return .unknown
+        }
     }
 
     /**
