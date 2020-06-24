@@ -37,6 +37,8 @@ public extension String {
         return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self))
     }
 
+    @available(iOS 13.0, *)
+    @available(watchOS 3.1.1, *)
     var containsEmoji: Bool {
         guard !isDigitsOnly else { return false }
         for scalar in unicodeScalars {
