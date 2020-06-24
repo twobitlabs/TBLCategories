@@ -14,4 +14,9 @@ extension Array {
     var nilIfEmpty: [Element]? {
         return isEmpty ? nil : self
     }
+
+    mutating func append(safe element: Element?) {
+        guard let element = element else { return }
+        append(element)
+    }
 }
