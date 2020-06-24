@@ -7,20 +7,32 @@ public extension UIColor {
      */
     @objc convenience init?(fromHexString hexString: String) {
         let colorHexString = hexString.replacingOccurrences(of: "#", with: "", options: NSString.CompareOptions(), range: nil)
-        let colorScanner = Scanner(string: colorHexString)
-        let maxColorValue = UInt32(pow(Float(16), Float(6)))
+        let scanner = Scanner(string: colorHexString)
+        var hexValue: UInt64 = 0
+        switch colorHexString.count {
+            case 8:
+                if scanner.scanHexInt64(&hexValue) {
+                    let r = CGFloat((hexValue & 0xff000000) >> 24) / 255
+                    let g = CGFloat((hexValue & 0x00ff0000) >> 16) / 255
+                    let b = CGFloat((hexValue & 0x0000ff00) >> 8) / 255
+                    let a = CGFloat(hexValue & 0x000000ff) / 255
 
-        var value:UInt32 = 0
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            case 6:
+                if scanner.scanHexInt64(&hexValue) {
+                    let r = CGFloat((hexValue & 0x00ff0000) >> 16) / 255
+                    let g = CGFloat((hexValue & 0x0000ff00) >> 8) / 255
+                    let b = CGFloat(hexValue & 0x000000ff) / 255
 
-        let characters = colorHexString.count
-        guard characters == 6 && colorScanner.scanHexInt32(&value) &&  value < maxColorValue else {
-            return nil
+                    self.init(red: r, green: g, blue: b, alpha: 1)
+                    return
+                }
+            default:
+                return nil
         }
-
-        let red = (CGFloat)((value & 0xFF0000) >> 16)/255.0
-        let green = (CGFloat)((value & 0xFF00) >> 8)/255.0
-        let blue = (CGFloat)(value & 0xFF)/255.0
-        self.init(red: red, green: green, blue: blue, alpha: 1.0)
+        return nil
     }
 
     @objc func toHexString() -> String? {
@@ -34,9 +46,9 @@ public extension UIColor {
         let green255 = Int((green * 255).rounded())
         let blue255 = Int((blue * 255).rounded())
 
-        let redHex = String(format: "%X", red255)
-        let greenHex = String(format: "%X", green255)
-        let blueHex = String(format: "%X", blue255)
+        let redHex = String(format: "%02X", red255)
+        let greenHex = String(format: "%02X", green255)
+        let blueHex = String(format: "%02X", blue255)
 
         return "\(redHex)\(greenHex)\(blueHex)"
     }

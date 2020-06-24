@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2736FE2724985A2700CA5B37 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736FE2624985A2700CA5B37 /* StringTests.swift */; };
+		277076EB24A2C8CD00904D37 /* UIColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277076EA24A2C8CD00904D37 /* UIColorSpec.swift */; };
 		2780F6E62326E7D80050B22E /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780F6E52326E7D80050B22E /* OptionalTests.swift */; };
 		2780F6E7232714920050B22E /* Optional+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF148101B0AAE0B00D62A4E /* Optional+TBL.swift */; };
 		3E23BB2122650CE10042E31A /* NSDateFormatter+TBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23BB0A22650CE00042E31A /* NSDateFormatter+TBL.swift */; };
@@ -187,6 +188,7 @@
 
 /* Begin PBXFileReference section */
 		2736FE2624985A2700CA5B37 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		277076EA24A2C8CD00904D37 /* UIColorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorSpec.swift; sourceTree = "<group>"; };
 		2780F6E52326E7D80050B22E /* OptionalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
 		3E23BB0A22650CE00042E31A /* NSDateFormatter+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDateFormatter+TBL.swift"; path = "Swift Extensions/NSDateFormatter+TBL.swift"; sourceTree = SOURCE_ROOT; };
 		3E23BB1F22650CE00042E31A /* KeyedDecodingContainer+TBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "KeyedDecodingContainer+TBL.swift"; path = "Swift Extensions/KeyedDecodingContainer+TBL.swift"; sourceTree = SOURCE_ROOT; };
@@ -329,6 +331,7 @@
 				9C0807922191221B00830D51 /* DictionaryTests.swift */,
 				2780F6E52326E7D80050B22E /* OptionalTests.swift */,
 				2736FE2624985A2700CA5B37 /* StringTests.swift */,
+				277076EA24A2C8CD00904D37 /* UIColorSpec.swift */,
 			);
 			path = TBLCategoriesTests;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				9CF1470F1B0AA1C400D62A4E /* NSDateTests.swift in Sources */,
 				8B09A6951DB161EF00099F2B /* CharacterSetTests.swift in Sources */,
 				2736FE2724985A2700CA5B37 /* StringTests.swift in Sources */,
+				277076EB24A2C8CD00904D37 /* UIColorSpec.swift in Sources */,
 				9C0807932191221B00830D51 /* DictionaryTests.swift in Sources */,
 				2780F6E7232714920050B22E /* Optional+TBL.swift in Sources */,
 				2780F6E62326E7D80050B22E /* OptionalTests.swift in Sources */,
