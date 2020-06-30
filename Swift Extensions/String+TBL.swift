@@ -19,7 +19,6 @@ public extension String {
             range(of: substring) {
             return !range.isEmpty
         } else {
-            print("foo")
             return false
         }
     }
