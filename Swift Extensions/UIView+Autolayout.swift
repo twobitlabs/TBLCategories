@@ -99,9 +99,9 @@ public extension UIView {
     // MARK: - positioning
      
     @discardableResult func placeAbove(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("views must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -126,9 +126,9 @@ public extension UIView {
      :returns: The constraint that was added to the caller's superview
      */
     @discardableResult func placeAbove(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("views must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -148,9 +148,9 @@ public extension UIView {
     }
 
     @discardableResult func placeBelow(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("views must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -175,9 +175,9 @@ public extension UIView {
         :returns: The constraint that was added to the caller's superview
     */
     @discardableResult func placeBelow(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("view must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -197,9 +197,9 @@ public extension UIView {
     }
 
     @discardableResult func placeToRightOf(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("views must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -224,9 +224,9 @@ public extension UIView {
         :returns: The constraint that was added to the caller's superview
     */
     @discardableResult func placeToRightOf(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("views must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -246,9 +246,9 @@ public extension UIView {
     }
 
     @discardableResult func placeToLeftOf(_ sibling: UIView, by offset: CGFloat = 0, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("views must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -273,9 +273,9 @@ public extension UIView {
     :returns: The constraint that was added to the caller's superview
     */
     @discardableResult func placeToLeftOf(_ sibling: UIView, byAtLeast offset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
+        guard let superview = superview, superview == sibling.superview else {
+            assertionFailure("views must have the same superview")
+            return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
@@ -340,7 +340,7 @@ public extension UIView {
     
     @discardableResult func insetFromParentTop(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil, safeArea: Bool = false) -> NSLayoutConstraint {
         guard let superview = superview else {
-            assert(false, "view must have a superview")
+            assertionFailure("view must have a superview")
             return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
@@ -358,7 +358,7 @@ public extension UIView {
     
     @discardableResult func insetFromParentBottom(_ inset: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil, safeArea: Bool = false) -> NSLayoutConstraint {
         guard let superview = superview else {
-            assert(false, "view must have a superview")
+            assertionFailure("view must have a superview")
             return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
@@ -391,7 +391,10 @@ public extension UIView {
     }
     
     fileprivate func pinToEdge(_ edge: NSLayoutConstraint.Attribute, inset: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
+        guard let superview = superview else {
+            assertionFailure("view must have a superview")
+            return NSLayoutConstraint()
+        }
         translatesAutoresizingMaskIntoConstraints = false
         let pin = NSLayoutConstraint(item: self,
             attribute: edge,
@@ -445,10 +448,6 @@ public extension UIView {
     }
 
     fileprivate func alignDimension(_ dimension: NSLayoutConstraint.Attribute, withSibling sibling: UIView, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
-        if (superview != sibling.superview!) {
-            fatalError("views do not share the same superview")
-        }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
         let align = NSLayoutConstraint(item: self,
@@ -467,11 +466,8 @@ public extension UIView {
     // Can't use superview.Width as you can't base child's .CenterX on it
     // http://stackoverflow.com/questions/13867736/why-is-nslayoutattributecenterx-an-invalid-pairing-with-nslayoutattributewidth
     func distributeHorizontally(_ children: [UIView], identifier: String? = nil) {
-        if children.isEmpty {
-            return
-        }
-        
-        let superview = children[0].superview!
+        guard !children.isEmpty, let superview = children[0].superview else { return }
+
         for child in children {
             if child.superview != superview {
                 return
@@ -617,7 +613,10 @@ public extension UIView {
     }
 
     @discardableResult func match(_ dimension: NSLayoutConstraint.Attribute, toParentDimension parentDimension: NSLayoutConstraint.Attribute, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
+        guard let superview = superview else {
+            assertionFailure("view must have a superview")
+            return NSLayoutConstraint()
+        }
         translatesAutoresizingMaskIntoConstraints = false
         let dimensionConstraint = NSLayoutConstraint(item: self,
                                                      attribute: dimension,
@@ -632,7 +631,10 @@ public extension UIView {
     }
 
     fileprivate func matchParentDimension(_ dimension: NSLayoutConstraint.Attribute, identifier: String? = nil) -> NSLayoutConstraint {
-        let superview = self.superview!
+        guard let superview = superview else {
+            assertionFailure("view must have a superview")
+            return NSLayoutConstraint()
+        }
         translatesAutoresizingMaskIntoConstraints = false
         let dimensionConstraint = NSLayoutConstraint(item: self,
             attribute: dimension,
