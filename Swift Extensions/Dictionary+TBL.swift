@@ -44,6 +44,25 @@ extension Dictionary {
     }
 }
 
+extension Dictionary where Key: Comparable {
+    /// A string that represents the contents of the dictionary with the keys sorted in ascending order.
+    var sortedDescription: String {
+        let sortedDescriptionFields = keys.sorted().reduce(into: [String]()) { (result, key) in
+            let value = self[key]
+            let valueOutput: String
+            if let value = value as? String {
+                valueOutput = "\"\(value)\""
+            } else if let value = value {
+                valueOutput = "\(value)"
+            } else {
+                valueOutput = "nil"
+            }
+            result.append("\"\(key)\": \(valueOutput)")
+        }
+        return "[\(sortedDescriptionFields.joined(separator: ", "))]"
+    }
+}
+
 enum MergeFavoring {
     case existing
     case new
