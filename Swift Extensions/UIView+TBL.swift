@@ -36,26 +36,30 @@ import UIKit
         return frame.size.width
     }
     
-    func roundCorners() {
-        roundCorners(.allCorners)
-    }
-    
-    func roundCorners(_ corners: UIRectCorner) {
-        roundCorners(corners, withRadius:8)
-    }
-    
-    /**
-        Note only works for .allCorners, or if view has a native size. If view is sized by autolayout, bounds will be 0.
-     */
-    func roundCorners(_ corners: UIRectCorner, withRadius radius: CGFloat) {
-        if (corners == .allCorners) {
-            self.layer.cornerRadius = radius;
-        } else {
-            let roundedPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-            let maskLayer = CAShapeLayer()
-            maskLayer.path = roundedPath.cgPath
-            self.layer.mask = maskLayer
+    func roundCorners(_ corners: UIRectCorner = .allCorners, withRadius radius: CGFloat = 8) {
+        self.layer.cornerRadius = radius
+        if !corners.isEmpty {
+            self.layer.maskedCorners = corners.maskedCorners
         }
         clipsToBounds = true
+    }
+}
+
+extension UIRectCorner {
+    var maskedCorners: CACornerMask {
+        var maskedCorners = [CACornerMask]()
+        if contains(.topLeft) || contains(.allCorners) {
+            maskedCorners.append(.layerMinXMinYCorner)
+        }
+        if contains(.topRight) || contains(.allCorners) {
+            maskedCorners.append(.layerMaxXMinYCorner)
+        }
+        if contains(.bottomLeft) || contains(.allCorners) {
+            maskedCorners.append(.layerMinXMaxYCorner)
+        }
+        if contains(.bottomRight) || contains(.allCorners) {
+            maskedCorners.append(.layerMaxXMaxYCorner)
+        }
+        return CACornerMask(maskedCorners)
     }
 }
