@@ -36,6 +36,7 @@ import UIKit
         return frame.size.width
     }
     
+    @available(iOS 11.0, *)
     func roundCorners(_ corners: UIRectCorner = .allCorners, withRadius radius: CGFloat = 8) {
         self.layer.cornerRadius = radius
         if !corners.isEmpty {
