@@ -4,18 +4,45 @@ public extension UIButton {
 
     class func buttonWithLabel(_ text: String, font: UIFont? = nil, textColor: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) -> UIButton {
         let button = UIButton(type: .custom)
-        button.setTitle(text, for: UIControl.State())
-        button.setTitleColor(textColor, for: UIControl.State())
-        button.setBackgroundImage(backgroundColor?.asImage(), for: UIControl.State()) // asImage() defined in UIColor+TBL
-        if font != nil {
-            button.titleLabel?.font = font!
+
+        if #available(iOS 15.0, macCatalyst 15.0, *) {
+            var configuration = UIButton.Configuration.plain()
+            configuration.title = text
+            configuration.baseForegroundColor = textColor
+
+            if let bgColor = backgroundColor {
+                configuration.background.image = bgColor.asImage()
+            }
+
+            if let buttonFont = font {
+                button.titleLabel?.font = buttonFont
+            }
+
+            if let paddingValue = padding {
+                configuration.contentInsets = NSDirectionalEdgeInsets(top: paddingValue, leading: paddingValue, bottom: paddingValue, trailing: paddingValue)
+            }
+
+            button.configuration = configuration
+        } else {
+            button.setTitle(text, for: .normal)
+            button.setTitleColor(textColor, for: .normal)
+
+            if let bgColor = backgroundColor {
+                button.setBackgroundImage(bgColor.asImage(), for: .normal)
+            }
+
+            if let buttonFont = font {
+                button.titleLabel?.font = buttonFont
+            }
+
+            if let paddingValue = padding {
+                button.contentEdgeInsets = UIEdgeInsets(top: paddingValue, left: paddingValue, bottom: paddingValue, right: paddingValue)
+            }
         }
-        if padding != nil {
-            button.contentEdgeInsets = UIEdgeInsets(top: padding!, left: padding!, bottom: padding!, right: padding!)
-        }
+
         return button
     }
-    
+
     class func buttonWithImage(_ imageName: String, target: AnyObject? = nil, action: Selector? = nil, tintColor: UIColor? = nil, accessibilityLabel: String? = nil) -> UIButton {
         let button = UIButton(type: .custom)
         var image = UIImage(named: imageName)
